@@ -1,5 +1,5 @@
-colorScheme = "blowfish"
-defaultAppearance = "light"
+colorScheme = "ocean"
+defaultAppearance = "dark"
 autoSwitchAppearance = true
 enableSearch = true
 enableCodeCopy = false
@@ -24,11 +24,11 @@ showScrollToTop = true
 layout = "background"
 showRecent = false
 showRecentItems = 5
-showMoreLink = false
+showMoreLink = true
 showMoreLinkDest = "/posts/"
 cardView = false
 cardViewScreenWidth = false
-layoutBackgroundBlur = false
+layoutBackgroundBlur = true
 homepageImage = "di_retro-pc02-bg-uc.jpg"
 
 [article]
@@ -38,10 +38,10 @@ showLikes = false
 showDateOnlyInArticle = false
 showDateUpdated = false
 showAuthor = true
-showHero = false
+showHero = true
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = true
-showBreadcrumbs = false
+showBreadcrumbs = true
 showDraftLabel = true
 showEdit = false
 editAppendPath = true
@@ -50,11 +50,12 @@ showHeadingAnchors = true
 showPagination = true
 invertPagination = false
 showReadingTime = true
-showTableOfContents = false
+showTableOfContents = true
 showTaxonomies = false
 showAuthorsBadges = false
 showWordCount = true
-showZenMode = false
+showZenMode = true
+heroStyle = "thumbAndBackground"
 
 [list]
 showHero = false
