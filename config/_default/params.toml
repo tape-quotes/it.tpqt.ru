@@ -28,7 +28,7 @@ showMoreLinkDest = "/posts/"
 cardView = false
 cardViewScreenWidth = false
 layoutBackgroundBlur = false
-homepageImage = "di_server-room-bg-uc.jpg"
+homepageImage = "di_retro-pc-t-bg-uc.jpg"
 
 [article]
 showDate = true
