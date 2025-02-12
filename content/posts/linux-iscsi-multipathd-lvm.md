@@ -1,7 +1,19 @@
 ---
-created: "2024-08-12T23:01"
-updated: "2024-09-11T19:12"
+created: 2025-02-11T04:03
+updated: 2025-02-13T01:57
+date: 2024-08-12
+draft: false
+params:
+  author: Сергей Бурцев
+title: Настройка iscsi, multipathd и lvm в EL9
+weight: "10"
+tags:
+  - linux
+  - iscsi
+  - multipathd
+  - lvm
 ---
+Устанавливаем пакеты:
 
     dnf install -y iscsi-initiator-utils device-mapper-multipath
 
@@ -25,7 +37,7 @@ Username обычно совпадает с `InitiatorName` хоста
 Без приписки `_in` - `target` или `outgoing`
 
     node.session.auth.authmethod = CHAP
-    node.session.auth.chap_algs = SHA3-256,SHA256,SHA1,MD5 #Для centos 7 нужно убрать SHA3-256
+    node.session.auth.chap_algs = SHA3-256,SHA256,SHA1,MD5
     node.session.auth.username = iqn.1994-05.com.redhat:123123123
     node.session.auth.password = target_pass
     node.session.auth.username_in = iqn.1994-05.com.redhat:123123123
