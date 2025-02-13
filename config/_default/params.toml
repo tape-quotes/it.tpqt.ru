@@ -1,17 +1,20 @@
 colorScheme = "ocean"
 defaultAppearance = "dark"
-autoSwitchAppearance = true
+autoSwitchAppearance = false
 enableSearch = true
-enableCodeCopy = false
+enableCodeCopy = true
 replyByEmail = false
 disableImageOptimization = false
 disableTextInHeader = false
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
 defaultBackgroundImage = "di_server-room-bg-uc.jpg"
+smartTOC = true
+smartTOCHideUnfocusedChildren = true
+highlightCurrentMenuArea = true
 
 [header]
-layout = "basic"
+layout = "fixed-fill-blur"
 
 [footer]
 showMenu = true
@@ -22,14 +25,14 @@ showScrollToTop = true
 
 [homepage]
 layout = "background"
-showRecent = false
-showRecentItems = 5
+showRecent = true
+showRecentItems = "5"
 showMoreLink = true
 showMoreLinkDest = "/posts/"
 cardView = false
 cardViewScreenWidth = false
 layoutBackgroundBlur = true
-homepageImage = "di_retro-pc02-bg-uc.jpg"
+homepageImage = "di_retro-pc02-bg-uc-m.jpg"
 
 [article]
 showDate = true
@@ -41,7 +44,7 @@ showAuthor = true
 showHero = true
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = true
-showBreadcrumbs = true
+showBreadcrumbs = "teur"
 showDraftLabel = true
 showEdit = false
 editAppendPath = true
@@ -61,17 +64,17 @@ heroStyle = "thumbAndBackground"
 showHero = false
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = true
-showBreadcrumbs = false
-showSummary = false
+showBreadcrumbs = true
+showSummary = true
 showViews = false
 showLikes = false
-showTableOfContents = false
+showTableOfContents = true
 showCards = false
 orderByWeight = false
 groupByYear = true
 cardView = false
 cardViewScreenWidth = false
-constrainItemsWidth = false
+constrainItemsWidth = true
 
 [sitemap]
 excludedKinds = [ "taxonomy", "term" ]

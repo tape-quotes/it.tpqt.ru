@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>404 Page not found &middot; Blowfish</title>
-  <meta name="title" content="404 Page not found &middot; Blowfish" />
+  <title>404 Page not found &middot; @tape_quotes</title>
+  <meta name="title" content="404 Page not found &middot; @tape_quotes" />
   
   
   
@@ -43,8 +43,11 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.c178288131a2f1ad46910438db47ac5f7e1c48cf949e49f6dc3310c8ec9660e23fe505805eba4e2e73711335808500360d773a2b64322feb35df52856edca286.js"
-    integrity="sha512-wXgogTGi8a1GkQQ420esX34cSM&#43;Unkn23DMQyOyWYOI/5QWAXrpOLnNxEzWAhQA2DXc6K2QyL&#43;s131KFbtyihg==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.a2d78d78672e549fbfc972ece871725b5478ba0b65708dda20cb97ab80a865eae6d247e1b05a4aec6ebbf78647ec3233bad8b2609ed98eee53cd58aa17128bc7.js"
+    integrity="sha512-oteNeGcuVJ&#43;/yXLs6HFyW1R4ugtlcI3aIMuXq4CoZerm0kfhsFpK7G6794ZH7DIzutiyYJ7Zju5TzViqFxKLxw==" data-copy="" data-copied=""></script>
   
   
   
@@ -65,7 +68,7 @@
   
   
   <meta property="og:url" content="http://localhost:1313/404.html">
-  <meta property="og:site_name" content="Blowfish">
+  <meta property="og:site_name" content="@tape_quotes">
   <meta property="og:title" content="404 Page not found">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
@@ -79,7 +82,7 @@
 
   
   
-  <meta name="author" content="Cергей Бурцев" />
+  <meta name="author" content="Сергей Бурцев" />
   
   
   
@@ -138,14 +141,18 @@
   </div>
   
   
-  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom bg-neutral dark:bg-neutral-800"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
     class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
     
     <div class="flex flex-1 items-center justify-between">
         <nav class="flex space-x-3">
 
             
-            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Blowfish</a>
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">@tape_quotes</a>
             
 
         </nav>
@@ -154,9 +161,9 @@
             
             
             
-  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
-    <p class="text-base font-medium" title="">
+    <p class="text-base font-medium" title="Posts">
         Публикации
     </p>
 </a>
@@ -309,9 +316,9 @@
 
                     
   <li class="mt-1">
-    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="">
+        <p class="text-bg font-bg" title="Posts">
             Публикации
         </p>
     </a>
@@ -349,6 +356,26 @@
 
 
 
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
 
   
   <div class="relative flex flex-col grow">
@@ -389,7 +416,7 @@
     <p class="text-sm text-neutral-500 dark:text-neutral-400">
       &copy;
       2025
-      Cергей Бурцев
+      Сергей Бурцев
     </p>
     
 
