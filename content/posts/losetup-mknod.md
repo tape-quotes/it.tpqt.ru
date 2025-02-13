@@ -1,8 +1,8 @@
 ---
 created: 2025-02-11T04:03
-updated: 2025-02-13T21:35
+updated: 2025-02-13T21:37
 date: 2024-04-23
-draft: false
+draft: true
 params:
   author: Сергей Бурцев
 title: Монтирование raw-образа диска (img) как блочного устройства в linux
