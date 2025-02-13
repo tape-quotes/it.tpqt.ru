@@ -5,7 +5,7 @@ draft: false
 params:
   author: Сергей Бурцев
 title: Проверка возможности подключения к Bareos Director с openssl s_client
-updated: 2025-02-14T02:06
+updated: 2025-02-14T02:30
 weight: "10"
 tags:
   - bareos
@@ -13,11 +13,11 @@ tags:
   - bash
   - openssl
 ---
-или "Как потратить драгоценное время ~~зря~~, чтобы объяснить разрабу, что это он...
+*или Как потратить драгоценное время ~~зря~~, чтобы объяснить разрабу, что это он...*
 
-...не прав".
+*...не прав".*
 
-#### Oneline-команда
+#### Команда
 
 ```bash
 openssl s_client -connect 127.0.0.1:9101 -cipher ECDHE-PSK-CHACHA20-POLY1305 \
@@ -35,7 +35,7 @@ xxd -p | tr -d '\n'`
 
 `echo -n -e "\x1e"` -- добавление в `psk_identity` непечатного символа`0x1e`(Record Separator).
 
-`*UserAgent*` -- идентификатор по умолчанию для `default console`. При использовании `named`-консоли необходимо заменить `*UserAgent*` на Name этой консоли, указанное в конфиге bareos-dir. 
+`*UserAgent*` -- идентификатор по умолчанию для default console. При использовании named-консоли необходимо заменить `*UserAgent*` на Name этой консоли, указанное в конфиге bareos-dir. 
 
 Например, для консоли с именем "named_console":
 
@@ -45,5 +45,5 @@ xxd -p | tr -d '\n'`
 
 Пример вывода при успешном подключении:
 <img
-src="../bareos-dir-openssl-s-client/631586959ec0194cecf8c9421077b33500838ad8.png"
+src="../bareos-dir-openssl-sclient/631586959ec0194cecf8c9421077b33500838ad8.png"
 class="wikilink" alt="Pastedimage20240304134451.png" />
