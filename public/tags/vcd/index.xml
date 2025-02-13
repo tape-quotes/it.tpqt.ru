@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lvm on @tape_quotes</title>
-    <link>http://localhost:1313/tags/lvm/</link>
-    <description>Recent content in Lvm on @tape_quotes</description>
+    <title>Vcd on @tape_quotes</title>
+    <link>http://localhost:1313/tags/vcd/</link>
+    <description>Recent content in Vcd on @tape_quotes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>burcevsa@gmail.com (Сергей Бурцев)</managingEditor>
     <webMaster>burcevsa@gmail.com (Сергей Бурцев)</webMaster>
     <copyright>© 2025 Сергей Бурцев</copyright>
-    <lastBuildDate>Mon, 12 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/lvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/vcd/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Настройка iSCSI, multipathd и lvm в EL9</title>
+      <title>Настройка iscsi, multipathd и lvm в EL9</title>
       <link>http://localhost:1313/posts/linux-iscsi-multipathd-lvm/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
       <author>burcevsa@gmail.com (Сергей Бурцев)</author>

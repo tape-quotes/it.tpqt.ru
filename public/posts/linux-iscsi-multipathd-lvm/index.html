@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Настройка iscsi, multipathd и lvm в EL9 &middot; @tape_quotes</title>
-  <meta name="title" content="Настройка iscsi, multipathd и lvm в EL9 &middot; @tape_quotes" />
+  <title>Настройка iSCSI, multipathd и lvm в EL9 &middot; @tape_quotes</title>
+  <meta name="title" content="Настройка iSCSI, multipathd и lvm в EL9 &middot; @tape_quotes" />
   
   
-  <meta name="keywords" content="linux, iscsi, multipathd, lvm, " />
+  <meta name="keywords" content="linux, iscsi, multipathd, lvm, bash, VMware, vcd, " />
   
   
   <link rel="canonical" href="http://localhost:1313/posts/linux-iscsi-multipathd-lvm/" />
@@ -71,7 +71,7 @@
   
   <meta property="og:url" content="http://localhost:1313/posts/linux-iscsi-multipathd-lvm/">
   <meta property="og:site_name" content="@tape_quotes">
-  <meta property="og:title" content="Настройка iscsi, multipathd и lvm в EL9">
+  <meta property="og:title" content="Настройка iSCSI, multipathd и lvm в EL9">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -81,10 +81,12 @@
     <meta property="article:tag" content="Iscsi">
     <meta property="article:tag" content="Multipathd">
     <meta property="article:tag" content="Lvm">
+    <meta property="article:tag" content="Bash">
+    <meta property="article:tag" content="VMware">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Настройка iscsi, multipathd и lvm в EL9">
+  <meta name="twitter:title" content="Настройка iSCSI, multipathd и lvm в EL9">
 
   
   <script type="application/ld+json">
@@ -92,8 +94,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Настройка iscsi, multipathd и lvm в EL9",
-    "headline": "Настройка iscsi, multipathd и lvm в EL9",
+    "name": "Настройка iSCSI, multipathd и lvm в EL9",
+    "headline": "Настройка iSCSI, multipathd и lvm в EL9",
     
     
     "inLanguage": "en",
@@ -108,10 +110,10 @@
     
     "dateModified": "2024-08-12T00:00:00\u002b00:00",
     
-    "keywords": ["linux","iscsi","multipathd","lvm"],
+    "keywords": ["linux","iscsi","multipathd","lvm","bash","VMware","vcd"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "382"
+    "wordCount": "384"
   }]
   </script>
 
@@ -456,7 +458,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Настройка iscsi, multipathd и lvm в EL9
+      Настройка iSCSI, multipathd и lvm в EL9
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -509,7 +511,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-08-12T00:00:00&#43;00:00">12 August 2024</time><span class="px-2 text-primary-500">&middot;</span><span>382 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  <time datetime="2024-08-12T00:00:00&#43;00:00">12 August 2024</time><span class="px-2 text-primary-500">&middot;</span><span>384 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -655,6 +657,30 @@
 </span>
   </span>
   
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/bash/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Bash
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/vmware/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    VMware
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/vcd/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Vcd
+  </span>
+</span>
+  </span>
+  
   
   
   
@@ -776,23 +802,20 @@
 
         <div class="article-content max-w-prose mb-20">
           <p>Устанавливаем пакеты:</p>
-<pre><code>dnf install -y iscsi-initiator-utils device-mapper-multipath
-</code></pre>
-<p>Уточняем имя инициатора (IQN):</p>
-<pre><code>cat /etc/iscsi/initiatorname.iscsi
-</code></pre>
-<p>или записываем в файл собственное вида:
-<code>InitiatorName=iqn.2024-08.com.itglobal.bareos-aio-kz:bareos-sd01</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dnf install -y iscsi-initiator-utils device-mapper-multipath
+</span></span></code></pre></div><p>Уточняем имя инициатора (IQN):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /etc/iscsi/initiatorname.iscsi
+</span></span></code></pre></div><p>или записываем в файл собственное вида:</p>
+<p><code>InitiatorName=iqn.2024-08.com.itglobal.bareos-aio-kz:bareos-sd01</code></p>
 <p>Генерируем дефолтный конфиг для multipath:</p>
-<pre><code>/sbin/mpathconf --enable
-</code></pre>
-<p>Вносим параметры авторизации в файл конфигурации</p>
-<pre><code>vi /etc/iscsi/iscsid.conf
-</code></pre>
-<p>Username обычно совпадает с <code>InitiatorName</code> хоста
-Приписка <code>_in</code> обозначает <code>initiator</code>
-Без приписки <code>_in</code> - <code>target</code> или <code>outgoing</code></p>
-<pre><code>node.session.auth.authmethod = CHAP
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/sbin/mpathconf --enable
+</span></span></code></pre></div><p>Вносим параметры авторизации в файл конфигурации</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vi /etc/iscsi/iscsid.conf
+</span></span></code></pre></div><p>Пояснения:</p>
+<p>Username обычно совпадает с <code>InitiatorName</code> хоста.</p>
+<p>Приписка <code>_in</code> обозначает <code>initiator</code>.</p>
+<p>Без приписки <code>_in</code> - <code>target</code> или <code>outgoing</code>.</p>
+<pre tabindex="0"><code>node.session.auth.authmethod = CHAP
 node.session.auth.chap_algs = SHA3-256,SHA256,SHA1,MD5
 node.session.auth.username = iqn.1994-05.com.redhat:123123123
 node.session.auth.password = target_pass
@@ -803,77 +826,58 @@ discovery.sendtargets.auth.username = iqn.1994-05.com.redhat:123123123
 discovery.sendtargets.auth.password = target_pass
 discovery.sendtargets.auth.username_in = iqn.1994-05.com.redhat:123123123
 discovery.sendtargets.auth.password_in = initiator_pass
-</code></pre>
-<p>Включаем сервисы и проверяем логи на наличие ошибок:</p>
-<pre><code>systemctl enable --now iscsid &amp;&amp; systemctl enable --now multipathd
-
-systemctl status iscsid
-
-systemctl status multipathd
-</code></pre>
-<p>Обнаруживаем точки входа к хранилищу:</p>
-<pre><code>iscsiadm -m discovery -t sendtargets -p &lt;IP address&gt;
-</code></pre>
-<p>Подключаемся к обнаруженным узлам:</p>
-<pre><code>iscsiadm -m node --login
-</code></pre>
-<p>(или подключаемся к каждому узлу хранилища, обнаруженному ранее:)
-<code>iscsiadm -m node --targetname 'iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f' --portal '10.32.45.206' --login</code>
-<code>iscsiadm -m node --targetname 'iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f' --portal '10.32.45.207' --login</code>
-<code>iscsiadm -m node --targetname 'iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f' --portal '10.32.45.208' --login</code>
-<code>iscsiadm -m node --targetname 'iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f' --portal '10.32.45.209' --login</code></p>
-<p>Проверяем, что выданный на хранилище диск доступен:</p>
-<pre><code>multipath -ll
-
-mpatha (36d039ea0000016710000027f66b5e2ef) dm-2 NETAPP,INF-01-00
-size=2.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
-|-+- policy='service-time 0' prio=50 status=active
+</code></pre><p>Включаем сервисы и проверяем логи на наличие ошибок:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now iscsid <span class="o">&amp;&amp;</span> systemctl <span class="nb">enable</span> --now multipathd
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl status iscsid
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl status multipathd
+</span></span></code></pre></div><p>Обнаруживаем точки входа к хранилищу:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iscsiadm -m discovery -t sendtargets -p &lt;IP address&gt;
+</span></span></code></pre></div><p>Подключаемся к обнаруженным узлам:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iscsiadm -m node --login
+</span></span></code></pre></div><p>(или подключаемся к каждому узлу хранилища, обнаруженному ранее:)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iscsiadm -m node --targetname <span class="s1">&#39;iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f&#39;</span> --portal <span class="s1">&#39;10.32.45.206&#39;</span> --login
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iscsiadm -m node --targetname <span class="s1">&#39;iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f&#39;</span> --portal <span class="s1">&#39;10.32.45.207&#39;</span> --login
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iscsiadm -m node --targetname <span class="s1">&#39;iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f&#39;</span> --portal <span class="s1">&#39;10.32.45.208&#39;</span> --login
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iscsiadm -m node --targetname <span class="s1">&#39;iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f&#39;</span> --portal <span class="s1">&#39;10.32.45.209&#39;</span> --login
+</span></span></code></pre></div><p>Проверяем, что выданный на хранилище диск доступен:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">multipath -ll
+</span></span></code></pre></div><p>Пример вывода:</p>
+<pre tabindex="0"><code>mpatha (36d039ea0000016710000027f66b5e2ef) dm-2 NETAPP,INF-01-00
+size=2.0T features=&#39;3 queue_if_no_path pg_init_retries 50&#39; hwhandler=&#39;1 alua&#39; wp=rw
+|-+- policy=&#39;service-time 0&#39; prio=50 status=active
 | |- 36:0:0:1 sde 8:64 active ready running
-| `- 35:0:0:1 sdd 8:48 active ready running
-`-+- policy='service-time 0' prio=10 status=enabled
-  |- 34:0:0:1 sdc 8:32 active ready running
-  `- 33:0:0:1 sdb 8:16 active ready running
-</code></pre>
-<p>Полученное блочное устройство будет доступно по пути <code>/dev/mapper/mpath[a..n]</code></p>
-<p>Разметить получившийся диск можно следующим образом:</p>
-<pre><code>pvcreate /dev/mapper/mpatha
-
-vgcreate data_vg /dev/mapper/mpatha
-
-lvcreate -L 1GiB --name data_lv data_vg /dev/mapper/mpatha
-
-lvextend /dev/mapper/data_vg-data_lv -l +100%FREE
-</code></pre>
-<p>Рекомендуется монтировать следующей строкой в /etc/fstab:
-<code>/dev/mapper/mpatha /data/miniovol xfs     _netdev,defaults  0 0</code></p>
-<p>При флуде в логи со стороны <strong>multipathd</strong> вида:</p>
-<pre><code>Feb 18 12:49:33 test-w1-k8s multipathd[32939]: sda: add missing path  
+| - 35:0:0:1 sdd 8:48 active ready running
+-+- policy=&#39;service-time 0&#39; prio=10 status=enabled
+|- 34:0:0:1 sdc 8:32 active ready running
+- 33:0:0:1 sdb 8:16 active ready running
+</code></pre><p>Полученное блочное устройство будет доступно по пути <code>/dev/mapper/mpath[a..n]</code></p>
+<p>Разметить получившийся диск средствами lvm2 можно так:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pvcreate /dev/mapper/mpatha
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vgcreate data_vg /dev/mapper/mpatha
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lvcreate -L 1GiB --name data_lv data_vg /dev/mapper/mpatha
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lvextend /dev/mapper/data_vg-data_lv -l +100%FREE
+</span></span></code></pre></div><p>Параметры монтирования для <code>/etc/fstab</code>:</p>
+<pre tabindex="0"><code>/dev/mapper/mpatha /data/miniovol xfs     _netdev,defaults  0 0
+</code></pre><p>При флуде в логи со стороны <strong>multipathd</strong> вида:</p>
+<pre tabindex="0"><code>Feb 18 12:49:33 test-w1-k8s multipathd[32939]: sda: add missing path  
 Feb 18 12:49:33 test-w1-k8s multipathd[32939]: sda: failed to get udev uid: Invalid argument  
 Feb 18 12:49:33 test-w1-k8s multipathd[32939]: sda: failed to get sysfs uid: Invalid argument  
 Feb 18 12:49:33 test-w1-k8s multipathd[32939]: sda: failed to get sgio uid: No such file or directory
+</code></pre><p>необходимо добавить в <strong><code>/etc/multipath.conf</code></strong> в блок <strong><code>blacklist</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">blacklist</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="err">device</span> <span class="err">{</span>  
+</span></span><span class="line"><span class="cl">         <span class="err">vendor</span> <span class="nt">&#34;VMware&#34;</span>  
+</span></span><span class="line"><span class="cl">         <span class="err">product</span> <span class="s2">&#34;Virtual disk&#34;</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="err">}</span>
+</span></span></code></pre></div><p>Увеличение размера тома после увеличения размера LUN:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lsblk
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">for</span> i in b c d e<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="m">1</span> &gt; /sys/block/sd<span class="nv">$i</span>/device/rescan<span class="p">;</span> <span class="k">done</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">multipathd resize map mpatha
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pvresize /dev/mapper/mpatha
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lvextend /dev/repo_low_hdd_vg/low_hdd01 -l +100%FREE
+</span></span></code></pre></div><pre tabindex="0"><code>xfs_growfs /dev/repo_low_hdd_vg/low_hdd01
 </code></pre>
-<p>необходимо добавить в <strong>/etc/multipath.conf</strong> в блок <strong>blacklist</strong>:</p>
-<pre><code>blacklist {  
-    device {  
-         vendor &quot;VMware&quot;  
-         product &quot;Virtual disk&quot;  
-    }  
-}
-</code></pre>
-<p>Увеличение размера тома после увеличения размера LUN:</p>
-<pre><code>lsblk
-
-for i in b c d e; do echo 1 &gt; /sys/block/sd$i/device/rescan; done
-
-multipathd resize map mpatha
-
-pvresize /dev/mapper/mpatha
-
-lvextend /dev/repo_low_hdd_vg/low_hdd01 -l +100%FREE
-
-xfs_growfs /dev/repo_low_hdd_vg/low_hdd01
-</code></pre>
-
           
           
           
@@ -890,7 +894,7 @@ xfs_growfs /dev/repo_low_hdd_vg/low_hdd01
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://t.me/share/url?url=http://localhost:1313/posts/linux-iscsi-multipathd-lvm/&amp;resubmit=true&amp;title=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20iscsi,%20multipathd%20%d0%b8%20lvm%20%d0%b2%20EL9"
+      href="https://t.me/share/url?url=http://localhost:1313/posts/linux-iscsi-multipathd-lvm/&amp;resubmit=true&amp;title=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20iSCSI,%20multipathd%20%d0%b8%20lvm%20%d0%b2%20EL9"
       title="Share via Telegram"
       aria-label="Share via Telegram"
       >
@@ -909,7 +913,7 @@ xfs_growfs /dev/repo_low_hdd_vg/low_hdd01
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/linux-iscsi-multipathd-lvm/&amp;resubmit=true&amp;title=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20iscsi,%20multipathd%20%d0%b8%20lvm%20%d0%b2%20EL9"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/linux-iscsi-multipathd-lvm/&amp;resubmit=true&amp;title=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20iSCSI,%20multipathd%20%d0%b8%20lvm%20%d0%b2%20EL9"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -930,7 +934,7 @@ xfs_growfs /dev/repo_low_hdd_vg/low_hdd01
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/linux-iscsi-multipathd-lvm/&amp;text=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20iscsi,%20multipathd%20%d0%b8%20lvm%20%d0%b2%20EL9"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/linux-iscsi-multipathd-lvm/&amp;text=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20iSCSI,%20multipathd%20%d0%b8%20lvm%20%d0%b2%20EL9"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -948,7 +952,7 @@ xfs_growfs /dev/repo_low_hdd_vg/low_hdd01
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/posts/linux-iscsi-multipathd-lvm/&amp;subject=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20iscsi,%20multipathd%20%d0%b8%20lvm%20%d0%b2%20EL9"
+      href="mailto:?body=http://localhost:1313/posts/linux-iscsi-multipathd-lvm/&amp;subject=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20iSCSI,%20multipathd%20%d0%b8%20lvm%20%d0%b2%20EL9"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1010,7 +1014,7 @@ xfs_growfs /dev/repo_low_hdd_vg/low_hdd01
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Проверка подключения к Bareos Director с openssl s_client</span
+                  >Проверка возможности подключения к Bareos Director с openssl s_client</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

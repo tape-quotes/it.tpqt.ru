@@ -1,20 +1,28 @@
 ---
-created: "2025-02-11T04:03"
+created: 2025-02-11T04:03
 date: 2024-02-11
 draft: false
 params:
   author: Сергей Бурцев
-title: Проверка подключения к Bareos Director с openssl s_client
-updated: "2025-02-13T01:47"
-weight: 10
+title: Проверка возможности подключения к Bareos Director с openssl s_client
+updated: 2025-02-13T15:54
+weight: "10"
+tags:
+  - bareos
+  - linux
+  - bash
+  - openssl
 ---
+#### Oneline-команда
 
-``` bash
+```bash
 openssl s_client -connect 127.0.0.1:9101 -cipher ECDHE-PSK-CHACHA20-POLY1305 \
 -psk_identity "R_CONSOLE`echo -n -e "\x1e"`*UserAgent*" \
 -psk `echo -n "30b5246d003966329927" | md5sum | awk {'print $1'} | tr -d '\n'|\
 xxd -p | tr -d '\n'`
 ```
+
+#### Пояснения
 
 Альтернативный вариант преобразования в hex с `od` вместо `xxd`:
 `| od -A n -t x1 | sed 's/ *//g' | tr -d '\n'`

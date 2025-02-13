@@ -9,8 +9,9 @@ tags:
   - Kaspersky
   - VMware
   - linux
+  - bash
 title: Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP
-updated: 2025-02-13T15:25
+updated: 2025-02-13T15:52
 ---
 #### Подготовка рабочего окружения (OEL9)
 
