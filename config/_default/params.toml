@@ -47,7 +47,7 @@ showDraftLabel = true
 showEdit = true
 editURL = "https://github.com/tape-quotes/it.tpqt.ru/tree/main/content"
 editAppendPath = true
-seriesOpened = false
+seriesOpened = true
 showHeadingAnchors = true
 showPagination = true
 invertPagination = false
@@ -111,5 +111,6 @@ cardViewScreenWidth = false
 
 [verification]
 yandex = "a6d3825ab9a34268"
+google = "Ct8HV6IcQk7zUQvCxsreZcBbx2EwjI-9h9Lh9bPxlqw"
 
 [rssnext]

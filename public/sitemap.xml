@@ -123,6 +123,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/posts/mdconfig-swap-in-ram-freebsd/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/authors/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
