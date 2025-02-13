@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+<html lang="ru" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
   data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
-  <meta http-equiv="content-language" content="en" />
+  <meta http-equiv="content-language" content="ru" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title> &middot; @tape_quotes</title>
-  <meta name="title" content=" &middot; @tape_quotes" />
+  <title>Монтирование raw-образа диска (img) как блочного устройства в linux &middot; Заметки вокруг ИТ</title>
+  <meta name="title" content="Монтирование raw-образа диска (img) как блочного устройства в linux &middot; Заметки вокруг ИТ" />
   
-  
+  <meta name="description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC)." />
   <meta name="keywords" content="losetup, mknod, linux, " />
   
   
@@ -70,18 +70,22 @@
   
   
   <meta property="og:url" content="http://localhost:1313/posts/losetup-mknod/">
-  <meta property="og:site_name" content="@tape_quotes">
-  <meta property="og:title" content="@tape_quotes">
-  <meta property="og:locale" content="en">
+  <meta property="og:site_name" content="Заметки вокруг ИТ">
+  <meta property="og:title" content="Монтирование raw-образа диска (img) как блочного устройства в linux">
+  <meta property="og:description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC).">
+  <meta property="og:locale" content="ru">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-04-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-04-23T00:00:00+00:00">
     <meta property="article:tag" content="Losetup">
     <meta property="article:tag" content="Mknod">
     <meta property="article:tag" content="Linux">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="@tape_quotes">
+  <meta name="twitter:title" content="Монтирование raw-образа диска (img) как блочного устройства в linux">
+  <meta name="twitter:description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC).">
 
   
   <script type="application/ld+json">
@@ -89,26 +93,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "",
-    "headline": "",
+    "name": "Монтирование raw-образа диска (img) как блочного устройства в linux",
+    "headline": "Монтирование raw-образа диска (img) как блочного устройства в linux",
     
     
-    "inLanguage": "en",
+    "inLanguage": "ru",
     "url" : "http:\/\/localhost:1313\/posts\/losetup-mknod\/",
     "author" : {
       "@type": "Person",
       "name": "Сергей Бурцев"
     },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-04-23T00:00:00\u002b00:00",
+    "datePublished": "2024-04-23T00:00:00\u002b00:00",
     
-    
-    
-    
-    
+    "dateModified": "2024-04-23T00:00:00\u002b00:00",
     
     "keywords": ["losetup","mknod","linux"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "352"
+    "wordCount": "394"
   }]
   </script>
 
@@ -170,7 +174,7 @@
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Перейти к основному содержимому</a>
   </div>
   
   
@@ -184,7 +188,7 @@
         <nav class="flex space-x-3">
 
             
-            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">@tape_quotes</a>
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Заметки вокруг ИТ</a>
             
 
         </nav>
@@ -453,7 +457,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      
+      Монтирование raw-образа диска (img) как блочного устройства в linux
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -504,7 +508,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time><span class="px-2 text-primary-500">&middot;</span><span>352 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  <time datetime="2024-04-23T00:00:00&#43;00:00">23 апреля 2024</time><span class="px-2 text-primary-500">&middot;</span><span>394 слов</span><span class="px-2 text-primary-500">&middot;</span><span title="Время чтения">2 минут</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -540,7 +544,7 @@
     class="text-lg hover:text-primary-500"
     rel="noopener noreferrer"
     target="_blank"
-    title="Edit content"
+    title="Редактировать содержимое"
     ><span class="inline-block align-text-bottom">
 
   <span class="relative block icon">
@@ -557,9 +561,9 @@
 <span class="mb-[2px]">
     <span id="zen-mode-button"
           class="text-lg hover:text-primary-500"
-          title="Enable zen mode"
-          data-title-i18n-disable="Enable zen mode"
-          data-title-i18n-enable="Disable zen mode">
+          title=""
+          data-title-i18n-disable=""
+          data-title-i18n-enable="">
         <span class="inline-block align-text-bottom">
 
   <span class="relative block icon">
@@ -643,10 +647,22 @@
         
 <div class="flex author">
   
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="Сергей Бурцев" src="/tpqt_hu_ab3df93aa1bbc356.png" />
+    
+  
   <div class="place-self-center">
     
     <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
-      Author
+      Автор
     </div>
     <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
       Сергей Бурцев
@@ -738,7 +754,7 @@
   class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Оглавление
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -748,8 +764,8 @@
       <ul>
         <li>
           <ul>
-            <li><a href="#losetup">losetup</a></li>
-            <li><a href="#mknod">mknod</a></li>
+            <li><a href="#losetup---утилита-управления-loop-устройствами">losetup - утилита управления loop-устройствами</a></li>
+            <li><a href="#mknod--">mknod -</a></li>
             <li><a href="#together">together</a></li>
           </ul>
         </li>
@@ -762,7 +778,7 @@
 <details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Оглавление
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -772,8 +788,8 @@
       <ul>
         <li>
           <ul>
-            <li><a href="#losetup">losetup</a></li>
-            <li><a href="#mknod">mknod</a></li>
+            <li><a href="#losetup---утилита-управления-loop-устройствами">losetup - утилита управления loop-устройствами</a></li>
+            <li><a href="#mknod--">mknod -</a></li>
             <li><a href="#together">together</a></li>
           </ul>
         </li>
@@ -864,60 +880,71 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h4 class="relative group">losetup 
-    <div id="losetup" class="anchor"></div>
+<h4 class="relative group">losetup - утилита управления loop-устройствами 
+    <div id="losetup---%D1%83%D1%82%D0%B8%D0%BB%D0%B8%D1%82%D0%B0-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-loop-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0%D0%BC%D0%B8" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#losetup" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#losetup---%D1%83%D1%82%D0%B8%D0%BB%D0%B8%D1%82%D0%B0-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-loop-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0%D0%BC%D0%B8" aria-label="Якорь">#</a>
     </span>        
     
 </h4>
-<p>-f &ndash; (find) занять первое свободное loop-устройство;
-на новых системах &ndash; с флагом -R для сканирования на разделы, если они есть;</p>
-<pre><code>sudo losetup -fR image.img
-</code></pre>
-<p>Получаем информацию о подключенном устройстве:</p>
+<p>Простой пример использования:</p>
+<ol>
+<li>Монтируем образ:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo losetup -fR image.img
+</span></span></code></pre></div><p>Флаг <code>-f</code> (&ldquo;find&rdquo;) смонтирует образ в первое свободное обнаруженное в системе loop-устройство.</p>
+<p>Флаг <code>-R</code> (&ldquo;recursive&rdquo;) используется для сканирования образа на существующие в нём разделы и их последующего монтирования.</p>
+<ol start="2">
+<li>Получаем информацию о подключенных устройствах:</li>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">losetup -a
-</span></span><span class="line"><span class="cl">/dev/loop0: <span class="o">[]</span>: <span class="o">(</span>/home/user/image.img<span class="o">)</span>
-</span></span></code></pre></div><ul>
-<li>отключаем ранее подключенное устройство:</li>
-</ul>
+</span></span></code></pre></div><p>Пример вывода:</p>
+<pre tabindex="0"><code>/dev/loop0: []: (/home/user/image.img)
+</code></pre><ol start="3">
+<li>Отключаем ранее подключенное устройство:</li>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo losetup -d /dev/loop0
-</span></span></code></pre></div><p>На <strong>старых системах</strong> возможен вариант, когда флаг -R не работает (и, соответственно, <code>cat /sys/module/loop/parameters/max_part</code> выдаёт <code>0</code>). В этом случае, чтобы в <code>/dev</code> для loop-устройства отобразился существующий раздел <code>loop0p1</code>, последовательность действий будет такая:</p>
-<ul>
+</span></span></code></pre></div><p>На <strong>старых системах</strong> возможен вариант, когда флаг -R не работает, поскольку модуль <code>loop.ko</code> загружается с опцией по умолчанию <code>max_part=0</code>.</p>
+<p>Убедиться в этом можно командой:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /sys/module/loop/parameters/max_part
+</span></span></code></pre></div><p>В этом случае, чтобы в <code>/dev</code> для loop-устройства отобразился, к примеру, существующий раздел <code>loop0p1</code>, соответствующий первому разделу смонтированного образа, последовательность действий будет такая:</p>
+<ol>
 <li>отключаем ранее подключенное устройство:</li>
-</ul>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo losetup -d /dev/loop0
-</span></span></code></pre></div><ul>
+</span></span></code></pre></div><ol start="2">
 <li>выгружаем модуль:</li>
-</ul>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo modprobe -r loop
-</span></span></code></pre></div><ul>
+</span></span></code></pre></div><ol start="3">
 <li>загружаем с нужной опцией:</li>
-</ul>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo modprobe loop <span class="nv">max_part</span><span class="o">=</span><span class="m">31</span>
-</span></span></code></pre></div><p>Чтобы эта настройка стала перманентной, необходимо добавить в <code>/etc/modprobe.conf</code>или в новый файл в директории <code>/etc/modprobe.d/</code>следующую строку: <code>options loop max_part=31</code></p>
-<ul>
+</span></span></code></pre></div><p>Чтобы эта настройка стала перманентной, необходимо добавить в <code>/etc/modprobe.conf</code>или в новый файл в директории <code>/etc/modprobe.d/</code> строку: <code>options loop max_part=31</code></p>
+<ol start="4">
 <li>повторно подключаем образ как loop-устройство:</li>
-</ul>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo losetup -f image.img
-</span></span></code></pre></div><pre><code>lsblk
-
-NAME                                          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+</span></span></code></pre></div><ol start="5">
+<li>проверяем наличие смонтированных разделов:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lsblk
+</span></span></code></pre></div><p>Вывод команды:</p>
+<pre tabindex="0"><code>NAME                                          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
 loop0                                           7:0    0   200M  0 loop  
 └─loop0p1                                       7:1    0   199M  0 part  
 </code></pre>
 
-
-<h4 class="relative group">mknod 
-    <div id="mknod" class="anchor"></div>
+<h4 class="relative group">mknod - 
+    <div id="mknod--" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#mknod" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#mknod--" aria-label="Якорь">#</a>
     </span>        
     
 </h4>
@@ -1024,7 +1051,7 @@ Character devices:
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#together" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#together" aria-label="Якорь">#</a>
     </span>        
     
 </h4>
@@ -1051,9 +1078,9 @@ Character devices:
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://t.me/share/url?url=http://localhost:1313/posts/losetup-mknod/&amp;resubmit=true&amp;title="
-      title="Share via Telegram"
-      aria-label="Share via Telegram"
+      href="https://t.me/share/url?url=http://localhost:1313/posts/losetup-mknod/&amp;resubmit=true&amp;title=%d0%9c%d0%be%d0%bd%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%20raw-%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20%d0%b4%d0%b8%d1%81%d0%ba%d0%b0%20%28img%29%20%d0%ba%d0%b0%d0%ba%20%d0%b1%d0%bb%d0%be%d1%87%d0%bd%d0%be%d0%b3%d0%be%20%d1%83%d1%81%d1%82%d1%80%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%b0%20%d0%b2%20linux"
+      title="Поделиться через Telegram"
+      aria-label="Поделиться через Telegram"
       >
       
 
@@ -1070,9 +1097,9 @@ Character devices:
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/losetup-mknod/&amp;resubmit=true&amp;title="
-      title="Share via WhatsApp"
-      aria-label="Share via WhatsApp"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/losetup-mknod/&amp;resubmit=true&amp;title=%d0%9c%d0%be%d0%bd%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%20raw-%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20%d0%b4%d0%b8%d1%81%d0%ba%d0%b0%20%28img%29%20%d0%ba%d0%b0%d0%ba%20%d0%b1%d0%bb%d0%be%d1%87%d0%bd%d0%be%d0%b3%d0%be%20%d1%83%d1%81%d1%82%d1%80%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%b0%20%d0%b2%20linux"
+      title="Поделиться через WhatsApp"
+      aria-label="Поделиться через WhatsApp"
       >
       
 
@@ -1089,9 +1116,9 @@ Character devices:
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/losetup-mknod/&amp;text="
-      title="Tweet on Twitter"
-      aria-label="Tweet on Twitter"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/losetup-mknod/&amp;text=%d0%9c%d0%be%d0%bd%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%20raw-%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20%d0%b4%d0%b8%d1%81%d0%ba%d0%b0%20%28img%29%20%d0%ba%d0%b0%d0%ba%20%d0%b1%d0%bb%d0%be%d1%87%d0%bd%d0%be%d0%b3%d0%be%20%d1%83%d1%81%d1%82%d1%80%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%b0%20%d0%b2%20linux"
+      title="Поделиться в X"
+      aria-label="Поделиться в X"
       >
       
 
@@ -1107,9 +1134,9 @@ Character devices:
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/posts/losetup-mknod/&amp;subject="
-      title="Send via email"
-      aria-label="Send via email"
+      href="mailto:?body=http://localhost:1313/posts/losetup-mknod/&amp;subject=%d0%9c%d0%be%d0%bd%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%20raw-%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20%d0%b4%d0%b8%d1%81%d0%ba%d0%b0%20%28img%29%20%d0%ba%d0%b0%d0%ba%20%d0%b1%d0%bb%d0%be%d1%87%d0%bd%d0%be%d0%b3%d0%be%20%d1%83%d1%81%d1%82%d1%80%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%b0%20%d0%b2%20linux"
+      title="Отправить по электронной почте"
+      aria-label="Отправить по электронной почте"
       >
       
 
@@ -1168,7 +1195,7 @@ Character devices:
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-08-30T00:00:00&#43;00:00">30 August 2024</time>
+                    <time datetime="2024-08-30T00:00:00&#43;00:00">30 августа 2024</time>
                   
                 </span>
               </span>
@@ -1195,7 +1222,7 @@ Character devices:
       <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
   <a href="#the-top"
     class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-    aria-label="Scroll to top" title="Scroll to top">
+    aria-label="Пролистать наверх" title="Пролистать наверх">
     &uarr;
   </a>
 </div>
@@ -1234,7 +1261,7 @@ Character devices:
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+      Работает на <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
@@ -1282,14 +1309,14 @@ Character devices:
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
+          placeholder="Поиск"
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
+        title="Закрыть (Esc)"
       >
         
 

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+<html lang="ru" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
   data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
-  <meta http-equiv="content-language" content="en" />
+  <meta http-equiv="content-language" content="ru" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP &middot; Заметки вокруг информационных технологий</title>
-  <meta name="title" content="Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP &middot; Заметки вокруг информационных технологий" />
+  <title>Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP &middot; Заметки вокруг ИТ</title>
+  <meta name="title" content="Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP &middot; Заметки вокруг ИТ" />
   
   <meta name="description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC)." />
   <meta name="keywords" content="vstack, Kaspersky, VMware, linux, bash, " />
@@ -70,10 +70,10 @@
   
   
   <meta property="og:url" content="http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/">
-  <meta property="og:site_name" content="Заметки вокруг информационных технологий">
+  <meta property="og:site_name" content="Заметки вокруг ИТ">
   <meta property="og:title" content="Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP">
   <meta property="og:description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC).">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="ru">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-30T00:00:00+00:00">
@@ -99,7 +99,7 @@
     "headline": "Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP",
     
     
-    "inLanguage": "en",
+    "inLanguage": "ru",
     "url" : "http:\/\/localhost:1313\/posts\/import-ksmg-va-from-vcd-to-vstack\/",
     "author" : {
       "@type": "Person",
@@ -176,7 +176,7 @@
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Перейти к основному содержимому</a>
   </div>
   
   
@@ -190,7 +190,7 @@
         <nav class="flex space-x-3">
 
             
-            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Заметки вокруг информационных технологий</a>
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Заметки вокруг ИТ</a>
             
 
         </nav>
@@ -510,7 +510,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-08-30T00:00:00&#43;00:00">30 August 2024</time><span class="px-2 text-primary-500">&middot;</span><span>635 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  <time datetime="2024-08-30T00:00:00&#43;00:00">30 августа 2024</time><span class="px-2 text-primary-500">&middot;</span><span>635 слов</span><span class="px-2 text-primary-500">&middot;</span><span title="Время чтения">3 минут</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -546,7 +546,7 @@
     class="text-lg hover:text-primary-500"
     rel="noopener noreferrer"
     target="_blank"
-    title="Edit content"
+    title="Редактировать содержимое"
     ><span class="inline-block align-text-bottom">
 
   <span class="relative block icon">
@@ -563,9 +563,9 @@
 <span class="mb-[2px]">
     <span id="zen-mode-button"
           class="text-lg hover:text-primary-500"
-          title="Enable zen mode"
-          data-title-i18n-disable="Enable zen mode"
-          data-title-i18n-enable="Disable zen mode">
+          title=""
+          data-title-i18n-disable=""
+          data-title-i18n-enable="">
         <span class="inline-block align-text-bottom">
 
   <span class="relative block icon">
@@ -680,7 +680,7 @@
   <div class="place-self-center">
     
     <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
-      Author
+      Автор
     </div>
     <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
       Сергей Бурцев
@@ -772,7 +772,7 @@
   class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Оглавление
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -797,7 +797,7 @@
 <details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Оглавление
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -906,7 +906,7 @@
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B3%D0%BE-%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-oel9" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B3%D0%BE-%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-oel9" aria-label="Якорь">#</a>
     </span>        
     
 </h4>
@@ -923,7 +923,7 @@
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B2%D0%BC-%D0%B2-vcd" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B2%D0%BC-%D0%B2-vcd" aria-label="Якорь">#</a>
     </span>        
     
 </h4>
@@ -949,7 +949,7 @@
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0-%D0%B2%D0%BCvapp-%D0%B8%D0%B7-vcd-%D1%81-vcd-cli" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0-%D0%B2%D0%BCvapp-%D0%B8%D0%B7-vcd-%D1%81-vcd-cli" aria-label="Якорь">#</a>
     </span>        
     
 </h4>
@@ -990,7 +990,7 @@
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B0" aria-label="Якорь">#</a>
     </span>        
     
 </h4>
@@ -1080,8 +1080,8 @@ The only workaround is to convert to a simpler format, eg. raw.
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://t.me/share/url?url=http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/&amp;resubmit=true&amp;title=%d0%9f%d0%be%d0%b4%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%ba%d0%b0%20%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20Kaspersky%20Secure%20Mail%20Gateway%202.1-VA%20%d0%ba%20%d0%b8%d0%bc%d0%bf%d0%be%d1%80%d1%82%d1%83%20%d0%b8%d0%b7%20VMware%20Cloud%20Director%20%d0%b2%20vStack%20HCP"
-      title="Share via Telegram"
-      aria-label="Share via Telegram"
+      title="Поделиться через Telegram"
+      aria-label="Поделиться через Telegram"
       >
       
 
@@ -1099,8 +1099,8 @@ The only workaround is to convert to a simpler format, eg. raw.
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/&amp;resubmit=true&amp;title=%d0%9f%d0%be%d0%b4%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%ba%d0%b0%20%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20Kaspersky%20Secure%20Mail%20Gateway%202.1-VA%20%d0%ba%20%d0%b8%d0%bc%d0%bf%d0%be%d1%80%d1%82%d1%83%20%d0%b8%d0%b7%20VMware%20Cloud%20Director%20%d0%b2%20vStack%20HCP"
-      title="Share via WhatsApp"
-      aria-label="Share via WhatsApp"
+      title="Поделиться через WhatsApp"
+      aria-label="Поделиться через WhatsApp"
       >
       
 
@@ -1118,8 +1118,8 @@ The only workaround is to convert to a simpler format, eg. raw.
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/&amp;text=%d0%9f%d0%be%d0%b4%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%ba%d0%b0%20%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20Kaspersky%20Secure%20Mail%20Gateway%202.1-VA%20%d0%ba%20%d0%b8%d0%bc%d0%bf%d0%be%d1%80%d1%82%d1%83%20%d0%b8%d0%b7%20VMware%20Cloud%20Director%20%d0%b2%20vStack%20HCP"
-      title="Tweet on Twitter"
-      aria-label="Tweet on Twitter"
+      title="Поделиться в X"
+      aria-label="Поделиться в X"
       >
       
 
@@ -1136,8 +1136,8 @@ The only workaround is to convert to a simpler format, eg. raw.
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="mailto:?body=http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/&amp;subject=%d0%9f%d0%be%d0%b4%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%ba%d0%b0%20%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20Kaspersky%20Secure%20Mail%20Gateway%202.1-VA%20%d0%ba%20%d0%b8%d0%bc%d0%bf%d0%be%d1%80%d1%82%d1%83%20%d0%b8%d0%b7%20VMware%20Cloud%20Director%20%d0%b2%20vStack%20HCP"
-      title="Send via email"
-      aria-label="Send via email"
+      title="Отправить по электронной почте"
+      aria-label="Отправить по электронной почте"
       >
       
 
@@ -1185,6 +1185,28 @@ The only workaround is to convert to a simpler format, eg. raw.
       <div class="flex justify-between pt-3">
         <span>
           
+            <a class="flex group mr-3" href="/posts/losetup-mknod/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Монтирование raw-образа диска (img) как блочного устройства в linux</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-04-23T00:00:00&#43;00:00">23 апреля 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
         </span>
         <span>
           
@@ -1196,7 +1218,7 @@ The only workaround is to convert to a simpler format, eg. raw.
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-02-11T00:00:00&#43;00:00">11 February 2024</time>
+                    <time datetime="2024-02-11T00:00:00&#43;00:00">11 февраля 2024</time>
                   
                 </span>
               </span>
@@ -1223,7 +1245,7 @@ The only workaround is to convert to a simpler format, eg. raw.
       <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
   <a href="#the-top"
     class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-    aria-label="Scroll to top" title="Scroll to top">
+    aria-label="Пролистать наверх" title="Пролистать наверх">
     &uarr;
   </a>
 </div>
@@ -1262,7 +1284,7 @@ The only workaround is to convert to a simpler format, eg. raw.
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+      Работает на <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
@@ -1310,14 +1332,14 @@ The only workaround is to convert to a simpler format, eg. raw.
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
+          placeholder="Поиск"
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
+        title="Закрыть (Esc)"
       >
         
 

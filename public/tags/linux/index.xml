@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on Заметки вокруг информационных технологий</title>
+    <title>Linux on Заметки вокруг ИТ</title>
     <link>http://localhost:1313/tags/linux/</link>
-    <description>Recent content in Linux on Заметки вокруг информационных технологий</description>
+    <description>Recent content in Linux on Заметки вокруг ИТ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>burcevsa@gmail.com (Сергей Бурцев)</managingEditor>
-    <webMaster>burcevsa@gmail.com (Сергей Бурцев)</webMaster>
+    <language>ru</language>
     <copyright>© 2025 Сергей Бурцев</copyright>
     <lastBuildDate>Fri, 30 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +13,7 @@
       <title>Настройка iSCSI, multipathd и lvm в EL9</title>
       <link>http://localhost:1313/posts/linux-iscsi-multipathd-lvm/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
-      <author>burcevsa@gmail.com (Сергей Бурцев)</author>
+      
       <guid>http://localhost:1313/posts/linux-iscsi-multipathd-lvm/</guid>
       <description></description>
       
@@ -25,7 +23,7 @@
       <title>Проверка возможности подключения к Bareos Director с openssl s_client</title>
       <link>http://localhost:1313/posts/bareos-dir_openssl-s_client/</link>
       <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
-      <author>burcevsa@gmail.com (Сергей Бурцев)</author>
+      
       <guid>http://localhost:1313/posts/bareos-dir_openssl-s_client/</guid>
       <description></description>
       
@@ -35,8 +33,18 @@
       <title>Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP</title>
       <link>http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/</link>
       <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
-      <author>burcevsa@gmail.com (Сергей Бурцев)</author>
+      
       <guid>http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Монтирование raw-образа диска (img) как блочного устройства в linux</title>
+      <link>http://localhost:1313/posts/losetup-mknod/</link>
+      <pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/losetup-mknod/</guid>
       <description></description>
       
     </item>
