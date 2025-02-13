@@ -14,12 +14,12 @@ smartTOCHideUnfocusedChildren = true
 highlightCurrentMenuArea = true
 
 [header]
-layout = "fixed-fill-blur"
+layout = "fixed-fill"
 
 [footer]
 showMenu = true
 showCopyright = true
-showThemeAttribution = false
+showThemeAttribution = true
 showAppearanceSwitcher = true
 showScrollToTop = true
 
@@ -37,16 +37,17 @@ homepageImage = "di_retro-pc02-bg-uc-m.jpg"
 [article]
 showDate = true
 showViews = false
-showLikes = false
+showLikes = true
 showDateOnlyInArticle = false
 showDateUpdated = false
 showAuthor = true
 showHero = true
 layoutBackgroundBlur = true
-layoutBackgroundHeaderSpace = true
-showBreadcrumbs = "teur"
+layoutBackgroundHeaderSpace = false
+showBreadcrumbs = false
 showDraftLabel = true
-showEdit = false
+showEdit = true
+editURL = "https://github.com/tape-quotes/it.tpqt.ru/tree/main/content"
 editAppendPath = true
 seriesOpened = false
 showHeadingAnchors = true
@@ -58,7 +59,7 @@ showTaxonomies = false
 showAuthorsBadges = false
 showWordCount = true
 showZenMode = true
-heroStyle = "thumbAndBackground"
+heroStyle = "background"
 
 [list]
 showHero = false
