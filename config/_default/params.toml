@@ -34,8 +34,8 @@ homepageImage = "di_retro-pc02-bg-uc.jpg"
 
 [article]
 showDate = true
-showViews = false
-showLikes = true
+showViews = true
+showLikes = false
 showDateOnlyInArticle = false
 showDateUpdated = false
 showAuthor = true
@@ -58,7 +58,7 @@ showAuthorsBadges = false
 showWordCount = true
 showZenMode = true
 heroStyle = "background"
-sharingLinks = [ "telegram", "whatsapp", "instagram", "twitter", "email" ]
+sharingLinks = [ "telegram", "whatsapp", "twitter", "email" ]
 
 [list]
 showHero = true
