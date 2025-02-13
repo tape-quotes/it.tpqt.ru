@@ -5,7 +5,7 @@ draft: false
 params:
   author: Сергей Бурцев
 title: Проверка возможности подключения к Bareos Director с openssl s_client
-updated: 2025-02-14T02:30
+updated: 2025-02-14T02:35
 weight: "10"
 tags:
   - bareos
@@ -15,7 +15,7 @@ tags:
 ---
 *или Как потратить драгоценное время ~~зря~~, чтобы объяснить разрабу, что это он...*
 
-*...не прав".*
+*...не прав.*
 
 #### Команда
 
@@ -39,7 +39,7 @@ xxd -p | tr -d '\n'`
 
 Например, для консоли с именем "named_console":
 
-`` -psk_identity "R_CONSOLE`echo -n -e "\x1e"`named_console" ``
+`-psk_identity "R_CONSOLE`echo -n -e "\x1e"`named_console"
 
 `-psk` == hexadecimal от md5-хэша от пароля, указанного в конфиге (в этом примере пароль `30b5246d003966329927`)
 
