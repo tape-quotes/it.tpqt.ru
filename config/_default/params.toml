@@ -1,14 +1,19 @@
 colorScheme = "ocean"
 defaultAppearance = "dark"
 autoSwitchAppearance = false
+
 enableSearch = true
 enableCodeCopy = true
 replyByEmail = false
+
 disableImageOptimization = false
 disableTextInHeader = false
-giteaDefaultServer = "https://git.fsfe.org"
-forgejoDefaultServer = "https://v8.next.forgejo.org"
+
+#giteaDefaultServer = "https://git.fsfe.org"
+#forgejoDefaultServer = "https://v8.next.forgejo.org"
+
 defaultBackgroundImage = "di_server-room-bg-uc.jpg"
+
 smartTOC = true
 smartTOCHideUnfocusedChildren = true
 highlightCurrentMenuArea = true
@@ -55,16 +60,18 @@ showPagination = true
 invertPagination = false
 showReadingTime = true
 showTableOfContents = true
-showTaxonomies = false
+showTaxonomies = true
 showAuthorsBadges = false
 showWordCount = true
 showZenMode = true
 heroStyle = "background"
+sharingLinks = [ "telegram", "whatsapp", "instagram", "twitter", "email" ]
 
 [list]
-showHero = false
+showHero = true
+heroStyle = "background"
 layoutBackgroundBlur = true
-layoutBackgroundHeaderSpace = true
+layoutBackgroundHeaderSpace = false
 showBreadcrumbs = true
 showSummary = true
 showViews = false
@@ -78,7 +85,9 @@ cardViewScreenWidth = false
 constrainItemsWidth = true
 
 [sitemap]
-excludedKinds = [ "taxonomy", "term" ]
+#excludedKinds = [ "taxonomy", "term" ]
+excludedKinds = []
+
 
 [taxonomy]
 showTermCount = true
@@ -110,5 +119,6 @@ cardViewScreenWidth = false
 [buymeacoffee]
 
 [verification]
+yandex = "a6d3825ab9a34268"
 
 [rssnext]
