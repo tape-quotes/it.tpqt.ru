@@ -10,16 +10,8 @@ tags:
   - VMware
   - linux
 title: Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP
-updated: 2025-02-13T15:20
+updated: 2025-02-13T15:25
 ---
-``` table-of-contents
-title: 
-style: nestedList # TOC style (nestedList|inlineFirstLevel)
-minLevel: 0 # Include headings from the specified level
-maxLevel: 0 # Include headings up to the specified level
-includeLinks: true # Make headings clickable
-debugInConsole: false # Print debug info in Obsidian console
-```
 #### Подготовка рабочего окружения (OEL9)
 
 В примере для взаимодействия с VMware Cloud Director будет использоваться утилита vcd-cli.
@@ -48,6 +40,7 @@ pip install --user vcd-cli
 - Guest OS: Red Hat Enterprise Linux 9 (64-bit)
 - Boot Firmware: EFI
 - EFI Secure Boot: Disabled
+
 В установщике есть проверка на соответствие этим требованиям к ресурсам. При несоответствии установку продолжить нельзя.
 
 Необходимо произвести установку VA с ISO-образа и после установки загрузиться и пройти мастер первоначальной настройки с указанием любых параметров.

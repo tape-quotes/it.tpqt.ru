@@ -1,19 +1,12 @@
 colorScheme = "ocean"
 defaultAppearance = "dark"
 autoSwitchAppearance = false
-
 enableSearch = true
 enableCodeCopy = true
 replyByEmail = false
-
 disableImageOptimization = false
 disableTextInHeader = false
-
-#giteaDefaultServer = "https://git.fsfe.org"
-#forgejoDefaultServer = "https://v8.next.forgejo.org"
-
 defaultBackgroundImage = "di_server-room-bg-uc.jpg"
-
 smartTOC = true
 smartTOCHideUnfocusedChildren = true
 highlightCurrentMenuArea = true
@@ -37,7 +30,7 @@ showMoreLinkDest = "/posts/"
 cardView = false
 cardViewScreenWidth = false
 layoutBackgroundBlur = true
-homepageImage = "di_retro-pc02-bg-uc-m.jpg"
+homepageImage = "di_retro-pc02-bg-uc.jpg"
 
 [article]
 showDate = true
@@ -85,9 +78,7 @@ cardViewScreenWidth = false
 constrainItemsWidth = true
 
 [sitemap]
-#excludedKinds = [ "taxonomy", "term" ]
 excludedKinds = []
-
 
 [taxonomy]
 showTermCount = true
