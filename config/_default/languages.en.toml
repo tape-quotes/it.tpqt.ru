@@ -2,12 +2,12 @@ disabled = false
 languageCode = "en"
 languageName = "English"
 weight = 1
-title = "@tape_quotes"
+title = "Заметки вокруг информационных технологий"
 
 [params]
 displayName = "EN"
 isoCode = "en"
 rtl = false
 dateFormat = "2 January 2006"
-author = { name = "Сергей Бурцев", links = [ { email = "mailto:burcevsa@gmail.com" }, { instagram = "https://instagram.com/tape_quotes" }, { telegram = "https://t.me/tape_quotes" } ] }
-description = ""
+author = { name = "Сергей Бурцев", links = [ { email = "mailto:burcevsa@gmail.com" }, { instagram = "https://instagram.com/tape_quotes" }, { telegram = "https://t.me/tape_quotes" } ], image = "tpqt.png", headline = "Системный инженер" }
+description = "Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC)."
