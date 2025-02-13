@@ -34,7 +34,7 @@ homepageImage = "di_retro-pc02-bg-uc.jpg"
 
 [article]
 showDate = true
-showViews = true
+showViews = false
 showLikes = false
 showDateOnlyInArticle = false
 showDateUpdated = false
