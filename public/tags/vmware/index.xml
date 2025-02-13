@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VMware on @tape_quotes</title>
+    <link>http://localhost:1313/tags/vmware/</link>
+    <description>Recent content in VMware on @tape_quotes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>burcevsa@gmail.com (Сергей Бурцев)</managingEditor>
+    <webMaster>burcevsa@gmail.com (Сергей Бурцев)</webMaster>
+    <copyright>© 2025 Сергей Бурцев</copyright>
+    <lastBuildDate>Fri, 30 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Подготовка образа к импорту Kaspersky Secure Mail Gateway 2.1-VA из VMware Cloud Director в vStack HCP</title>
+      <link>http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/</link>
+      <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
+      <author>burcevsa@gmail.com (Сергей Бурцев)</author>
+      <guid>http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>
