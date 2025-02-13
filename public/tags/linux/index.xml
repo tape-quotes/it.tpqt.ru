@@ -39,15 +39,5 @@
       
     </item>
     
-    <item>
-      <title>Монтирование raw-образа диска (img) как блочного устройства в linux</title>
-      <link>http://localhost:1313/posts/losetup-mknod/</link>
-      <pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/losetup-mknod/</guid>
-      <description></description>
-      
-    </item>
-    
   </channel>
 </rss>

@@ -21,10 +21,10 @@
     
     <item>
       <title>Проверка возможности подключения к Bareos Director с openssl s_client</title>
-      <link>http://localhost:1313/posts/bareos-dir_openssl-s_client/</link>
+      <link>http://localhost:1313/posts/bareos-dir-openssl-sclient/</link>
       <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bareos-dir_openssl-s_client/</guid>
+      <guid>http://localhost:1313/posts/bareos-dir-openssl-sclient/</guid>
       <description></description>
       
     </item>
@@ -35,26 +35,6 @@
       <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Монтирование raw-образа диска (img) как блочного устройства в linux</title>
-      <link>http://localhost:1313/posts/losetup-mknod/</link>
-      <pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/losetup-mknod/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/posts/mdconfig-swap-in-ram-freebsd/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/mdconfig-swap-in-ram-freebsd/</guid>
       <description></description>
       
     </item>

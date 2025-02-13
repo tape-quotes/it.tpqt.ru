@@ -1,3 +1,5 @@
 User-agent: *
+Allow: /posts
+Allow: /projects
 Disallow: /
-Sitemap: http://localhost:1313/sitemap.xml
+Sitemap: https://it.tpqt.ru/sitemap.xml

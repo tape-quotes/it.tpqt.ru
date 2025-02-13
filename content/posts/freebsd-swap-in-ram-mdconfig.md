@@ -1,17 +1,13 @@
 ---
-created: "2024-03-18T22:51"
-updated: "2025-02-14T01:02"
----
-
-``` table-of-contents
+created: 2025-02-11T04:03
+updated: 2025-02-14T02:22
+date: 
+draft: true
+params:
+  author: Сергей Бурцев
 title: 
-style: nestedList # TOC style (nestedList|inlineFirstLevel)
-minLevel: 0 # Include headings from the specified level
-maxLevel: 0 # Include headings up to the specified level
-includeLinks: true # Make headings clickable
-debugInConsole: false # Print debug info in Obsidian console
-```
-
+weight: 
+---
 ##### С компрессией zfs
 
 rc.local
