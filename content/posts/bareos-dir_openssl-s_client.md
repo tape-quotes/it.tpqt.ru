@@ -5,7 +5,7 @@ draft: false
 params:
   author: Сергей Бурцев
 title: Проверка возможности подключения к Bareos Director с openssl s_client
-updated: 2025-02-13T15:54
+updated: 2025-02-13T17:57
 weight: "10"
 tags:
   - bareos
@@ -13,6 +13,8 @@ tags:
   - bash
   - openssl
 ---
+*...или как потратить драгоценное время ~~зря~~, чтобы объяснить разрабу, что это он не прав.*
+
 #### Oneline-команда
 
 ```bash
@@ -22,14 +24,19 @@ openssl s_client -connect 127.0.0.1:9101 -cipher ECDHE-PSK-CHACHA20-POLY1305 \
 xxd -p | tr -d '\n'`
 ```
 
+*Альтернативный вариант преобразования в hex с `od` вместо `xxd`:*
+
+`| od -A n -t x1 | sed 's/ *//g' | tr -d '\n'`
 #### Пояснения
 
-Альтернативный вариант преобразования в hex с `od` вместо `xxd`:
-`| od -A n -t x1 | sed 's/ *//g' | tr -d '\n'`
-
 При указании `-cipher` добавлять опцию `-tls1_2` не нужно.
+
 `echo -n -e "\x1e"` -- добавление в `psk_identity` непечатного символа`0x1e`(Record Separator).
-`*UserAgent*` -- идентификатор по умолчанию для `default console`. При использовании `named`-консоли необходимо заменить `*UserAgent*` на Name этой консоли, указанное в конфиге bareos-dir. Например, для консоли с именем "named_console":
+
+`*UserAgent*` -- идентификатор по умолчанию для `default console`. При использовании `named`-консоли необходимо заменить `*UserAgent*` на Name этой консоли, указанное в конфиге bareos-dir. 
+
+Например, для консоли с именем "named_console":
+
 `` -psk_identity "R_CONSOLE`echo -n -e "\x1e"`named_console" ``
 
 `-psk` == hexadecimal от md5-хэша от пароля, указанного в конфиге (в этом примере пароль `30b5246d003966329927`)
