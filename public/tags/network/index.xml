@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on Заметки вокруг ИТ</title>
+    <link>http://localhost:1313/tags/network/</link>
+    <description>Recent content in Network on Заметки вокруг ИТ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>© 2025 Сергей Бурцев</copyright>
+    <lastBuildDate>Tue, 10 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9</title>
+      <link>http://localhost:1313/posts/bareos-series-01-server-net-conf/</link>
+      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/bareos-series-01-server-net-conf/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>
