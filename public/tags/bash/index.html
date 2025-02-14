@@ -28,8 +28,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
-    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.9d20f3550cb26a045b8393e1035a55db69aa6ad38a6c106611f0d646e6902214e5175d60cfd77ff30cce0107cbcb95d245a38f9116690ae18c8d0cb08fe69e70.css"
+    integrity="sha512-nSDzVQyyagRbg5PhA1pV22mqatOKbBBmEfDWRuaQIhTlF11gz9d/8wzOAQfLy5XSRaOPkRZpCuGMjQywj&#43;aecA==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -150,7 +150,8 @@
   
   
   <div class="min-h-[148px]"></div>
-<div class="fixed inset-x-0 pl-[24px] pr-[24px] bg-neutral dark:bg-neutral-800" style="z-index:100">
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom bg-neutral dark:bg-neutral-800"></div>
   <div class="relative max-w-[64rem] ml-auto mr-auto">
     <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
     class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
@@ -376,6 +377,13 @@
 
   </div>
 </div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
 
   
   <div class="relative flex flex-col grow">
@@ -460,8 +468,8 @@
 
 
 
-  <a class="flex flex-wrap article  max-w-prose" href="/posts/import-ksmg-va-from-vcd-to-vstack/">
-    <div class=" mt-3 md:mt-0">
+  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md overflow-hidden max-w-prose" href="/posts/import-ksmg-va-from-vcd-to-vstack/">
+    <div class=" p-4">
       <div class="items-center text-left text-xl font-semibold">
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
@@ -617,8 +625,8 @@
 
 
 
-  <a class="flex flex-wrap article  max-w-prose" href="/posts/linux-iscsi-multipathd-lvm/">
-    <div class=" mt-3 md:mt-0">
+  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md overflow-hidden max-w-prose" href="/posts/linux-iscsi-multipathd-lvm/">
+    <div class=" p-4">
       <div class="items-center text-left text-xl font-semibold">
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
@@ -790,8 +798,8 @@
 
 
 
-  <a class="flex flex-wrap article  max-w-prose" href="/posts/bareos-series-05-dir-openssl-sclient/">
-    <div class=" mt-3 md:mt-0">
+  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md overflow-hidden max-w-prose" href="/posts/bareos-series-05-dir-openssl-sclient/">
+    <div class=" p-4">
       <div class="items-center text-left text-xl font-semibold">
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"

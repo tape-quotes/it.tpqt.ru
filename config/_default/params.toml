@@ -1,4 +1,4 @@
-colorScheme = "ocean"
+colorScheme = "slate"
 defaultAppearance = "dark"
 autoSwitchAppearance = false
 enableSearch = true
@@ -12,7 +12,7 @@ smartTOCHideUnfocusedChildren = true
 highlightCurrentMenuArea = true
 
 [header]
-layout = "fixed-fill"
+layout = "fixed-fill-blur"
 
 [footer]
 showMenu = true
@@ -22,12 +22,12 @@ showAppearanceSwitcher = true
 showScrollToTop = true
 
 [homepage]
-layout = "background"
+layout = "hero"
 showRecent = true
 showRecentItems = "5"
 showMoreLink = true
 showMoreLinkDest = "/posts/"
-cardView = false
+cardView = true
 cardViewScreenWidth = false
 layoutBackgroundBlur = false
 homepageImage = "di_retro-pc02-bg-uc-a02.gif"
@@ -65,16 +65,16 @@ showHero = true
 heroStyle = "background"
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = false
-showBreadcrumbs = true
+showBreadcrumbs = false
 showSummary = true
 showViews = false
 showLikes = false
 showTableOfContents = true
-showCards = false
+showCards = true
 orderByWeight = false
 groupByYear = true
 cardView = false
-cardViewScreenWidth = false
+cardViewScreenWidth = true
 constrainItemsWidth = true
 
 [sitemap]
