@@ -1,5 +1,3 @@
 User-agent: *
-Allow: /posts
-Allow: /projects
-Disallow: /
+Allow: /
 Sitemap: https://it.tpqt.ru/sitemap.xml
