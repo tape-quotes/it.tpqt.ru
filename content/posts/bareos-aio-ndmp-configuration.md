@@ -1,6 +1,6 @@
 ---
 created: 2025-02-11T04:03
-updated: 2025-02-14T02:22
+updated: 2025-02-14T03:14
 date: 
 draft: true
 params:
@@ -191,7 +191,7 @@ https://docs.bareos.org/TasksAndConcepts/VolumeManagement.html#section-multiples
 
 Поскольку отвечающие за жизненный цикл резервных копий параметры `Job Retention`, `Volume Retention`, `Recycle` и `AutoPrune` применимы именно в настройках пулов, в примерах ниже предлагается по одному пулу на каждую выбранную глубину хранения (7, 14, 21, 28 дней).
 
-Максимальный размер одного volume в примере -- 50GB. Это означает, что результат задания РК, превышающий этот объём, будет разбит на несколько volumes.
+Максимальный размер одного volume в примере -- 1TiB. Это означает, что результат задания РК, превышающий этот объём, будет разбит на несколько volumes.
 
 /etc/bareos/bareos-dir.d/pool/full-r07d.conf
 
@@ -203,7 +203,7 @@ https://docs.bareos.org/TasksAndConcepts/VolumeManagement.html#section-multiples
       # File Retention = 7 days         # keep File records in the Catalog database after the End time of the Job corresponding to the File records. Параметр описан в документации, но его использование приводит к невозможности запуска сервиса bareos-dir
       Job Retention = 7 days            # keep Job records in the Catalog database after the Job End time
       Volume Retention = 7 days         # How long should the Full Backups be kept?
-      Maximum Volume Bytes = 50G          # Limit Volume size to something reasonable
+      Maximum Volume Bytes = 1T          # Limit Volume size to something reasonable
       Maximum Volume Jobs = 1
       Label Format = "vol-$Storage-$JobId-$JobName-$Level-$NumVols" # Пояснения даны в следующем разделе
     }
@@ -218,7 +218,7 @@ https://docs.bareos.org/TasksAndConcepts/VolumeManagement.html#section-multiples
       # File Retention = 14 days # will 
       Job Retention = 14 days               
       Volume Retention = 14 days         # How long should the Full Backups be kept?
-      Maximum Volume Bytes = 50G          # Limit Volume size to something reasonable
+      Maximum Volume Bytes = 1T          # Limit Volume size to something reasonable
       Maximum Volume Jobs = 1
       Label Format = "vol-$Storage-$JobId-$JobName-$Level-$NumVols"              # Volumes will be labeled "Full-<volume-id>"
     }
@@ -232,7 +232,7 @@ https://docs.bareos.org/TasksAndConcepts/VolumeManagement.html#section-multiples
       AutoPrune = yes                     # Prune expired volumes
       Job Retention = 21 days
       Volume Retention = 21 days         # How long should the Full Backups be kept?
-      Maximum Volume Bytes = 50G          # Limit Volume size to something reasonable
+      Maximum Volume Bytes = 1T          # Limit Volume size to something reasonable
       Maximum Volume Jobs = 1
       Label Format = "vol-$Storage-$JobId-$JobName-$Level-$NumVols"              # Volumes will be labeled "Full-<volume-id>"
     }
@@ -246,7 +246,7 @@ https://docs.bareos.org/TasksAndConcepts/VolumeManagement.html#section-multiples
       AutoPrune = yes                     # Prune expired volumes
       Job Retention = 28 days
       Volume Retention = 28 days         # How long should the Full Backups be kept?
-      Maximum Volume Bytes = 50G          # Limit Volume size to something reasonable
+      Maximum Volume Bytes = 1T          # Limit Volume size to something reasonable
       Maximum Volume Jobs = 1
       Label Format = "vol-$Storage-$JobId-$JobName-$Level-$NumVols"
     }
@@ -260,7 +260,7 @@ https://docs.bareos.org/TasksAndConcepts/VolumeManagement.html#section-multiples
       AutoPrune = yes                     # Prune expired volumes
       Job Retention = 14 days
       Volume Retention = 14 days          # How long should the Incremental Backups be kept?
-      Maximum Volume Bytes = 50G           # Limit Volume size to something reasonable
+      Maximum Volume Bytes = 1T           # Limit Volume size to something reasonable
       Maximum Volume Jobs = 1
       Label Format = "vol-$Storage-$JobId-$JobName-$Level-$NumVols"
     }
@@ -473,17 +473,3 @@ https://docs.bareos.org/Configuration/Director.html#directorresourceschedule
       Catalog       = MyCatalog
       Where         = /
     }
-
-#### Пользователи, группы и права доступа к директориям
-
-    useradd -m bareosclient -G bareos
-
-    mkdir /home/bareosclient/.ssh && echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEqwErbPJsdxkhGVEC6OOwWcOsGcxuKSbE4pGNK+vglK" >> /home/bareosclient/.ssh/authorized_keys && chown -R bareosclient:bareosclient /home/bareosclient/.ssh && chmod -R 600 /home/bareosclient/.ssh
-
-    chown -R bareosclient:bareos /etc/bareos/bareos-dir.d/pool /etc/bareos/bareos-dir.d/fileset /etc/bareos/bareos-dir.d/schedule /etc/bareos/bareos-dir.d/job
-
-    chmod 750 /etc/bareos/bareos-dir.d/*
-
-    chmod -R g+w /etc/bareos/bareos-dir.d/
-
-    chown -R bareos:bareos /repo && chmod -R 750 /repo
