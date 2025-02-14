@@ -1,6 +1,6 @@
 ---
 created: 2025-02-11T04:03
-updated: 2025-02-14T03:36
+updated: 2025-02-14T03:48
 date: 2024-03-07
 draft: false
 params:
@@ -13,7 +13,7 @@ tags:
   - linux
 series:
   - Bareos
-series_order: 1
+series_order: 2
 ---
 Переключаемся в режим суперпользователя:
 ``` bash

@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP &middot; Заметки вокруг ИТ</title>
-  <meta name="title" content="Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP &middot; Заметки вокруг ИТ" />
+  <title>Установка Bareos AIO и PostgreSQL на EL9 &middot; Заметки вокруг ИТ</title>
+  <meta name="title" content="Установка Bareos AIO и PostgreSQL на EL9 &middot; Заметки вокруг ИТ" />
   
   <meta name="description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC)." />
-  <meta name="keywords" content="vstack, Kaspersky, VMware, linux, bash, " />
+  <meta name="keywords" content="bareos, postgresql, linux, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/" />
+  <link rel="canonical" href="http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/" />
   
   
   
@@ -71,24 +71,23 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/">
+  <meta property="og:url" content="http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/">
   <meta property="og:site_name" content="Заметки вокруг ИТ">
-  <meta property="og:title" content="Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP">
+  <meta property="og:title" content="Установка Bareos AIO и PostgreSQL на EL9">
   <meta property="og:description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC).">
   <meta property="og:locale" content="ru">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-08-30T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-30T00:00:00+00:00">
-    <meta property="article:tag" content="Vstack">
-    <meta property="article:tag" content="Kaspersky">
-    <meta property="article:tag" content="VMware">
+    <meta property="article:published_time" content="2024-03-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-07T00:00:00+00:00">
+    <meta property="article:tag" content="Bareos">
+    <meta property="article:tag" content="Postgresql">
     <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Bash">
+      <meta property="og:see_also" content="http://localhost:1313/posts/bareos-series-05-dir-openssl-sclient/">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP">
+  <meta name="twitter:title" content="Установка Bareos AIO и PostgreSQL на EL9">
   <meta name="twitter:description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC).">
 
   
@@ -97,26 +96,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP",
-    "headline": "Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP",
+    "name": "Установка Bareos AIO и PostgreSQL на EL9",
+    "headline": "Установка Bareos AIO и PostgreSQL на EL9",
     
     
     "inLanguage": "ru",
-    "url" : "http:\/\/localhost:1313\/posts\/import-ksmg-va-from-vcd-to-vstack\/",
+    "url" : "http:\/\/localhost:1313\/posts\/bareos-series-02-aio-psql-el9-installation\/",
     "author" : {
       "@type": "Person",
       "name": "Сергей Бурцев"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-08-30T00:00:00\u002b00:00",
-    "datePublished": "2024-08-30T00:00:00\u002b00:00",
+    "dateCreated": "2024-03-07T00:00:00\u002b00:00",
+    "datePublished": "2024-03-07T00:00:00\u002b00:00",
     
-    "dateModified": "2024-08-30T00:00:00\u002b00:00",
+    "dateModified": "2024-03-07T00:00:00\u002b00:00",
     
-    "keywords": ["vstack","Kaspersky","VMware","linux","bash"],
+    "keywords": ["bareos","postgresql","linux"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "635"
+    "wordCount": "118"
   }]
   </script>
 
@@ -461,7 +460,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP
+      Установка Bareos AIO и PostgreSQL на EL9
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -510,7 +509,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-08-30T00:00:00&#43;00:00">30 августа 2024</time><span class="px-2 text-primary-500">&middot;</span><span>635 слов</span><span class="px-2 text-primary-500">&middot;</span><span title="Время чтения">3 минут</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2024-03-07T00:00:00&#43;00:00">7 марта 2024</time><span class="px-2 text-primary-500">&middot;</span><span>118 слов</span><span class="px-2 text-primary-500">&middot;</span><span title="Время чтения">1 минута</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -520,7 +519,7 @@
 
 <span class="mb-[2px]">
   <a
-    href="https://github.com/tape-quotes/it.tpqt.ru/tree/main/content/posts/import-ksmg-va-from-vcd-to-vstack.md"
+    href="https://github.com/tape-quotes/it.tpqt.ru/tree/main/content/posts/bareos-series-02-aio-psql-el9-installation.md"
     class="text-lg hover:text-primary-500"
     rel="noopener noreferrer"
     target="_blank"
@@ -578,26 +577,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/vstack/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/bareos/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Vstack
+    Bareos
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/kaspersky/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/postgresql/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Kaspersky
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/vmware/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    VMware
+    Postgresql
   </span>
 </span>
   </span>
@@ -606,14 +597,6 @@
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Linux
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/bash/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Bash
   </span>
 </span>
   </span>
@@ -742,305 +725,68 @@
   
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     
-     <div
-      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
-      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
-
-         <details open id="TOCView"
-  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
-  <summary
-    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Оглавление
-  </summary>
-  <div
-    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#подготовка-рабочего-окружения-oel9">Подготовка рабочего окружения (OEL9)</a></li>
-            <li><a href="#подготовка-вм-в-vcd">Подготовка ВМ в vcd</a></li>
-            <li><a href="#выгрузка-шаблона-вмvapp-из-vcd-с-vcd-cli">Выгрузка шаблона ВМ/vApp из vcd с vcd-cli</a></li>
-            <li><a href="#модификация-образа">Модификация образа</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</details>
-<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
-  <summary
-    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Оглавление
-  </summary>
-  <div
-    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#подготовка-рабочего-окружения-oel9">Подготовка рабочего окружения (OEL9)</a></li>
-            <li><a href="#подготовка-вм-в-vcd">Подготовка ВМ в vcd</a></li>
-            <li><a href="#выгрузка-шаблона-вмvapp-из-vcd-с-vcd-cli">Выгрузка шаблона ВМ/vApp из vcd с vcd-cli</a></li>
-            <li><a href="#модификация-образа">Модификация образа</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</details>
-
-<script>
-
-  var margin = 200;
-  var marginError = 50;
-
-  (function () {
-    var $window = $(window);
-    var $toc = $('#TOCView');
-    var tocHeight = $toc.height();
-
-    function onResize() {
-      var windowAndMarginHeight = $window.height() - margin;
-      if(tocHeight >= windowAndMarginHeight) {
-        $toc.css("overflow-y", "scroll")
-        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
-      } else {
-        $toc.css("overflow-y", "hidden")
-        $toc.css("max-height", "9999999px")
-      }
-    }
-
-    $window.on('resize', onResize);
-    $(document).ready(onResize);
-  })();
-
-
-
-  (function () {
-    var $toc = $('#TableOfContents');
-    if ($toc.length > 0) {
-      var $window = $(window);
-
-      function onScroll() {
-        var currentScroll = $window.scrollTop();
-        var h = $('.anchor');
-        var id = "";
-        h.each(function (i, e) {
-          e = $(e);
-          if (e.offset().top - $(window).height()/3 <= currentScroll) {
-            id = decodeURIComponent(e.attr('id'));
-          }
-        });
-        var active = $toc.find('a.active');      
-        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
-
-        active.each(function (i, e) {
-           
-            $(e).removeClass('active').siblings('ul').hide();
-          
-        });
-        $toc.find('a[href="#' + id + '"]').addClass('active')
-        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-          $(e).children('a').parents('ul').show();          
-        });
-      }
-
-      $window.on('scroll', onScroll);
-      $(document).ready(function () {
-         
-          $toc.find('a').parent('li').find('ul').hide();
-        
-        onScroll();
-      });
-    }
-  })();
-
-
-</script>
-   </div>
-      </div>
-      
+    
 
       <div class="min-w-0 min-h-0 max-w-fit">
         
         
+<details style="margin-left:0px" class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5"  open >
+    
+    <summary
+        class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+        Bareos - - серия статей.
+    </summary>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        Часть 2: Эта публикация
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/posts/bareos-series-05-dir-openssl-sclient/">
+            Часть 5: Проверка возможности подключения к Bareos Director с openssl s_client
+        </a>
+    </div>
+    
+    
+
+
+</details>
+
 
 
         <div class="article-content max-w-prose mb-20">
-          
-
-<h4 class="relative group">Подготовка рабочего окружения (OEL9) 
-    <div id="%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B3%D0%BE-%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-oel9" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B3%D0%BE-%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-oel9" aria-label="Якорь">#</a>
-    </span>        
-    
-</h4>
-<p>В примере для взаимодействия с VMware Cloud Director будет использоваться утилита vcd-cli.
-Вместо неё можно использовать и ovftool.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dnf install -y python3 qemu-img libguestfs guestfs-tools
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m ensurepip --upgrade
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install --user vcd-cli
-</span></span></code></pre></div>
-
-<h4 class="relative group">Подготовка ВМ в vcd 
-    <div id="%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B2%D0%BC-%D0%B2-vcd" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B2%D0%BC-%D0%B2-vcd" aria-label="Якорь">#</a>
-    </span>        
-    
-</h4>
-<p>Для последующего скачивания виртуальную машину нужно развернуть в отдельном vApp.</p>
-<p>Конфигурация созданной ВМ должна соответствовать следующим параметрам:</p>
-<ul>
-<li>8 vCPU</li>
-<li>16 GB RAM</li>
-<li>200 GB HDD</li>
-<li>Guest OS: Red Hat Enterprise Linux 9 (64-bit)</li>
-<li>Boot Firmware: EFI</li>
-<li>EFI Secure Boot: Disabled</li>
-</ul>
-<p>В установщике есть проверка на соответствие этим требованиям к ресурсам. При несоответствии установку продолжить нельзя.</p>
-<p>Необходимо произвести установку VA с ISO-образа и после установки загрузиться и пройти мастер первоначальной настройки с указанием любых параметров.</p>
-<pre tabindex="0"><code class="language-ad-note" data-lang="ad-note">Загрузиться в single после установки невозможно -- учётная запись root заблокирована.
-Способ с `init=/bin/bash` также не работает.
-</code></pre>
-
-<h4 class="relative group">Выгрузка шаблона ВМ/vApp из vcd с vcd-cli 
-    <div id="%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0-%D0%B2%D0%BCvapp-%D0%B8%D0%B7-vcd-%D1%81-vcd-cli" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0-%D0%B2%D0%BCvapp-%D0%B8%D0%B7-vcd-%D1%81-vcd-cli" aria-label="Якорь">#</a>
-    </span>        
-    
-</h4>
-<p>Логинимся в vcd</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vcd login &lt;vcd_fqdn&gt; &lt;org&gt; &lt;user&gt;
-</span></span></code></pre></div><p>Пример:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ vcd login vcloud.mycloud.com myorg my.username
-</span></span><span class="line"><span class="cl">Password: 
-</span></span><span class="line"><span class="cl">my.username logged in, org: <span class="s1">&#39;myorg&#39;</span>, vdc: <span class="s1">&#39;vcd-nsxv&#39;</span>
-</span></span></code></pre></div><p>(Для информации) получаем список доступных в vDC vApps</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vcd vapp list
-</span></span></code></pre></div><p>Пример:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">isDeployed    isEnabled      memoryAllocationMB  name                                             numberOfCpus    numberOfVMs  ownerName       status         storageKB  vdcName
-</span></span><span class="line"><span class="cl">------------  -----------  --------------------  ---------------------------------------------  --------------  -------------  --------------  -----------  -----------  ---------
-</span></span><span class="line"><span class="cl"><span class="nb">false</span>         <span class="nb">true</span>                        <span class="m">16384</span>  ksmg-va-2107854                                             <span class="m">8</span>              <span class="m">1</span>  my.username  POWERED_OFF    <span class="m">209715200</span>  vdc-nsxv
-</span></span><span class="line"><span class="cl"><span class="nb">true</span>          <span class="nb">true</span>                        <span class="m">81920</span>  lab-itglobal-com-vapp                                      <span class="m">32</span>              <span class="m">4</span>  my.username  MIXED          <span class="m">639631360</span>  vdc-nsxv
-</span></span><span class="line"><span class="cl"><span class="nb">true</span>          <span class="nb">true</span>                               dr-vm-02-7e600f54-b3ec-4764-88ef-18311290564a                              <span class="m">0</span>  my.username  POWERED_ON             <span class="m">0</span>  vdc-nsxt
-</span></span><span class="line"><span class="cl"><span class="nb">true</span>          <span class="nb">true</span>                        <span class="m">16384</span>  tq-dmz-vapp                                                 <span class="m">8</span>              <span class="m">1</span>  my.username  POWERED_ON      <span class="m">20971520</span>  vdc-nsxv
-</span></span><span class="line"><span class="cl"><span class="nb">true</span>          <span class="nb">true</span>                        <span class="m">18432</span>  tq-mgmt-vapp                                               <span class="m">10</span>              <span class="m">2</span>  my.username  POWERED_ON     <span class="m">734003200</span>  vdc-nsxv
-</span></span></code></pre></div><p>Скачиваем ранее развёрнутое vApp</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vcd vapp download &lt;vapp_name&gt; ./
-</span></span></code></pre></div><p>Пример:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ vcd vapp download ksmg-va-2107854 ./
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&lt;Enabling download of Virtual Application...&gt;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">download 1,335,374,336 of 1,335,374,336 bytes, 100%
-</span></span><span class="line"><span class="cl">download 270,840 of 270,840 bytes, 100%
-</span></span><span class="line"><span class="cl">property    value
-</span></span><span class="line"><span class="cl">----------  ---------------
-</span></span><span class="line"><span class="cl">file        ksmg-va-2107854
-</span></span><span class="line"><span class="cl">size        <span class="m">1335664640</span>
-</span></span></code></pre></div>
-
-<h4 class="relative group">Модификация образа 
-    <div id="%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B0" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B0" aria-label="Якорь">#</a>
-    </span>        
-    
-</h4>
-<p>Распаковываем шаблон (сделать это можно любым архиватором)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xvf ksmg-va-2107854
-</span></span></code></pre></div><p>Примечание:</p>
-<pre><code>The qemu driver for VMDK does not support writes to the VMDK subformat (streamOptimized).  This is a bug / shortcoming in qemu.
-The only workaround is to convert to a simpler format, eg. raw.
-</code></pre>
-<p>&ndash; поэтому уже на текущем этапе конвертируем vmdk в raw:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">qemu-img convert -p -f vmdk -O raw vm-95b6833a-e214-4994-aa4c-6f9a60034d5a-disk-0.vmdk ksmg-va-2107854.img
-</span></span></code></pre></div><p>(Для информации) получаем список имеющихся разделов и файловых систем:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">LIBGUESTFS_BACKEND</span><span class="o">=</span>direct virt-filesystems -lh --uuid -a ksmg-va-2107854.img
-</span></span></code></pre></div><p>Пример:</p>
-<pre><code>Name      Type       VFS  Label Size Parent UUID
-/dev/sda1 filesystem vfat -     498M -      542A-2139
-/dev/sda2 filesystem ext2 -     466M -      82540b2f-5045-4ded-88c7-23ae6c5afd12
-/dev/sda3 filesystem ext4 -     9,7G -      32701b3b-eae1-4f69-88bb-d881efefb636
-/dev/sda4 filesystem ext4 -     24G  -      b0aa351a-5a82-4a45-8064-b9f186caaab0
-/dev/sda5 filesystem ext4 -     39G  -      39ffb068-7d45-4a87-bb57-08e6d2ecba55
-/dev/sda6 filesystem ext4 -     97G  -      da2a721d-218c-4a0c-9593-fba4bfbc94ec
-/dev/sda7 filesystem ext4 -     12G  -      0c8f6afb-de89-4fda-9276-2e2af1136d07
-</code></pre>
-<p>Переходим в режим суперпользователя</p>
+          <p>Переключаемся в режим суперпользователя:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -i
-</span></span></code></pre></div><p>Создаём точку монтирования</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir ksmg
-</span></span></code></pre></div><p>Монтируем все разделы с виртуального диска</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">LIBGUESTFS_BACKEND</span><span class="o">=</span>direct guestmount -a ksmg-va-2107854.img -i --rw ksmg
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mount --bind /dev ksmg/dev
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mount --bind /dev/pts ksmg/dev/pts
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mount --bind /proc ksmg/proc
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mount --bind /sys ksmg/sys
-</span></span></code></pre></div><p>Копируем настройки dns из текущего окружения</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp /etc/resolv.conf ksmg/etc/
-</span></span></code></pre></div><p>Меняем окружение</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chroot ksmg
-</span></span></code></pre></div><p>Добавляем в dracut драйверы virtio</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;add_drivers+=&#34;virtio_blk virtio_scsi virtio_net virtio_pci virtio_rng virtio_balloon nvme&#34;&#39;</span> &gt; /etc/dracut.conf.d/virtio.conf
-</span></span></code></pre></div><p>Выясняем версию ядра в образе ВМ:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls /lib/modules/
-</span></span></code></pre></div><p><code>5.14.0-362.18.1.el9_3.0.1.x86_64</code></p>
-<p>Генерируем initramfs</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dracut -f -v -N <span class="s1">&#39;&#39;</span> 5.14.0-362.18.1.el9_3.0.1.x86_64
-</span></span></code></pre></div><p>Проверяем наличие драйверов в initramfs</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lsinitrd /boot/initramfs-5.14.0-362.18.1.el9_3.0.1.x86_64.img <span class="p">|</span> grep virtio
-</span></span></code></pre></div><p>Включаем репозитории Rocky Linux</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dnf config-manager --releasever 9.3 --enable baseos appstream
-</span></span></code></pre></div><p>Устанавливаем cloud-init</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dnf install -y cloud-init cloud-utils-growpart
-</span></span></code></pre></div><p>Активируем службы cloud-init</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> cloud-init cloud-init-local cloud-config cloud-final
-</span></span></code></pre></div><p>Добавляем настройки cloud-init datasources для vStack</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat <span class="s">&lt;&lt; EOT &gt; /etc/cloud/cloud.cfg.d/90_vStack.cfg
-</span></span></span><span class="line"><span class="cl"><span class="s">datasource_list: [ &#34;SmartOS&#34;, &#34;NoCloud&#34; ]
-</span></span></span><span class="line"><span class="cl"><span class="s">EOT</span>
-</span></span></code></pre></div><p>Модифицируем скрипт <code>/opt/kaspersky/ksmg-appliance-addon/bin/wizard</code>, чтобы избежать запроса мастером первоначальной настройки уже переданных через cloud-init сетевых параметров</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sed -i -e <span class="s1">&#39;s/configure_network(widgets)$/#configure_network(widgets)&#39;</span> /opt/kaspersky/ksmg-appliance-addon/bin/wizard
-</span></span></code></pre></div><p>Удаляем open-vm-tools</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dnf --noautoremove remove open-vm-tools
-</span></span></code></pre></div><p>Выключаем репозитории:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dnf config-manager --releasever 9.3 --disable baseos appstream
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span> &gt; /etc/resolv.conf
-</span></span></code></pre></div><p>Очищаем историю</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">history</span> -c <span class="o">&amp;&amp;</span> <span class="nb">history</span> -w
-</span></span></code></pre></div><p>Выходим из chroot и размонтируем разделы</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">exit</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">umount -R ksmg
-</span></span></code></pre></div><p>Сжимаем образ</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xz -0 -T <span class="m">4</span> ./ksmg-va-2107854.img
-</span></span></code></pre></div><p>Подготовленный образ передаём вендору для добавления в кластер.</p>
-
+</span></span></code></pre></div><p>Добавляем community-репозитории Bareos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s https://download.bareos.org/current/EL_9/add_bareos_repositories.sh<span class="o">)</span>
+</span></span></code></pre></div><p>Устанавливаем пакеты:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dnf install -y bareos postgresql-server postgresql postgresql-contrib
+</span></span></code></pre></div><p>Устанавливаем пароль пользователю postgres:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">passwd postgres
+</span></span></code></pre></div><p>Инициализируем БД:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres initdb -D /var/lib/pgsql/data/
+</span></span></code></pre></div><p>Активируем и запускаем службу PostgreSQL:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now postgresql.service
+</span></span></code></pre></div><p>Если необходимо, устанавливаем пароль пользователя postgres в БД:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres psql
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-postgresql" data-lang="postgresql"><span class="line"><span class="cl"><span class="k">ALTER</span> <span class="k">USER</span> <span class="n">postgres</span> <span class="k">WITH</span> <span class="k">PASSWORD</span> <span class="s1">&#39;&lt;password&gt;&#39;</span>
+</span></span></code></pre></div><p>или</p>
+<pre tabindex="0"><code class="language-postrgesql" data-lang="postrgesql">\password
+</code></pre><p>Создаём в БД сущности Bareos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres /usr/lib/bareos/scripts/create_bareos_database
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres /usr/lib/bareos/scripts/make_bareos_tables
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres /usr/lib/bareos/scripts/grant_bareos_privileges
+</span></span></code></pre></div><p>Активируем и запускаем службы Bareos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now bareos-dir <span class="o">&amp;&amp;</span> systemctl <span class="nb">enable</span> --now bareos-sd <span class="o">&amp;&amp;</span> systemctl <span class="nb">enable</span> --now bareos-fd 
+</span></span></code></pre></div><p>Если нужно подключаться к Bareos Director извне, то открываем дополнительно порт 9101/tcp:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">firewall-cmd --add-port<span class="o">=</span>9101/tcp <span class="o">&amp;&amp;</span> firewall-cmd --runtime-to-permanent
+</span></span></code></pre></div>
           
           
           
@@ -1049,6 +795,34 @@ The only workaround is to convert to a simpler format, eg. raw.
         
 
         
+<details style="margin-left:0px" class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5">
+    
+    <summary
+        class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+        Bareos - - серия статей.
+    </summary>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        Часть 2: Эта публикация
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/posts/bareos-series-05-dir-openssl-sclient/">
+            Часть 5: Проверка возможности подключения к Bareos Director с openssl s_client
+        </a>
+    </div>
+    
+    
+
+
+</details>
+
         
   
   <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
@@ -1057,7 +831,7 @@ The only workaround is to convert to a simpler format, eg. raw.
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://t.me/share/url?url=http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/&amp;resubmit=true&amp;title=%d0%9f%d0%be%d0%b4%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%ba%d0%b0%20%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20Kaspersky%20Secure%20Mail%20Gateway%202.1-VA%20%d0%ba%20%d0%b8%d0%bc%d0%bf%d0%be%d1%80%d1%82%d1%83%20%d0%b8%d0%b7%20VMware%20Cloud%20Director%20%d0%b2%20vStack%20HCP"
+      href="https://t.me/share/url?url=http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/&amp;resubmit=true&amp;title=%d0%a3%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%20Bareos%20AIO%20%d0%b8%20PostgreSQL%20%d0%bd%d0%b0%20EL9"
       title="Поделиться через Telegram"
       aria-label="Поделиться через Telegram"
       >
@@ -1076,7 +850,7 @@ The only workaround is to convert to a simpler format, eg. raw.
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/&amp;resubmit=true&amp;title=%d0%9f%d0%be%d0%b4%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%ba%d0%b0%20%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20Kaspersky%20Secure%20Mail%20Gateway%202.1-VA%20%d0%ba%20%d0%b8%d0%bc%d0%bf%d0%be%d1%80%d1%82%d1%83%20%d0%b8%d0%b7%20VMware%20Cloud%20Director%20%d0%b2%20vStack%20HCP"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/&amp;resubmit=true&amp;title=%d0%a3%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%20Bareos%20AIO%20%d0%b8%20PostgreSQL%20%d0%bd%d0%b0%20EL9"
       title="Поделиться через WhatsApp"
       aria-label="Поделиться через WhatsApp"
       >
@@ -1095,7 +869,7 @@ The only workaround is to convert to a simpler format, eg. raw.
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/&amp;text=%d0%9f%d0%be%d0%b4%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%ba%d0%b0%20%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20Kaspersky%20Secure%20Mail%20Gateway%202.1-VA%20%d0%ba%20%d0%b8%d0%bc%d0%bf%d0%be%d1%80%d1%82%d1%83%20%d0%b8%d0%b7%20VMware%20Cloud%20Director%20%d0%b2%20vStack%20HCP"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/&amp;text=%d0%a3%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%20Bareos%20AIO%20%d0%b8%20PostgreSQL%20%d0%bd%d0%b0%20EL9"
       title="Поделиться в X"
       aria-label="Поделиться в X"
       >
@@ -1113,7 +887,7 @@ The only workaround is to convert to a simpler format, eg. raw.
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/&amp;subject=%d0%9f%d0%be%d0%b4%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%ba%d0%b0%20%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%b0%20Kaspersky%20Secure%20Mail%20Gateway%202.1-VA%20%d0%ba%20%d0%b8%d0%bc%d0%bf%d0%be%d1%80%d1%82%d1%83%20%d0%b8%d0%b7%20VMware%20Cloud%20Director%20%d0%b2%20vStack%20HCP"
+      href="mailto:?body=http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/&amp;subject=%d0%a3%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%20Bareos%20AIO%20%d0%b8%20PostgreSQL%20%d0%bd%d0%b0%20EL9"
       title="Отправить по электронной почте"
       aria-label="Отправить по электронной почте"
       >
@@ -1142,8 +916,8 @@ The only workaround is to convert to a simpler format, eg. raw.
           
         
       <script>
-        var oid = "views_posts\/import-ksmg-va-from-vcd-to-vstack.md"
-        var oid_likes = "likes_posts\/import-ksmg-va-from-vcd-to-vstack.md"
+        var oid = "views_posts\/bareos-series-02-aio-psql-el9-installation.md"
+        var oid_likes = "likes_posts\/bareos-series-02-aio-psql-el9-installation.md"
       </script>
       
       
@@ -1163,10 +937,15 @@ The only workaround is to convert to a simpler format, eg. raw.
       <div class="flex justify-between pt-3">
         <span>
           
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/bareos-series-05-dir-openssl-sclient/">
+            <a class="flex group mr-3" href="/posts/bareos-series-05-dir-openssl-sclient/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
@@ -1175,6 +954,23 @@ The only workaround is to convert to a simpler format, eg. raw.
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
                     <time datetime="2024-02-11T00:00:00&#43;00:00">11 февраля 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/linux-iscsi-multipathd-lvm/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Настройка iSCSI, multipathd и lvm в EL9</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-08-12T00:00:00&#43;00:00">12 августа 2024</time>
                   
                 </span>
               </span>

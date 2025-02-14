@@ -1,12 +1,16 @@
 ---
 created: 2025-02-11T04:03
-updated: 2025-02-14T03:14
+updated: 2025-02-14T03:51
 date: 
 draft: true
 params:
   author: Сергей Бурцев
 title: 
 weight: 
+tags: 
+series:
+  - Bareos
+series_order: 4
 ---
 #### Имя инстанса
 
