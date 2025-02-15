@@ -101,6 +101,9 @@ cardViewScreenWidth = false
 
 [firebase]
 
+[metrika]
+countercode = "99912087"
+
 [fathomAnalytics]
 
 [umamiAnalytics]
