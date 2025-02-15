@@ -1,6 +1,6 @@
 ---
 created: 2025-02-11T04:03
-updated: 2025-02-15T14:49
+updated: 2025-02-15T14:53
 date: 2024-08-12
 draft: false
 params:
@@ -135,12 +135,13 @@ lvcreate -L 1GiB --name data_lv data_vg /dev/mapper/mpatha
 lvextend /dev/data_vg/data_lv -l +100%FREE
 ```
 
+#### Дополнительно
+
 Параметры монтирования для `/etc/fstab`:
 ```
 /dev/data_vg/data_lv  /data_lv xfs     _netdev,defaults  0 0
 ```
 
-#### Примечания
 При наличии в логах сообщений от **multipathd** вида:
 ```
 Feb 18 12:49:33 <...> multipathd[32939]: sda: add missing path  

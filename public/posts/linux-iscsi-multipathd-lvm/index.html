@@ -794,7 +794,7 @@
             <li><a href="#подключаемся-к-обнаруженным-узлам">Подключаемся к обнаруженным узлам</a></li>
             <li><a href="#проверяем-что-выданный-на-хранилище-диск-доступен">Проверяем, что выданный на хранилище диск доступен:</a></li>
             <li><a href="#размечаем-получившийся-диск-средствами-lvm2">Размечаем получившийся диск средствами lvm2</a></li>
-            <li><a href="#примечания">Примечания</a></li>
+            <li><a href="#дополнительно">Дополнительно</a></li>
           </ul>
         </li>
       </ul>
@@ -825,7 +825,7 @@
             <li><a href="#подключаемся-к-обнаруженным-узлам">Подключаемся к обнаруженным узлам</a></li>
             <li><a href="#проверяем-что-выданный-на-хранилище-диск-доступен">Проверяем, что выданный на хранилище диск доступен:</a></li>
             <li><a href="#размечаем-получившийся-диск-средствами-lvm2">Размечаем получившийся диск средствами lvm2</a></li>
-            <li><a href="#примечания">Примечания</a></li>
+            <li><a href="#дополнительно">Дополнительно</a></li>
           </ul>
         </li>
       </ul>
@@ -1067,21 +1067,21 @@ size=2.0T features=&#39;3 queue_if_no_path pg_init_retries 50&#39; hwhandler=&#3
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vgcreate data_vg /dev/mapper/mpatha
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lvcreate -L 1GiB --name data_lv data_vg /dev/mapper/mpatha
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lvextend /dev/data_vg/data_lv -l +100%FREE
-</span></span></code></pre></div><p>Параметры монтирования для <code>/etc/fstab</code>:</p>
-<pre tabindex="0"><code>/dev/data_vg/data_lv  /data_lv xfs     _netdev,defaults  0 0
-</code></pre>
+</span></span></code></pre></div>
 
-<h4 class="relative group">Примечания 
-    <div id="%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%87%D0%B0%D0%BD%D0%B8%D1%8F" class="anchor"></div>
+<h4 class="relative group">Дополнительно 
+    <div id="%D0%B4%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%87%D0%B0%D0%BD%D0%B8%D1%8F" aria-label="Якорь">#</a>
+            style="text-decoration-line: none !important;" href="#%D0%B4%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE" aria-label="Якорь">#</a>
     </span>        
     
 </h4>
-<p>При наличии в логах сообщений от <strong>multipathd</strong> вида:</p>
+<p>Параметры монтирования для <code>/etc/fstab</code>:</p>
+<pre tabindex="0"><code>/dev/data_vg/data_lv  /data_lv xfs     _netdev,defaults  0 0
+</code></pre><p>При наличии в логах сообщений от <strong>multipathd</strong> вида:</p>
 <pre tabindex="0"><code>Feb 18 12:49:33 &lt;...&gt; multipathd[32939]: sda: add missing path  
 Feb 18 12:49:33 &lt;...&gt; multipathd[32939]: sda: failed to get udev uid: Invalid argument  
 Feb 18 12:49:33 &lt;...&gt; multipathd[32939]: sda: failed to get sysfs uid: Invalid argument  
