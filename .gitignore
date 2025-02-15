@@ -3,6 +3,8 @@ public/
 resources/
 exampleSite/
 
+.obsidian/
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
