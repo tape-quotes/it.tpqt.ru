@@ -1,4 +1,4 @@
-colorScheme = "slate"
+colorScheme = "noir"
 defaultAppearance = "dark"
 autoSwitchAppearance = false
 enableSearch = true
@@ -6,7 +6,7 @@ enableCodeCopy = true
 replyByEmail = false
 disableImageOptimization = false
 disableTextInHeader = false
-defaultBackgroundImage = "di_server-room-bg-uc.jpg"
+defaultBackgroundImage = "di_retro-pc02-bg-uc-a03.gif"
 smartTOC = true
 smartTOCHideUnfocusedChildren = true
 highlightCurrentMenuArea = true
@@ -66,16 +66,16 @@ heroStyle = "background"
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = false
 showBreadcrumbs = false
-showSummary = true
+showSummary = false
 showViews = false
 showLikes = false
 showTableOfContents = true
 showCards = true
 orderByWeight = false
-groupByYear = true
+groupByYear = false
 cardView = false
-cardViewScreenWidth = true
-constrainItemsWidth = true
+cardViewScreenWidth = false
+constrainItemsWidth = false
 
 [sitemap]
 excludedKinds = []
