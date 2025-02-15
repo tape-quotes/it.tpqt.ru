@@ -1,0 +1,14 @@
+[[main]]
+name = "Публикации"
+pageRef = "posts"
+identifier = "NAoH3ZzqC3"
+weight = 1
+
+[[main]]
+name = "Проекты"
+pageRef = "projects"
+identifier = "me4VHr26op"
+weight = 2
+
+[[footer]]
+none = "none"
