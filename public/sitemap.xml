@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/posts/bareos-series-01-server-net-conf/</loc>
+    <loc>http://localhost:1313/posts/bareos-s01-server-net-conf/</loc>
     <lastmod>2024-09-10T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -15,13 +15,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/</loc>
+    <loc>http://localhost:1313/posts/bareos-s02-aio-psql-el9-installation/</loc>
     <lastmod>2024-03-07T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/bareos-series-05-dir-openssl-sclient/</loc>
+    <loc>http://localhost:1313/posts/bareos-s05-dir-openssl-sclient/</loc>
     <lastmod>2024-02-11T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -111,7 +111,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/</loc>
+    <loc>http://localhost:1313/posts/import-ksmg-va-to-vstack/</loc>
     <lastmod>2024-08-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

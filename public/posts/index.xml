@@ -11,10 +11,10 @@
     
     <item>
       <title>Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9</title>
-      <link>http://localhost:1313/posts/bareos-series-01-server-net-conf/</link>
+      <link>http://localhost:1313/posts/bareos-s01-server-net-conf/</link>
       <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bareos-series-01-server-net-conf/</guid>
+      <guid>http://localhost:1313/posts/bareos-s01-server-net-conf/</guid>
       <description></description>
       
     </item>
@@ -31,30 +31,30 @@
     
     <item>
       <title>Установка Bareos AIO и PostgreSQL на EL9</title>
-      <link>http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/</link>
+      <link>http://localhost:1313/posts/bareos-s02-aio-psql-el9-installation/</link>
       <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/</guid>
+      <guid>http://localhost:1313/posts/bareos-s02-aio-psql-el9-installation/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Проверка возможности подключения к Bareos Director с openssl s_client</title>
-      <link>http://localhost:1313/posts/bareos-series-05-dir-openssl-sclient/</link>
+      <link>http://localhost:1313/posts/bareos-s05-dir-openssl-sclient/</link>
       <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/bareos-series-05-dir-openssl-sclient/</guid>
+      <guid>http://localhost:1313/posts/bareos-s05-dir-openssl-sclient/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP</title>
-      <link>http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/</link>
+      <title>Подготовка облачного образа Kaspersky Secure Mail Gateway 2.1-VA к импорту в vStack HCP</title>
+      <link>http://localhost:1313/posts/import-ksmg-va-to-vstack/</link>
       <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/import-ksmg-va-from-vcd-to-vstack/</guid>
+      <guid>http://localhost:1313/posts/import-ksmg-va-to-vstack/</guid>
       <description></description>
       
     </item>

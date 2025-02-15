@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Установка Bareos AIO и PostgreSQL на EL9 &middot; Заметки вокруг ИТ</title>
-  <meta name="title" content="Установка Bareos AIO и PostgreSQL на EL9 &middot; Заметки вокруг ИТ" />
+  <title>Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9 &middot; Заметки вокруг ИТ</title>
+  <meta name="title" content="Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9 &middot; Заметки вокруг ИТ" />
   
   <meta name="description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC)." />
-  <meta name="keywords" content="bareos, postgresql, linux, " />
+  <meta name="keywords" content="bareos, linux, network, nmcli, networkmanager, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/" />
+  <link rel="canonical" href="http://localhost:1313/posts/bareos-s01-server-net-conf/" />
   
   
   
@@ -71,24 +71,26 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/">
+  <meta property="og:url" content="http://localhost:1313/posts/bareos-s01-server-net-conf/">
   <meta property="og:site_name" content="Заметки вокруг ИТ">
-  <meta property="og:title" content="Установка Bareos AIO и PostgreSQL на EL9">
+  <meta property="og:title" content="Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9">
   <meta property="og:description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC).">
   <meta property="og:locale" content="ru">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-03-07T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-03-07T00:00:00+00:00">
+    <meta property="article:published_time" content="2024-09-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-10T00:00:00+00:00">
     <meta property="article:tag" content="Bareos">
-    <meta property="article:tag" content="Postgresql">
     <meta property="article:tag" content="Linux">
-      <meta property="og:see_also" content="http://localhost:1313/posts/bareos-series-01-server-net-conf/">
+    <meta property="article:tag" content="Network">
+    <meta property="article:tag" content="Nmcli">
+    <meta property="article:tag" content="Networkmanager">
+      <meta property="og:see_also" content="http://localhost:1313/posts/bareos-s02-aio-psql-el9-installation/">
       <meta property="og:see_also" content="http://localhost:1313/posts/bareos-s05-dir-openssl-sclient/">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Установка Bareos AIO и PostgreSQL на EL9">
+  <meta name="twitter:title" content="Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9">
   <meta name="twitter:description" content="Блог об информационных технологиях. Виртуализация, виртуальная инфраструктура, гиперконвергентная инфраструктура (HCI), облачные сервисы, Infrustructure-as-a-Service (IaaS): VMware, VMware Cloud Director, VMware vSphere, VMware vSAN, VMware NSX; kvm / libvirt: OpenStack; oVirt / Red Hat Virtualization; Proxmox Virtual Environment (PVE); bhyve: vStack HCP, CBSD; Microsoft Hyper-V. Операционные системы, системное программное обеспечение: GNU/Linux, Fedora Linux, Enterprise Linux: Red Hat Enterprise Linux (RHEL), CentOS, AlmaLinux, Rocky Linux, Oracle Linux; BSD, FreeBSD; OpenSolaris/illumos: OmniOS, DilOS. Microsoft Windows Server. Серверы, серверное оборудование; сетевое оборудование; системы хранения данных (СХД): Huawei Enterprise (OceanStor Dorado, IBM/Lenovo, NetApp (ONTAP); программно-определяемое хранилище (software-defined storage / SDS), файловые системы, протоколы доступа к данным: OpenZFS, Gluster, NFS, pNFS, Ceph, iSCSI, FibreChannel (FC).">
 
   
@@ -97,26 +99,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Установка Bareos AIO и PostgreSQL на EL9",
-    "headline": "Установка Bareos AIO и PostgreSQL на EL9",
+    "name": "Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9",
+    "headline": "Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9",
     
     
     "inLanguage": "ru",
-    "url" : "http:\/\/localhost:1313\/posts\/bareos-series-02-aio-psql-el9-installation\/",
+    "url" : "http:\/\/localhost:1313\/posts\/bareos-s01-server-net-conf\/",
     "author" : {
       "@type": "Person",
       "name": "Сергей Бурцев"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-03-07T00:00:00\u002b00:00",
-    "datePublished": "2024-03-07T00:00:00\u002b00:00",
+    "dateCreated": "2024-09-10T00:00:00\u002b00:00",
+    "datePublished": "2024-09-10T00:00:00\u002b00:00",
     
-    "dateModified": "2024-03-07T00:00:00\u002b00:00",
+    "dateModified": "2024-09-10T00:00:00\u002b00:00",
     
-    "keywords": ["bareos","postgresql","linux"],
+    "keywords": ["bareos","linux","network","nmcli","networkmanager"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "118"
+    "wordCount": "94"
   }]
   </script>
 
@@ -469,7 +471,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Установка Bareos AIO и PostgreSQL на EL9
+      Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -518,7 +520,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-03-07T00:00:00&#43;00:00">7 марта 2024</time><span class="px-2 text-primary-500">&middot;</span><span>118 слов</span><span class="px-2 text-primary-500">&middot;</span><span title="Время чтения">1 минута</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2024-09-10T00:00:00&#43;00:00">10 сентября 2024</time><span class="px-2 text-primary-500">&middot;</span><span>94 слов</span><span class="px-2 text-primary-500">&middot;</span><span title="Время чтения">1 минута</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -528,7 +530,7 @@
 
 <span class="mb-[2px]">
   <a
-    href="https://github.com/tape-quotes/it.tpqt.ru/tree/main/content/posts/bareos-series-02-aio-psql-el9-installation.md"
+    href="https://github.com/tape-quotes/it.tpqt.ru/tree/main/content/posts/bareos-s01-server-net-conf.md"
     class="text-lg hover:text-primary-500"
     rel="noopener noreferrer"
     target="_blank"
@@ -594,18 +596,34 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/postgresql/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Postgresql
-  </span>
-</span>
-  </span>
-  
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Linux
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/network/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Network
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/nmcli/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Nmcli
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/networkmanager/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Networkmanager
   </span>
 </span>
   </span>
@@ -750,16 +768,16 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/posts/bareos-series-01-server-net-conf/">
-            Часть 1: Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9
-        </a>
+        Часть 1: Эта публикация
     </div>
     
     
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        Часть 2: Эта публикация
+        <a href="http://localhost:1313/posts/bareos-s02-aio-psql-el9-installation/">
+            Часть 2: Установка Bareos AIO и PostgreSQL на EL9
+        </a>
     </div>
     
     
@@ -779,31 +797,15 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <p>Переключаемся в режим суперпользователя:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -i
-</span></span></code></pre></div><p>Добавляем community-репозитории Bareos:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s https://download.bareos.org/current/EL_9/add_bareos_repositories.sh<span class="o">)</span>
-</span></span></code></pre></div><p>Устанавливаем пакеты:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dnf install -y bareos postgresql-server postgresql postgresql-contrib
-</span></span></code></pre></div><p>Устанавливаем пароль пользователю postgres:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">passwd postgres
-</span></span></code></pre></div><p>Инициализируем БД:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres initdb -D /var/lib/pgsql/data/
-</span></span></code></pre></div><p>Активируем и запускаем службу PostgreSQL:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now postgresql.service
-</span></span></code></pre></div><p>Если необходимо, устанавливаем пароль пользователя postgres в БД:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres psql
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-postgresql" data-lang="postgresql"><span class="line"><span class="cl"><span class="k">ALTER</span> <span class="k">USER</span> <span class="n">postgres</span> <span class="k">WITH</span> <span class="k">PASSWORD</span> <span class="s1">&#39;&lt;password&gt;&#39;</span>
-</span></span></code></pre></div><p>или</p>
-<pre tabindex="0"><code class="language-postrgesql" data-lang="postrgesql">\password
-</code></pre><p>Создаём в БД сущности Bareos:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres /usr/lib/bareos/scripts/create_bareos_database
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres /usr/lib/bareos/scripts/make_bareos_tables
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u postgres /usr/lib/bareos/scripts/grant_bareos_privileges
-</span></span></code></pre></div><p>Активируем и запускаем службы Bareos:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now bareos-dir <span class="o">&amp;&amp;</span> systemctl <span class="nb">enable</span> --now bareos-sd <span class="o">&amp;&amp;</span> systemctl <span class="nb">enable</span> --now bareos-fd 
-</span></span></code></pre></div><p>Если нужно подключаться к Bareos Director извне, то открываем дополнительно порт 9101/tcp:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">firewall-cmd --add-port<span class="o">=</span>9101/tcp <span class="o">&amp;&amp;</span> firewall-cmd --runtime-to-permanent
+          <p>Создаём bond:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmcli connection add <span class="nb">type</span> bond con-name vStackHostAccess ifname v39-e16 bond.options <span class="nv">mode</span><span class="o">=</span>802.3ad,miimon<span class="o">=</span>100,lacp_rate<span class="o">=</span>fast,xmit_hash_policy<span class="o">=</span>layer2+3 ipv4.method disabled ipv6.method disabled
+</span></span></code></pre></div><p>Добавляем в bond интерфейсы физических портов и поднимаем соединение:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmcli connection add <span class="nb">type</span> ethernet ifname enp101s0f0 master v39-e16 slave-type bond
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmcli connection add <span class="nb">type</span> ethernet ifname enp101s0f1 master v39-e16 slave-type bond
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmcli con up v39-e16 up
+</span></span></code></pre></div><p>Создаём поверх bond&rsquo;а интерфейс с vlan&rsquo;ом нужной нам сети и поднимаем интерфейс:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmcli con add <span class="nb">type</span> vlan con-name vStackPublicEndpoints ifname v39-e16.v41 id <span class="m">41</span> dev v39-e16 ipv4.method manual ipv6.method disabled connection.autoconnect yes ip4 10.200.41.180/24 gw4 10.200.41.1 ipv4.dns 8.8.8.8,8.8.4.4
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmcli con up v39-e16.v41
 </span></span></code></pre></div>
           
           
@@ -824,16 +826,16 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/posts/bareos-series-01-server-net-conf/">
-            Часть 1: Настройка сетевых интерфейсов физического сервера Bareos AIO в EL9
-        </a>
+        Часть 1: Эта публикация
     </div>
     
     
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        Часть 2: Эта публикация
+        <a href="http://localhost:1313/posts/bareos-s02-aio-psql-el9-installation/">
+            Часть 2: Установка Bareos AIO и PostgreSQL на EL9
+        </a>
     </div>
     
     
@@ -858,7 +860,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://t.me/share/url?url=http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/&amp;resubmit=true&amp;title=%d0%a3%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%20Bareos%20AIO%20%d0%b8%20PostgreSQL%20%d0%bd%d0%b0%20EL9"
+      href="https://t.me/share/url?url=http://localhost:1313/posts/bareos-s01-server-net-conf/&amp;resubmit=true&amp;title=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20%d1%81%d0%b5%d1%82%d0%b5%d0%b2%d1%8b%d1%85%20%d0%b8%d0%bd%d1%82%d0%b5%d1%80%d1%84%d0%b5%d0%b9%d1%81%d0%be%d0%b2%20%d1%84%d0%b8%d0%b7%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%be%d0%b3%d0%be%20%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0%20Bareos%20AIO%20%d0%b2%20EL9"
       title="Поделиться через Telegram"
       aria-label="Поделиться через Telegram"
       >
@@ -877,7 +879,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/&amp;resubmit=true&amp;title=%d0%a3%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%20Bareos%20AIO%20%d0%b8%20PostgreSQL%20%d0%bd%d0%b0%20EL9"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/bareos-s01-server-net-conf/&amp;resubmit=true&amp;title=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20%d1%81%d0%b5%d1%82%d0%b5%d0%b2%d1%8b%d1%85%20%d0%b8%d0%bd%d1%82%d0%b5%d1%80%d1%84%d0%b5%d0%b9%d1%81%d0%be%d0%b2%20%d1%84%d0%b8%d0%b7%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%be%d0%b3%d0%be%20%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0%20Bareos%20AIO%20%d0%b2%20EL9"
       title="Поделиться через WhatsApp"
       aria-label="Поделиться через WhatsApp"
       >
@@ -896,7 +898,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/&amp;text=%d0%a3%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%20Bareos%20AIO%20%d0%b8%20PostgreSQL%20%d0%bd%d0%b0%20EL9"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/bareos-s01-server-net-conf/&amp;text=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20%d1%81%d0%b5%d1%82%d0%b5%d0%b2%d1%8b%d1%85%20%d0%b8%d0%bd%d1%82%d0%b5%d1%80%d1%84%d0%b5%d0%b9%d1%81%d0%be%d0%b2%20%d1%84%d0%b8%d0%b7%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%be%d0%b3%d0%be%20%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0%20Bareos%20AIO%20%d0%b2%20EL9"
       title="Поделиться в X"
       aria-label="Поделиться в X"
       >
@@ -914,7 +916,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/posts/bareos-series-02-aio-psql-el9-installation/&amp;subject=%d0%a3%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0%20Bareos%20AIO%20%d0%b8%20PostgreSQL%20%d0%bd%d0%b0%20EL9"
+      href="mailto:?body=http://localhost:1313/posts/bareos-s01-server-net-conf/&amp;subject=%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20%d1%81%d0%b5%d1%82%d0%b5%d0%b2%d1%8b%d1%85%20%d0%b8%d0%bd%d1%82%d0%b5%d1%80%d1%84%d0%b5%d0%b9%d1%81%d0%be%d0%b2%20%d1%84%d0%b8%d0%b7%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%be%d0%b3%d0%be%20%d1%81%d0%b5%d1%80%d0%b2%d0%b5%d1%80%d0%b0%20Bareos%20AIO%20%d0%b2%20EL9"
       title="Отправить по электронной почте"
       aria-label="Отправить по электронной почте"
       >
@@ -943,8 +945,8 @@
           
         
       <script>
-        var oid = "views_posts\/bareos-series-02-aio-psql-el9-installation.md"
-        var oid_likes = "likes_posts\/bareos-series-02-aio-psql-el9-installation.md"
+        var oid = "views_posts\/bareos-s01-server-net-conf.md"
+        var oid_likes = "likes_posts\/bareos-s01-server-net-conf.md"
       </script>
       
       
@@ -964,7 +966,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/bareos-s05-dir-openssl-sclient/">
+            <a class="flex group mr-3" href="/posts/linux-iscsi-multipathd-lvm/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -976,23 +978,6 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Проверка возможности подключения к Bareos Director с openssl s_client</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2024-02-11T00:00:00&#43;00:00">11 февраля 2024</time>
-                  
-                </span>
-              </span>
-            </a>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/linux-iscsi-multipathd-lvm/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
                   >Настройка iSCSI, multipathd и lvm в EL9</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
@@ -1001,15 +986,10 @@
                   
                 </span>
               </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
             </a>
+          
+        </span>
+        <span>
           
         </span>
       </div>

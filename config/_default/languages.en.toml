@@ -1,7 +1,3 @@
 disabled = true
 languageCode = "en"
 languageName = "English"
-
-[params]
-logo = "android-chrome-512x512.png"
-secondaryLogo = "."

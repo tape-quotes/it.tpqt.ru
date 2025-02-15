@@ -10,10 +10,11 @@ tags:
   - VMware
   - linux
   - bash
-title: Подготовка образа Kaspersky Secure Mail Gateway 2.1-VA к импорту из VMware Cloud Director в vStack HCP
-updated: 2025-02-13T15:52
+title: Подготовка облачного образа Kaspersky Secure Mail Gateway 2.1-VA к импорту в vStack HCP
+updated: 2025-02-15T14:22
 ---
-#### Подготовка рабочего окружения (OEL9)
+*Пример предполагает, что в качестве существующей среды используется VMware Cloud Director.*
+#### Подготовка рабочего окружения (EL9)
 
 В примере для взаимодействия с VMware Cloud Director будет использоваться утилита vcd-cli.
 Вместо неё можно использовать и ovftool.
@@ -78,11 +79,11 @@ vcd vapp list
 ``` bash
 isDeployed    isEnabled      memoryAllocationMB  name                                             numberOfCpus    numberOfVMs  ownerName       status         storageKB  vdcName
 ------------  -----------  --------------------  ---------------------------------------------  --------------  -------------  --------------  -----------  -----------  ---------
-false         true                        16384  ksmg-va-2107854                                             8              1  my.username  POWERED_OFF    209715200  vdc-nsxv
-true          true                        81920  lab-itglobal-com-vapp                                      32              4  my.username  MIXED          639631360  vdc-nsxv
-true          true                               dr-vm-02-7e600f54-b3ec-4764-88ef-18311290564a                              0  my.username  POWERED_ON             0  vdc-nsxt
-true          true                        16384  tq-dmz-vapp                                                 8              1  my.username  POWERED_ON      20971520  vdc-nsxv
-true          true                        18432  tq-mgmt-vapp                                               10              2  my.username  POWERED_ON     734003200  vdc-nsxv
+false         true                        16384  ksmg-va-2107854                                             8              1  my.username    POWERED_OFF    209715200  vdc-nsxv
+true          true                        81920  lab-itglobal-com-vapp                                      32              4  my.username    MIXED          639631360  vdc-nsxv
+true          true                               dr-vm-02-7e600f54-b3ec-4764-88ef-18311290564a                              0  my.username    POWERED_ON             0  vdc-nsxt
+true          true                        16384  tq-dmz-vapp                                                 8              1  my.username    POWERED_ON      20971520  vdc-nsxv
+true          true                        18432  tq-mgmt-vapp                                               10              2  my.username    POWERED_ON     734003200  vdc-nsxv
 ```
 
 Скачиваем ранее развёрнутое vApp

@@ -5,7 +5,7 @@ draft: false
 params:
   author: Сергей Бурцев
 title: Проверка возможности подключения к Bareos Director с openssl s_client
-updated: 2025-02-14T03:49
+updated: 2025-02-15T14:19
 weight: "10"
 tags:
   - bareos
@@ -48,5 +48,5 @@ xxd -p | tr -d '\n'`
 
 Пример вывода при успешном подключении:
 <img
-src="../bareos-series-05-dir-openssl-sclient/631586959ec0194cecf8c9421077b33500838ad8.png"
+src="../bareos-s05-dir-openssl-sclient/631586959ec0194cecf8c9421077b33500838ad8.png"
 class="wikilink" alt="Pastedimage20240304134451.png" />
