@@ -30,7 +30,7 @@ showMoreLinkDest = "/posts/"
 cardView = true
 cardViewScreenWidth = false
 layoutBackgroundBlur = false
-homepageImage = "di_retro-pc02-bg-uc-a02.gif"
+homepageImage = "di_retro-pc02-bg-uc-a03.gif"
 
 [article]
 showDate = true
