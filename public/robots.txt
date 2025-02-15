@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://it.tpqt.ru/sitemap.xml
