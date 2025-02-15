@@ -44,6 +44,7 @@ footer:
   powered_by: "Работает на {{ .Hugo }}, {{ .Theme }}, {{ .Github }} и {{ .Render }}"
 
 list:
+  posts: "Публикации"
   externalurl_title: "Ссылка на внешний сайт"
   no_articles: "Здесь пока нет статей."
 
