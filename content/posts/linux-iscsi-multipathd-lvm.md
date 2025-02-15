@@ -1,6 +1,6 @@
 ---
 created: 2025-02-11T04:03
-updated: 2025-02-13T16:08
+updated: 2025-02-15T14:49
 date: 2024-08-12
 draft: false
 params:
@@ -16,12 +16,12 @@ tags:
   - VMware
   - vcd
 ---
-Устанавливаем пакеты:
+#### Устанавливаем пакеты
 ```bash
 dnf install -y iscsi-initiator-utils device-mapper-multipath
 ```
 
-Уточняем имя инициатора (IQN):
+#### Уточняем имя инициатора (IQN)
 ```bash
 cat /etc/iscsi/initiatorname.iscsi
 ```
@@ -30,12 +30,12 @@ cat /etc/iscsi/initiatorname.iscsi
 
 `InitiatorName=iqn.2024-08.com.itglobal.bareos-aio-kz:bareos-sd01`
 
-Генерируем дефолтный конфиг для multipath:
+#### Генерируем дефолтный конфиг для multipath
 ```bash
 /sbin/mpathconf --enable
 ```
 
-Вносим параметры авторизации в файл конфигурации
+#### Вносим параметры авторизации в файл конфигурации
 ```bash
 vi /etc/iscsi/iscsid.conf
 ```
@@ -62,7 +62,7 @@ discovery.sendtargets.auth.username_in = iqn.1994-05.com.redhat:123123123
 discovery.sendtargets.auth.password_in = initiator_pass
 ```
 
-Включаем сервисы и проверяем логи на наличие ошибок:
+#### Включаем сервисы и проверяем логи
 ```bash
 systemctl enable --now iscsid && systemctl enable --now multipathd
 ```
@@ -75,17 +75,17 @@ systemctl status iscsid
 systemctl status multipathd
 ```
 
-Обнаруживаем точки входа к хранилищу:
+#### Обнаруживаем точки подключения к хранилищу
 ```bash
 iscsiadm -m discovery -t sendtargets -p <IP address>
 ```
 
-Подключаемся к обнаруженным узлам:
+#### Подключаемся к обнаруженным узлам
 ```bash
 iscsiadm -m node --login
 ```
 
-(или подключаемся к каждому узлу хранилища, обнаруженному ранее:)
+(или подключаемся вручную к каждому узлу хранилища из обнаруженным ранее)
 ```bash
 iscsiadm -m node --targetname 'iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f' --portal '10.32.45.206' --login
 ```
@@ -99,7 +99,7 @@ iscsiadm -m node --targetname 'iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf1
 iscsiadm -m node --targetname 'iqn.2002-09.com.lenovo:thinksystem.6d039ea0002cf17c00000000616ead3f' --portal '10.32.45.209' --login
 ```
 
-Проверяем, что выданный на хранилище диск доступен:
+#### Проверяем, что выданный на хранилище диск доступен:
 ```bash
 multipath -ll
 ```
@@ -110,16 +110,15 @@ mpatha (36d039ea0000016710000027f66b5e2ef) dm-2 NETAPP,INF-01-00
 size=2.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
 |-+- policy='service-time 0' prio=50 status=active
 | |- 36:0:0:1 sde 8:64 active ready running
-| - 35:0:0:1 sdd 8:48 active ready running
--+- policy='service-time 0' prio=10 status=enabled
-|- 34:0:0:1 sdc 8:32 active ready running
-- 33:0:0:1 sdb 8:16 active ready running
+| |- 35:0:0:1 sdd 8:48 active ready running
+|-+- policy='service-time 0' prio=10 status=enabled
+| |- 34:0:0:1 sdc 8:32 active ready running
+| |- 33:0:0:1 sdb 8:16 active ready running
 ```
 
 Полученное блочное устройство будет доступно по пути `/dev/mapper/mpath[a..n]`
 
-Разметить получившийся диск средствами lvm2 можно так:
-
+#### Размечаем получившийся диск средствами lvm2
 ```bash
 pvcreate /dev/mapper/mpatha
 ```
@@ -133,20 +132,21 @@ lvcreate -L 1GiB --name data_lv data_vg /dev/mapper/mpatha
 ```
 
 ```bash
-lvextend /dev/mapper/data_vg-data_lv -l +100%FREE
+lvextend /dev/data_vg/data_lv -l +100%FREE
 ```
 
 Параметры монтирования для `/etc/fstab`:
 ```
-/dev/mapper/mpatha /data/miniovol xfs     _netdev,defaults  0 0
+/dev/data_vg/data_lv  /data_lv xfs     _netdev,defaults  0 0
 ```
 
-При флуде в логи со стороны **multipathd** вида:
+#### Примечания
+При наличии в логах сообщений от **multipathd** вида:
 ```
-Feb 18 12:49:33 test-w1-k8s multipathd[32939]: sda: add missing path  
-Feb 18 12:49:33 test-w1-k8s multipathd[32939]: sda: failed to get udev uid: Invalid argument  
-Feb 18 12:49:33 test-w1-k8s multipathd[32939]: sda: failed to get sysfs uid: Invalid argument  
-Feb 18 12:49:33 test-w1-k8s multipathd[32939]: sda: failed to get sgio uid: No such file or directory
+Feb 18 12:49:33 <...> multipathd[32939]: sda: add missing path  
+Feb 18 12:49:33 <...> multipathd[32939]: sda: failed to get udev uid: Invalid argument  
+Feb 18 12:49:33 <...> multipathd[32939]: sda: failed to get sysfs uid: Invalid argument  
+Feb 18 12:49:33 <...> multipathd[32939]: sda: failed to get sgio uid: No such file or directory
 ```
 
 необходимо добавить в **`/etc/multipath.conf`** в блок **`blacklist`**:
@@ -159,7 +159,7 @@ blacklist {
 }
 ```
 
-Увеличение размера тома после увеличения размера LUN:
+Увеличить размера тома после увеличения размера LUN можно так:
 ```bash
 lsblk
 ```
