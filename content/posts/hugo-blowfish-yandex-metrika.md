@@ -10,7 +10,7 @@ tags:
 - web
 - yandex
 title: Интеграция Hugo / Blowfish с Яндекс.Метрикой
-updated: "2025-02-16T22:22"
+updated: "2025-02-16T22:34"
 weight: 10
 ---
 
@@ -45,7 +45,7 @@ weight: 10
   {{ end }}
 ```
 
-2.  Указать полученный в панели управления metrika.yandex.ru номер созданного счётчика в файле `config/_default/params.toml`:
+2.  Указать полученный в панели управления [metrika.yandex.ru](https://metrika.yandex.ru/add) номер созданного счётчика в файле `config/_default/params.toml`:
 
 ``` toml
 [metrika]
