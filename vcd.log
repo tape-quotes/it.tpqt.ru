@@ -1,0 +1,458 @@
+25-02-16 04:27:49 | client:877 - _negotiate_api_version | DEBUG :: Negotiating API version
+25-02-16 04:27:49 | client:1321 - _log_request_sent | DEBUG :: Request uri GET: https://vcloud-lab.itglobal.com/api/versions
+25-02-16 04:27:49 | client:1324 - _log_request_sent | DEBUG :: Request partial headers: {'Accept': 'application/*+xml'}
+25-02-16 04:27:50 | client:1340 - _log_request_response | DEBUG :: Request full headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/*+xml', 'Connection': 'keep-alive'}
+25-02-16 04:27:50 | client:1342 - _log_request_response | DEBUG :: Response status code: 200
+25-02-16 04:27:50 | client:1345 - _log_request_response | DEBUG :: Response headers: {'Date': 'Sun, 16 Feb 2025 01:27:50 GMT', 'X-VMWARE-VCLOUD-REQUEST-ID': 'da202434-351f-4bbe-9e47-c0aaff04342b', 'Content-Type': 'application/*+xml', 'X-VMWARE-VCLOUD-REQUEST-EXECUTION-TIME': '1', 'Cache-Control': 'no-store, must-revalidate', 'Vary': 'Accept-Encoding', 'Content-Length': '3938'}
+25-02-16 04:27:50 | client:1354 - _log_request_response | DEBUG :: Response body: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SupportedVersions xmlns="http://www.vmware.com/vcloud/versions" xmlns:ns2="http://www.vmware.com/vcloud/v1.5" xmlns:vmext="http://www.vmware.com/vcloud/extension/v1.5" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:common="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:vmw="http://www.vmware.com/schema/ovf" xmlns:ovfenv="http://schemas.dmtf.org/ovf/environment/1">
+    <VersionInfo deprecated="true">
+        <Version>33.0</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/api/sessions</LoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="true">
+        <Version>34.0</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/api/sessions</LoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="true">
+        <Version>35.0</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/api/sessions</LoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="true">
+        <Version>35.2</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/api/sessions</LoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="false">
+        <Version>36.0</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions</LoginUrl>
+        <ProviderLoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/provider</ProviderLoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="false">
+        <Version>36.1</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions</LoginUrl>
+        <ProviderLoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/provider</ProviderLoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="false">
+        <Version>36.2</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions</LoginUrl>
+        <ProviderLoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/provider</ProviderLoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="false">
+        <Version>36.3</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions</LoginUrl>
+        <ProviderLoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/provider</ProviderLoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="false">
+        <Version>37.0</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions</LoginUrl>
+        <ProviderLoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/provider</ProviderLoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="false">
+        <Version>37.1</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions</LoginUrl>
+        <ProviderLoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/provider</ProviderLoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="false">
+        <Version>37.2</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions</LoginUrl>
+        <ProviderLoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/provider</ProviderLoginUrl>
+    </VersionInfo>
+    <VersionInfo deprecated="false">
+        <Version>37.3</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions</LoginUrl>
+        <ProviderLoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/provider</ProviderLoginUrl>
+    </VersionInfo>
+    <SchemaRoot>https://vcloud-lab.itglobal.com/api/v1.5/schema/</SchemaRoot>
+    <AlphaVersion deprecated="false">
+        <Version>38.0.0-alpha-1704405639</Version>
+        <LoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions</LoginUrl>
+        <ProviderLoginUrl>https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/provider</ProviderLoginUrl>
+    </AlphaVersion>
+</SupportedVersions>
+
+25-02-16 04:27:50 | client:879 - _negotiate_api_version | DEBUG :: API versions supported: ['33.0', '34.0', '35.0', '35.2', '36.0', '36.1', '36.2', '36.3', '37.0', '37.1', '37.2', '37.3']
+25-02-16 04:27:50 | client:886 - _negotiate_api_version | DEBUG :: API version negotiated to: 36.0
+25-02-16 04:27:50 | client:1023 - set_credentials | DEBUG :: API version in use: 36.0
+25-02-16 04:27:50 | client:1321 - _log_request_sent | DEBUG :: Request uri POST: https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions
+25-02-16 04:27:50 | client:1324 - _log_request_sent | DEBUG :: Request partial headers: {'Accept': 'application/json;version=36.0'}
+25-02-16 04:27:53 | client:1340 - _log_request_response | DEBUG :: Request full headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json;version=36.0', 'Connection': 'keep-alive', 'Content-Length': '0', 'Authorization': '[REDACTED]'}
+25-02-16 04:27:53 | client:1342 - _log_request_response | DEBUG :: Response status code: 200
+25-02-16 04:27:53 | client:1345 - _log_request_response | DEBUG :: Response headers: {'Date': 'Sun, 16 Feb 2025 01:27:53 GMT', 'X-VMWARE-VCLOUD-REQUEST-ID': '67df04c9-cd41-4193-a9dc-4f10c98f6096', 'Content-Type': 'application/json;version=36.0', 'X-VMWARE-VCLOUD-REQUEST-EXECUTION-TIME': '2678', 'Cache-Control': 'no-store, must-revalidate', 'Content-Location': 'https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/current', 'Link': '<https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/urn%3Avcloud%3Asession%3A504773a7-cb5e-4df9-ac51-839f7c060216/accessibleLocations>;rel="down";type="application/json";model="AccessibleLocations", <https://vcloud-lab.itglobal.com/oauth/tenant/tq/register>;rel="add";type="application/json";model="OAuthClient", <https://vcloud-lab.itglobal.com/api/session>;rel="alternate", <https://vcloud-lab.itglobal.com/cloudapi/1.0.0/orgs/urn%3Avcloud%3Aorg%3A5e535ccb-0b77-4d96-9ff1-76233e0a0c24>;rel="down";title="urn:vcloud:org:5e535ccb-0b77-4d96-9ff1-76233e0a0c24";type="application/json";model="Org", <https://vcloud-lab.itglobal.com/oauth/tenant/tq/token>;rel="add";type="application/json";model="OAuthToken", <https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions>;rel="up";type="application/json";model="Sessions", <https://vcloud-lab.itglobal.com/cloudapi/1.0.0/sessions/urn%3Avcloud%3Asession%3A504773a7-cb5e-4df9-ac51-839f7c060216>;rel="remove";title="urn:vcloud:session:504773a7-cb5e-4df9-ac51-839f7c060216", <https://vcloud-lab.itglobal.com/cloudapi/1.0.0/users/urn%3Avcloud%3Auser%3A366e7614-62aa-4ec6-8647-5edf7259d523>;rel="down";title="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523";type="application/json";model="VcdUser"', 'X-VMWARE-VCLOUD-ACCESS-TOKEN': 'eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiI1ZTUzNWNjYi0wYjc3LTRkOTYtOWZmMS03NjIzM2UwYTBjMjRAMWVhNjQ2YWMtOTFhMi00YjQ3LThlY2YtYWEwOTJlOGI2NDI4Iiwic3ViIjoic2VyZ2V5LmJ1cnRzZXYiLCJleHAiOjE3Mzk3NTU2NzAsInZlcnNpb24iOiJ2Y2xvdWRfMS4wIiwianRpIjoiNTA0NzczYTdjYjVlNGRmOWFjNTE4MzlmN2MwNjAyMTYifQ.Le8N6bOu6BeyyjOjFOdVMAn7f3cngWXQto3skS-05TgRLbNEgVQ7WcYDgFpgt6N4GMyYDkJ5t1mb6vXGGS3uxyAqMzysnfUDXj6NZ_QnKfW5p0gF0ODjM7tpDdM0UizdBhE6A4LZNiTPX-gvYPrELSqMdB15srr9BHVv7QYIC7E88aa_VVVwEtpdXxroPV2ymzAlqIr1vtS6bWG6uOa6oV0i0vZljoDI3NUKkC7oeCldTl_h5_i1tCwarssMlPCYNQhRD1SmPZO2vvP61kx45PoY6wMVzxBoNKZuq1b6hs7E98RqFtf6NH_t_PL5gqvKe9c-TFgUGsBodZ8X_Uf-Kg', 'Set-Cookie': 'vcloud_jwt=eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiI1ZTUzNWNjYi0wYjc3LTRkOTYtOWZmMS03NjIzM2UwYTBjMjRAMWVhNjQ2YWMtOTFhMi00YjQ3LThlY2YtYWEwOTJlOGI2NDI4Iiwic3ViIjoic2VyZ2V5LmJ1cnRzZXYiLCJleHAiOjE3Mzk3NTU2NzAsInZlcnNpb24iOiJ2Y2xvdWRfMS4wIiwianRpIjoiNTA0NzczYTdjYjVlNGRmOWFjNTE4MzlmN2MwNjAyMTYifQ.Le8N6bOu6BeyyjOjFOdVMAn7f3cngWXQto3skS-05TgRLbNEgVQ7WcYDgFpgt6N4GMyYDkJ5t1mb6vXGGS3uxyAqMzysnfUDXj6NZ_QnKfW5p0gF0ODjM7tpDdM0UizdBhE6A4LZNiTPX-gvYPrELSqMdB15srr9BHVv7QYIC7E88aa_VVVwEtpdXxroPV2ymzAlqIr1vtS6bWG6uOa6oV0i0vZljoDI3NUKkC7oeCldTl_h5_i1tCwarssMlPCYNQhRD1SmPZO2vvP61kx45PoY6wMVzxBoNKZuq1b6hs7E98RqFtf6NH_t_PL5gqvKe9c-TFgUGsBodZ8X_Uf-Kg;Path=/;Secure;HttpOnly;Version=1, vcloud_session_id=504773a7cb5e4df9ac51839f7c060216;Path=/;Secure;HttpOnly;Version=1', 'X-VMWARE-VCLOUD-TOKEN-TYPE': 'Bearer', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Transfer-Encoding': 'chunked'}
+25-02-16 04:27:53 | client:1354 - _log_request_response | DEBUG :: Response body: {"id":"urn:vcloud:session:504773a7-cb5e-4df9-ac51-839f7c060216","user":{"name":"sergey.burtsev","id":"urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523"},"org":{"name":"tq","id":"urn:vcloud:org:5e535ccb-0b77-4d96-9ff1-76233e0a0c24"},"location":"5e535ccb-0b77-4d96-9ff1-76233e0a0c24@1ea646ac-91a2-4b47-8ecf-aa092e8b6428","roles":["Organization Administrator"],"roleRefs":[{"name":"Organization Administrator","id":"urn:vcloud:role:34f09129-78f6-3491-b81c-cda9f71dd46d"}],"sessionIdleTimeoutMinutes":1440}
+25-02-16 04:27:53 | client:1105 - rehydrate_from_token | DEBUG :: API version in use: 36.0
+25-02-16 04:27:53 | client:1321 - _log_request_sent | DEBUG :: Request uri GET: https://vcloud-lab.itglobal.com/api/session
+25-02-16 04:27:53 | client:1324 - _log_request_sent | DEBUG :: Request partial headers: {'Accept': 'application/*+xml;version=36.0'}
+25-02-16 04:27:53 | client:1340 - _log_request_response | DEBUG :: Request full headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/*+xml;version=36.0', 'Connection': 'keep-alive', 'Authorization': '[REDACTED]'}
+25-02-16 04:27:53 | client:1342 - _log_request_response | DEBUG :: Response status code: 200
+25-02-16 04:27:53 | client:1345 - _log_request_response | DEBUG :: Response headers: {'Date': 'Sun, 16 Feb 2025 01:27:53 GMT', 'X-VMWARE-VCLOUD-REQUEST-ID': 'fd86972a-48c0-41b7-b41f-7bda52fd9438', 'X-VMWARE-VCLOUD-ACCESS-TOKEN': 'eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiI1ZTUzNWNjYi0wYjc3LTRkOTYtOWZmMS03NjIzM2UwYTBjMjRAMWVhNjQ2YWMtOTFhMi00YjQ3LThlY2YtYWEwOTJlOGI2NDI4Iiwic3ViIjoic2VyZ2V5LmJ1cnRzZXYiLCJleHAiOjE3Mzk3NTU2NzAsInZlcnNpb24iOiJ2Y2xvdWRfMS4wIiwianRpIjoiNTA0NzczYTdjYjVlNGRmOWFjNTE4MzlmN2MwNjAyMTYifQ.Le8N6bOu6BeyyjOjFOdVMAn7f3cngWXQto3skS-05TgRLbNEgVQ7WcYDgFpgt6N4GMyYDkJ5t1mb6vXGGS3uxyAqMzysnfUDXj6NZ_QnKfW5p0gF0ODjM7tpDdM0UizdBhE6A4LZNiTPX-gvYPrELSqMdB15srr9BHVv7QYIC7E88aa_VVVwEtpdXxroPV2ymzAlqIr1vtS6bWG6uOa6oV0i0vZljoDI3NUKkC7oeCldTl_h5_i1tCwarssMlPCYNQhRD1SmPZO2vvP61kx45PoY6wMVzxBoNKZuq1b6hs7E98RqFtf6NH_t_PL5gqvKe9c-TFgUGsBodZ8X_Uf-Kg', 'X-VMWARE-VCLOUD-TOKEN-TYPE': 'Bearer', 'x-vcloud-authorization': '[REDACTED]', 'Content-Type': 'application/vnd.vmware.vcloud.session+xml;version=36.0', 'X-VMWARE-VCLOUD-REQUEST-EXECUTION-TIME': '331', 'Cache-Control': 'no-store, must-revalidate', 'Vary': 'Accept-Encoding', 'Content-Length': '3371'}
+25-02-16 04:27:53 | client:1354 - _log_request_response | DEBUG :: Response body: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Session xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:vmext="http://www.vmware.com/vcloud/extension/v1.5" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:common="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vmw="http://www.vmware.com/schema/ovf" xmlns:ovfenv="http://schemas.dmtf.org/ovf/environment/1" xmlns:ns9="http://www.vmware.com/vcloud/versions" user="sergey.burtsev" org="tq" userId="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" roles="Organization Administrator" locationId="5e535ccb-0b77-4d96-9ff1-76233e0a0c24@1ea646ac-91a2-4b47-8ecf-aa092e8b6428" href="https://vcloud-lab.itglobal.com/api/session" type="application/vnd.vmware.vcloud.session+xml">
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/" type="application/vnd.vmware.vcloud.orgList+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/" type="application/vnd.vmware.vcloud.orgList+json"/>
+    <Link rel="remove" href="https://vcloud-lab.itglobal.com/api/session"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/admin/" type="application/vnd.vmware.admin.vcloud+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/admin/" type="application/vnd.vmware.admin.vcloud+json"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24" type="application/vnd.vmware.vcloud.org+xml" name="tq"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24" type="application/vnd.vmware.vcloud.org+json" name="tq"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query" type="application/vnd.vmware.vcloud.query.queryList+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query" type="application/vnd.vmware.vcloud.query.queryList+json"/>
+    <Link rel="entityResolver" href="https://vcloud-lab.itglobal.com/api/entity/" type="application/vnd.vmware.vcloud.entity+xml"/>
+    <Link rel="entityResolver" href="https://vcloud-lab.itglobal.com/api/entity/" type="application/vnd.vmware.vcloud.entity+json"/>
+    <Link rel="down:extensibility" href="https://vcloud-lab.itglobal.com/api/extensibility" type="application/vnd.vmware.vcloud.apiextensibility+xml"/>
+    <Link rel="down:extensibility" href="https://vcloud-lab.itglobal.com/api/extensibility" type="application/vnd.vmware.vcloud.apiextensibility+json"/>
+    <Link rel="nsx" href="https://vcloud-lab.itglobal.com/network" type="application/xml"/>
+    <Link rel="openapi" href="https://vcloud-lab.itglobal.com/cloudapi" type="application/json"/>
+    <AuthorizedLocations>
+        <Location>
+            <LocationId>5e535ccb-0b77-4d96-9ff1-76233e0a0c24@1ea646ac-91a2-4b47-8ecf-aa092e8b6428</LocationId>
+            <SiteName>vcloud-lab.itglobal.com</SiteName>
+            <OrgName>tq</OrgName>
+            <RestApiEndpoint>https://vcloud-lab.itglobal.com</RestApiEndpoint>
+            <UIEndpoint>https://vcloud-lab.itglobal.com</UIEndpoint>
+            <AuthContext>tq</AuthContext>
+            <ApiVersion>37.3</ApiVersion>
+        </Location>
+    </AuthorizedLocations>
+</Session>
+
+25-02-16 04:27:53 | client:1321 - _log_request_sent | DEBUG :: Request uri GET: https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24
+25-02-16 04:27:53 | client:1324 - _log_request_sent | DEBUG :: Request partial headers: {'Accept': 'application/*+xml;version=36.0'}
+25-02-16 04:27:54 | client:1340 - _log_request_response | DEBUG :: Request full headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/*+xml;version=36.0', 'Connection': 'keep-alive', 'Authorization': '[REDACTED]'}
+25-02-16 04:27:54 | client:1342 - _log_request_response | DEBUG :: Response status code: 200
+25-02-16 04:27:54 | client:1345 - _log_request_response | DEBUG :: Response headers: {'Date': 'Sun, 16 Feb 2025 01:27:54 GMT', 'X-VMWARE-VCLOUD-REQUEST-ID': 'bdad0a7f-98b4-442f-912e-617907542b9f', 'Content-Type': 'application/vnd.vmware.vcloud.org+xml;version=36.0', 'X-VMWARE-VCLOUD-REQUEST-EXECUTION-TIME': '152', 'Cache-Control': 'no-store, must-revalidate', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Transfer-Encoding': 'chunked'}
+25-02-16 04:27:54 | client:1354 - _log_request_response | DEBUG :: Response body: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Org xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:vmext="http://www.vmware.com/vcloud/extension/v1.5" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:common="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vmw="http://www.vmware.com/schema/ovf" xmlns:ovfenv="http://schemas.dmtf.org/ovf/environment/1" xmlns:ns9="http://www.vmware.com/vcloud/versions" name="tq" id="urn:vcloud:org:5e535ccb-0b77-4d96-9ff1-76233e0a0c24" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24" type="application/vnd.vmware.vcloud.org+xml">
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc" type="application/vnd.vmware.vcloud.query.records+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc" type="application/vnd.vmware.vcloud.query.records+json"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/tasksList/5e535ccb-0b77-4d96-9ff1-76233e0a0c24" type="application/vnd.vmware.vcloud.tasksList+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/tasksList/5e535ccb-0b77-4d96-9ff1-76233e0a0c24" type="application/vnd.vmware.vcloud.tasksList+json"/>
+    <Link rel="add" href="https://vcloud-lab.itglobal.com/api/admin/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/catalogs" type="application/vnd.vmware.admin.catalog+xml"/>
+    <Link rel="add" href="https://vcloud-lab.itglobal.com/api/admin/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/catalogs" type="application/vnd.vmware.admin.catalog+json"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalog" type="application/vnd.vmware.vcloud.query.records+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalog" type="application/vnd.vmware.vcloud.query.records+json"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/supportedSystemsInfo/" type="application/vnd.vmware.vcloud.supportedSystemsInfo+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/supportedSystemsInfo/" type="application/vnd.vmware.vcloud.supportedSystemsInfo+json"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/hybrid" type="application/vnd.vmware.vcloud.hybridOrg+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/hybrid" type="application/vnd.vmware.vcloud.hybridOrg+json"/>
+    <Link rel="instantiate" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/action/instantiate" type="application/vnd.vmware.vcloud.instantiateVdcTemplateParams+xml"/>
+    <Link rel="instantiate" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/action/instantiate" type="application/vnd.vmware.vcloud.instantiateVdcTemplateParams+json"/>
+    <Link rel="rollup" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/vdcRollup" type="application/vnd.vmware.vcloud.orgVdcRollup+xml"/>
+    <Link rel="rollup" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/vdcRollup" type="application/vnd.vmware.vcloud.orgVdcRollup+json"/>
+    <Link rel="down" model="Quotas" href="https://vcloud-lab.itglobal.com/cloudapi/1.0.0/orgs/urn:vcloud:org:5e535ccb-0b77-4d96-9ff1-76233e0a0c24/quotas" type="application/json"/>
+    <Link rel="down" model="AssignedQuotaPolicy" href="https://vcloud-lab.itglobal.com/cloudapi/1.0.0/orgs/urn:vcloud:org:5e535ccb-0b77-4d96-9ff1-76233e0a0c24/quotaPolicy" type="application/json"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/metadata" type="application/vnd.vmware.vcloud.metadata+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/metadata" type="application/vnd.vmware.vcloud.metadata+json"/>
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/admin/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24" type="application/vnd.vmware.admin.organization+xml" name="application/vnd.vmware.admin.organization+xml"/>
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/admin/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24" type="application/vnd.vmware.admin.organization+json" name="application/vnd.vmware.admin.organization+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/9e5d2dd0-82e0-47a7-9eac-817625173d63" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="DLR_to_EDGE_tq-nsxv-edge"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/9e5d2dd0-82e0-47a7-9eac-817625173d63" type="application/vnd.vmware.vcloud.orgNetwork+json" name="DLR_to_EDGE_tq-nsxv-edge"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/8a4c84ee-a122-4e0c-9d61-9a20d52e5571" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-itg-esxlab-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/8a4c84ee-a122-4e0c-9d61-9a20d52e5571" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-itg-esxlab-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/e249dd78-ede2-4a31-b978-b25ff5aa4ae2" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-itg-srv02-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/e249dd78-ede2-4a31-b978-b25ff5aa4ae2" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-itg-srv02-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/92f982ea-4116-46b1-95c2-38fc1a8a8eaf" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-itg-srv02-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/92f982ea-4116-46b1-95c2-38fc1a8a8eaf" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-itg-srv02-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/3ceeda6d-d4ea-4a2a-9ac3-fa4345cf1f9d" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-mgmt-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/3ceeda6d-d4ea-4a2a-9ac3-fa4345cf1f9d" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-mgmt-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/828daaea-6475-44e2-a96e-46cdd9be5406" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-pub-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/828daaea-6475-44e2-a96e-46cdd9be5406" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-pub-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/10e33869-7d27-4714-b6cc-aaafbb4f83e9" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-srv-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/10e33869-7d27-4714-b6cc-aaafbb4f83e9" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-srv-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/1f5dce6b-3966-46f5-9b10-8217251baed3" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-t-dmz-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/1f5dce6b-3966-46f5-9b10-8217251baed3" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-t-dmz-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/14cd28d1-0f12-4cf6-8863-cb14c086de1d" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-t-iso-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/14cd28d1-0f12-4cf6-8863-cb14c086de1d" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-t-iso-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/26c2581a-8bda-40f6-9c33-2bcf5d4440d3" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-t-rt-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/26c2581a-8bda-40f6-9c33-2bcf5d4440d3" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-t-rt-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/d817461a-d8ab-41bd-8c91-bfd710fd56bd" type="application/vnd.vmware.vcloud.orgNetwork+xml" name="tq-v-rt-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/network/d817461a-d8ab-41bd-8c91-bfd710fd56bd" type="application/vnd.vmware.vcloud.orgNetwork+json" name="tq-v-rt-net"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/metrics/historic" type="application/vnd.vmware.vcloud.metrics.historicUsageSpec+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/metrics/historic" type="application/vnd.vmware.vcloud.metrics.historicUsageSpec+json"/>
+    <Link rel="metrics" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/metrics/historic" type="application/vnd.vmware.vcloud.metrics.historicUsageSpec+xml"/>
+    <Link rel="metrics" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/metrics/historic" type="application/vnd.vmware.vcloud.metrics.historicUsageSpec+json"/>
+    <Link rel="down:tenantapp" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24/tenantapp" type="text/plain"/>
+    <Description>sergey.burtsev@itglobal.com</Description>
+    <FullName>Sergey Burtsev</FullName>
+</Org>
+
+25-02-16 04:27:54 | client:1321 - _log_request_sent | DEBUG :: Request uri GET: https://vcloud-lab.itglobal.com/api/query?type=orgVdc
+25-02-16 04:27:54 | client:1324 - _log_request_sent | DEBUG :: Request partial headers: {'Accept': 'application/*+xml;version=36.0'}
+25-02-16 04:27:55 | client:1340 - _log_request_response | DEBUG :: Request full headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/*+xml;version=36.0', 'Connection': 'keep-alive', 'Authorization': '[REDACTED]'}
+25-02-16 04:27:55 | client:1342 - _log_request_response | DEBUG :: Response status code: 200
+25-02-16 04:27:55 | client:1345 - _log_request_response | DEBUG :: Response headers: {'Date': 'Sun, 16 Feb 2025 01:27:55 GMT', 'X-VMWARE-VCLOUD-REQUEST-ID': '59250307-d3d1-4430-b85a-603fe5ac25ae', 'Content-Type': 'application/vnd.vmware.vcloud.query.records+xml;version=36.0', 'X-VMWARE-VCLOUD-REQUEST-EXECUTION-TIME': '649', 'Cache-Control': 'no-store, must-revalidate', 'Vary': 'Accept-Encoding', 'Content-Length': '3482'}
+25-02-16 04:27:55 | client:1354 - _log_request_response | DEBUG :: Response body: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<QueryResultRecords xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:vmext="http://www.vmware.com/vcloud/extension/v1.5" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:common="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vmw="http://www.vmware.com/schema/ovf" xmlns:ovfenv="http://schemas.dmtf.org/ovf/environment/1" xmlns:ns9="http://www.vmware.com/vcloud/versions" name="orgVdc" page="1" pageSize="25" total="2" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;page=1&amp;pageSize=25&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml">
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;page=1&amp;pageSize=25&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml"/>
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;page=1&amp;pageSize=25&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json"/>
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;page=1&amp;pageSize=25&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml"/>
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;page=1&amp;pageSize=25&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json"/>
+    <OrgVdcRecord name="tq-nsxv" description="sergey.burtsev@itglobal.com" computeProviderScope="CPS" isEnabled="true" cpuAllocationMhz="0" cpuLimitMhz="0" cpuUsedMhz="10000" cpuReservedMhz="0" memoryAllocationMB="0" memoryLimitMB="0" memoryUsedMB="14336" memoryReservedMB="0" storageLimitMB="0" storageUsedMB="2808849" orgName="tq" numberOfVApps="7" numberOfUnmanagedVApps="6" numberOfMedia="5" numberOfDisks="0" numberOfVAppTemplates="0" isBusy="false" status="READY" numberOfStorageProfiles="2" numberOfVMs="19" numberOfRunningVMs="3" numberOfDeployedVApps="5" numberOfDeployedUnmanagedVApps="4" href="https://vcloud-lab.itglobal.com/api/vdc/188cd82b-77ef-476d-96ae-5c9836a5d922" cpuOverheadMhz="0" pvdcHardwareVersion="19" allocationModel="1" networkPool="https://vcloud-lab.itglobal.com/api/admin/extension/networkPool/dbbaeb59-9ed3-4eae-bcb3-524a1f787d54" storageOverheadMB="0" memoryOverheadMB="230"/>
+    <OrgVdcRecord name="tq-nsxt" description="sergey.burtsev@itglobal.com" computeProviderScope="CPS" networkProviderScope="NPS" isEnabled="true" cpuAllocationMhz="0" cpuLimitMhz="0" cpuUsedMhz="16000" cpuReservedMhz="0" memoryAllocationMB="0" memoryLimitMB="0" memoryUsedMB="16384" memoryReservedMB="0" storageLimitMB="0" storageUsedMB="160395" orgName="tq" numberOfVApps="4" numberOfUnmanagedVApps="3" numberOfMedia="7" numberOfDisks="1" numberOfVAppTemplates="0" isBusy="false" status="READY" numberOfStorageProfiles="4" numberOfVMs="2" numberOfRunningVMs="1" numberOfDeployedVApps="3" numberOfDeployedUnmanagedVApps="3" href="https://vcloud-lab.itglobal.com/api/vdc/f878a4ef-387c-4a8d-89c6-6e0c0fc83507" cpuOverheadMhz="0" pvdcHardwareVersion="19" allocationModel="1" networkPool="https://vcloud-lab.itglobal.com/api/admin/extension/networkPool/9a0e6d27-8de3-4ef3-b537-f18d3f6222ad" storageOverheadMB="0" memoryOverheadMB="0"/>
+</QueryResultRecords>
+
+25-02-16 04:28:28 | client:1105 - rehydrate_from_token | DEBUG :: API version in use: 36.0
+25-02-16 04:28:28 | client:1321 - _log_request_sent | DEBUG :: Request uri GET: https://vcloud-lab.itglobal.com/api/session
+25-02-16 04:28:28 | client:1324 - _log_request_sent | DEBUG :: Request partial headers: {'Accept': 'application/*+xml;version=36.0'}
+25-02-16 04:28:28 | client:1340 - _log_request_response | DEBUG :: Request full headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/*+xml;version=36.0', 'Connection': 'keep-alive', 'Authorization': '[REDACTED]'}
+25-02-16 04:28:28 | client:1342 - _log_request_response | DEBUG :: Response status code: 200
+25-02-16 04:28:28 | client:1345 - _log_request_response | DEBUG :: Response headers: {'Date': 'Sun, 16 Feb 2025 01:28:28 GMT', 'X-VMWARE-VCLOUD-REQUEST-ID': 'bd27aca7-6d72-49a4-9a73-aa3ff63e9a04', 'X-VMWARE-VCLOUD-ACCESS-TOKEN': 'eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiI1ZTUzNWNjYi0wYjc3LTRkOTYtOWZmMS03NjIzM2UwYTBjMjRAMWVhNjQ2YWMtOTFhMi00YjQ3LThlY2YtYWEwOTJlOGI2NDI4Iiwic3ViIjoic2VyZ2V5LmJ1cnRzZXYiLCJleHAiOjE3Mzk3NTU2NzAsInZlcnNpb24iOiJ2Y2xvdWRfMS4wIiwianRpIjoiNTA0NzczYTdjYjVlNGRmOWFjNTE4MzlmN2MwNjAyMTYifQ.Le8N6bOu6BeyyjOjFOdVMAn7f3cngWXQto3skS-05TgRLbNEgVQ7WcYDgFpgt6N4GMyYDkJ5t1mb6vXGGS3uxyAqMzysnfUDXj6NZ_QnKfW5p0gF0ODjM7tpDdM0UizdBhE6A4LZNiTPX-gvYPrELSqMdB15srr9BHVv7QYIC7E88aa_VVVwEtpdXxroPV2ymzAlqIr1vtS6bWG6uOa6oV0i0vZljoDI3NUKkC7oeCldTl_h5_i1tCwarssMlPCYNQhRD1SmPZO2vvP61kx45PoY6wMVzxBoNKZuq1b6hs7E98RqFtf6NH_t_PL5gqvKe9c-TFgUGsBodZ8X_Uf-Kg', 'X-VMWARE-VCLOUD-TOKEN-TYPE': 'Bearer', 'x-vcloud-authorization': '[REDACTED]', 'Content-Type': 'application/vnd.vmware.vcloud.session+xml;version=36.0', 'X-VMWARE-VCLOUD-REQUEST-EXECUTION-TIME': '418', 'Cache-Control': 'no-store, must-revalidate', 'Vary': 'Accept-Encoding', 'Content-Length': '3371'}
+25-02-16 04:28:28 | client:1354 - _log_request_response | DEBUG :: Response body: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Session xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:vmext="http://www.vmware.com/vcloud/extension/v1.5" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:common="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vmw="http://www.vmware.com/schema/ovf" xmlns:ovfenv="http://schemas.dmtf.org/ovf/environment/1" xmlns:ns9="http://www.vmware.com/vcloud/versions" user="sergey.burtsev" org="tq" userId="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" roles="Organization Administrator" locationId="5e535ccb-0b77-4d96-9ff1-76233e0a0c24@1ea646ac-91a2-4b47-8ecf-aa092e8b6428" href="https://vcloud-lab.itglobal.com/api/session" type="application/vnd.vmware.vcloud.session+xml">
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/" type="application/vnd.vmware.vcloud.orgList+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/" type="application/vnd.vmware.vcloud.orgList+json"/>
+    <Link rel="remove" href="https://vcloud-lab.itglobal.com/api/session"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/admin/" type="application/vnd.vmware.admin.vcloud+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/admin/" type="application/vnd.vmware.admin.vcloud+json"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24" type="application/vnd.vmware.vcloud.org+xml" name="tq"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/org/5e535ccb-0b77-4d96-9ff1-76233e0a0c24" type="application/vnd.vmware.vcloud.org+json" name="tq"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query" type="application/vnd.vmware.vcloud.query.queryList+xml"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query" type="application/vnd.vmware.vcloud.query.queryList+json"/>
+    <Link rel="entityResolver" href="https://vcloud-lab.itglobal.com/api/entity/" type="application/vnd.vmware.vcloud.entity+xml"/>
+    <Link rel="entityResolver" href="https://vcloud-lab.itglobal.com/api/entity/" type="application/vnd.vmware.vcloud.entity+json"/>
+    <Link rel="down:extensibility" href="https://vcloud-lab.itglobal.com/api/extensibility" type="application/vnd.vmware.vcloud.apiextensibility+xml"/>
+    <Link rel="down:extensibility" href="https://vcloud-lab.itglobal.com/api/extensibility" type="application/vnd.vmware.vcloud.apiextensibility+json"/>
+    <Link rel="nsx" href="https://vcloud-lab.itglobal.com/network" type="application/xml"/>
+    <Link rel="openapi" href="https://vcloud-lab.itglobal.com/cloudapi" type="application/json"/>
+    <AuthorizedLocations>
+        <Location>
+            <LocationId>5e535ccb-0b77-4d96-9ff1-76233e0a0c24@1ea646ac-91a2-4b47-8ecf-aa092e8b6428</LocationId>
+            <SiteName>vcloud-lab.itglobal.com</SiteName>
+            <OrgName>tq</OrgName>
+            <RestApiEndpoint>https://vcloud-lab.itglobal.com</RestApiEndpoint>
+            <UIEndpoint>https://vcloud-lab.itglobal.com</UIEndpoint>
+            <AuthContext>tq</AuthContext>
+            <ApiVersion>37.3</ApiVersion>
+        </Location>
+    </AuthorizedLocations>
+</Session>
+
+25-02-16 04:28:28 | client:1321 - _log_request_sent | DEBUG :: Request uri GET: https://vcloud-lab.itglobal.com/api/query
+25-02-16 04:28:28 | client:1324 - _log_request_sent | DEBUG :: Request partial headers: {'Accept': 'application/*+xml;version=36.0'}
+25-02-16 04:28:29 | client:1340 - _log_request_response | DEBUG :: Request full headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/*+xml;version=36.0', 'Connection': 'keep-alive', 'Authorization': '[REDACTED]'}
+25-02-16 04:28:29 | client:1342 - _log_request_response | DEBUG :: Response status code: 200
+25-02-16 04:28:29 | client:1345 - _log_request_response | DEBUG :: Response headers: {'Date': 'Sun, 16 Feb 2025 01:28:29 GMT', 'X-VMWARE-VCLOUD-REQUEST-ID': 'd883ac53-18a8-4537-95f4-b272496f9ab1', 'Content-Type': 'application/vnd.vmware.vcloud.query.querylist+xml;version=36.0', 'X-VMWARE-VCLOUD-REQUEST-EXECUTION-TIME': '138', 'Cache-Control': 'no-store, must-revalidate', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Transfer-Encoding': 'chunked'}
+25-02-16 04:28:29 | client:1354 - _log_request_response | DEBUG :: Response body: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<QueryList xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:vmext="http://www.vmware.com/vcloud/extension/v1.5" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:common="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vmw="http://www.vmware.com/schema/ovf" xmlns:ovfenv="http://schemas.dmtf.org/ovf/environment/1" xmlns:ns9="http://www.vmware.com/vcloud/versions" href="https://vcloud-lab.itglobal.com/api/query" type="application/vnd.vmware.vcloud.query.queryList+xml">
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=organization&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="organization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=organization&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="organization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=organization&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="organization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=organization&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="organization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=organization&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="organization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=organization&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="organization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="orgVdc"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="orgVdc"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="orgVdc"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="orgVdc"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="orgVdc"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdc&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="orgVdc"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=media&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="media"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=media&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="media"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=media&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="media"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=media&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="media"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=media&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="media"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=media&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="media"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppTemplate&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="vAppTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppTemplate&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="vAppTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppTemplate&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="vAppTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppTemplate&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="vAppTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppTemplate&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="vAppTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppTemplate&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="vAppTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vApp&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="vApp"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vApp&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="vApp"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vApp&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="vApp"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vApp&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="vApp"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vApp&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="vApp"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vApp&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="vApp"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vm&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="vm"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vm&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="vm"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vm&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="vm"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vm&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="vm"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vm&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="vm"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vm&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="vm"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgNetwork&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="orgNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgNetwork&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="orgNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgNetwork&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="orgNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgNetwork&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="orgNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgNetwork&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="orgNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgNetwork&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="orgNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppNetwork&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="vAppNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppNetwork&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="vAppNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppNetwork&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="vAppNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppNetwork&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="vAppNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppNetwork&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="vAppNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppNetwork&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="vAppNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalog&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="catalog"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalog&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="catalog"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalog&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="catalog"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalog&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="catalog"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalog&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="catalog"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalog&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="catalog"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=group&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="group"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=group&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="group"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=group&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="group"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=group&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="group"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=group&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="group"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=group&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="group"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=user&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="user"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=user&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="user"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=user&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="user"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=user&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="user"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=user&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="user"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=user&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="user"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=strandedUser&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="strandedUser"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=strandedUser&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="strandedUser"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=strandedUser&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="strandedUser"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=strandedUser&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="strandedUser"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=strandedUser&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="strandedUser"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=strandedUser&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="strandedUser"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=role&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="role"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=role&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="role"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=role&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="role"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=role&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="role"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=role&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="role"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=role&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="role"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=event&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="event"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=event&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="event"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=event&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="event"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=event&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="event"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=right&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="right"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=right&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="right"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=right&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="right"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=right&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="right"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=right&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="right"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=right&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="right"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="catalogItem"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="catalogItem"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="catalogItem"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="catalogItem"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="catalogItem"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="catalogItem"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=task&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="task"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=task&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="task"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=task&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="task"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=task&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="task"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=task&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="task"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=task&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="task"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=disk&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="disk"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=disk&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="disk"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=disk&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="disk"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=disk&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="disk"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=disk&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="disk"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=disk&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="disk"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vmDiskRelation&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="vmDiskRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vmDiskRelation&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="vmDiskRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vmDiskRelation&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="vmDiskRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vmDiskRelation&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="vmDiskRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminService&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="adminService"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminService&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="adminService"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminService&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="adminService"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminService&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="adminService"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminService&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="adminService"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminService&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="adminService"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=service&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="service"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=service&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="service"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=service&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="service"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=service&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="service"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=service&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="service"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=service&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="service"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcStorageProfile&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="orgVdcStorageProfile"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcStorageProfile&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="orgVdcStorageProfile"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcStorageProfile&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="orgVdcStorageProfile"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcStorageProfile&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="orgVdcStorageProfile"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcStorageProfile&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="orgVdcStorageProfile"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcStorageProfile&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="orgVdcStorageProfile"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminApiDefinition&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="adminApiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminApiDefinition&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="adminApiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminApiDefinition&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="adminApiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminApiDefinition&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="adminApiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminApiDefinition&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="adminApiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminApiDefinition&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="adminApiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=apiDefinition&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="apiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=apiDefinition&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="apiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=apiDefinition&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="apiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=apiDefinition&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="apiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=apiDefinition&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="apiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=apiDefinition&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="apiDefinition"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminFileDescriptor&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="adminFileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminFileDescriptor&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="adminFileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminFileDescriptor&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="adminFileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminFileDescriptor&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="adminFileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminFileDescriptor&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="adminFileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=adminFileDescriptor&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="adminFileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=fileDescriptor&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="fileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=fileDescriptor&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="fileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=fileDescriptor&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="fileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=fileDescriptor&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="fileDescriptor"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=edgeGateway&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="edgeGateway"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=edgeGateway&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="edgeGateway"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=edgeGateway&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="edgeGateway"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=edgeGateway&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="edgeGateway"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=edgeGateway&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="edgeGateway"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=edgeGateway&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="edgeGateway"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcNetwork&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="orgVdcNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcNetwork&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="orgVdcNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcNetwork&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="orgVdcNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcNetwork&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="orgVdcNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcNetwork&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="orgVdcNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcNetwork&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="orgVdcNetwork"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppOrgVdcNetworkRelation&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="vAppOrgVdcNetworkRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppOrgVdcNetworkRelation&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="vAppOrgVdcNetworkRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppOrgVdcNetworkRelation&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="vAppOrgVdcNetworkRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppOrgVdcNetworkRelation&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="vAppOrgVdcNetworkRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppOrgVdcNetworkRelation&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="vAppOrgVdcNetworkRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=vAppOrgVdcNetworkRelation&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="vAppOrgVdcNetworkRelation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=externalLocalization&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="externalLocalization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=externalLocalization&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="externalLocalization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=externalLocalization&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="externalLocalization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=externalLocalization&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="externalLocalization"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcTemplate&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="orgVdcTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcTemplate&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="orgVdcTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcTemplate&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="orgVdcTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcTemplate&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="orgVdcTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcTemplate&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="orgVdcTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgVdcTemplate&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="orgVdcTemplate"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=gatewayUplinks&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="gatewayUplinks"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=gatewayUplinks&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="gatewayUplinks"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=gatewayUplinks&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="gatewayUplinks"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=gatewayUplinks&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="gatewayUplinks"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=gatewayUplinks&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="gatewayUplinks"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=gatewayUplinks&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="gatewayUplinks"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgAssociation&amp;format=references" type="application/vnd.vmware.vcloud.query.references+xml" name="orgAssociation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgAssociation&amp;format=references" type="application/vnd.vmware.vcloud.query.references+json" name="orgAssociation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgAssociation&amp;format=records" type="application/vnd.vmware.vcloud.query.records+xml" name="orgAssociation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgAssociation&amp;format=records" type="application/vnd.vmware.vcloud.query.records+json" name="orgAssociation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgAssociation&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+xml" name="orgAssociation"/>
+    <Link rel="down" href="https://vcloud-lab.itglobal.com/api/query?type=orgAssociation&amp;format=idrecords" type="application/vnd.vmware.vcloud.query.idrecords+json" name="orgAssociation"/>
+</QueryList>
+
+25-02-16 04:28:29 | client:1321 - _log_request_sent | DEBUG :: Request uri GET: https://vcloud-lab.itglobal.com/api/query?type=catalogItem&format=idrecords&page=1&filter=catalogName==TQ
+25-02-16 04:28:29 | client:1324 - _log_request_sent | DEBUG :: Request partial headers: {'Accept': 'application/*+xml;version=36.0'}
+25-02-16 04:28:30 | client:1340 - _log_request_response | DEBUG :: Request full headers: {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/*+xml;version=36.0', 'Connection': 'keep-alive', 'Authorization': '[REDACTED]'}
+25-02-16 04:28:30 | client:1342 - _log_request_response | DEBUG :: Response status code: 200
+25-02-16 04:28:30 | client:1345 - _log_request_response | DEBUG :: Response headers: {'Date': 'Sun, 16 Feb 2025 01:28:30 GMT', 'X-VMWARE-VCLOUD-REQUEST-ID': '04553ef7-3ccc-4cd6-9f48-32606ed35ce6', 'Content-Type': 'application/vnd.vmware.vcloud.query.idrecords+xml;version=36.0', 'X-VMWARE-VCLOUD-REQUEST-EXECUTION-TIME': '888', 'Cache-Control': 'no-store, must-revalidate', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Transfer-Encoding': 'chunked'}
+25-02-16 04:28:30 | client:1354 - _log_request_response | DEBUG :: Response body: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<QueryResultRecords xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:vmext="http://www.vmware.com/vcloud/extension/v1.5" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:common="http://schemas.dmtf.org/wbem/wscim/1/common" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vmw="http://www.vmware.com/schema/ovf" xmlns:ovfenv="http://schemas.dmtf.org/ovf/environment/1" xmlns:ns9="http://www.vmware.com/vcloud/versions" name="catalogItem" page="1" pageSize="25" total="18" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;page=1&amp;pageSize=25&amp;format=idrecords&amp;filter=catalogName==TQ" type="application/vnd.vmware.vcloud.query.idrecords+xml">
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;page=1&amp;pageSize=25&amp;format=references&amp;filter=catalogName==TQ" type="application/vnd.vmware.vcloud.query.references+xml"/>
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;page=1&amp;pageSize=25&amp;format=references&amp;filter=catalogName==TQ" type="application/vnd.vmware.vcloud.query.references+json"/>
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;page=1&amp;pageSize=25&amp;format=records&amp;filter=catalogName==TQ" type="application/vnd.vmware.vcloud.query.records+xml"/>
+    <Link rel="alternate" href="https://vcloud-lab.itglobal.com/api/query?type=catalogItem&amp;page=1&amp;pageSize=25&amp;format=records&amp;filter=catalogName==TQ" type="application/vnd.vmware.vcloud.query.records+json"/>
+    <CatalogItemRecord entity="urn:vcloud:media:1a80a6a4-40ab-46e4-9893-27c71cad4930" entityName="FreeBSD-14.0-RELEASE-amd64-dvd1.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:188cd82b-77ef-476d-96ae-5c9836a5d922" vdcName="tq-nsxv" isVdcEnabled="true" creationDate="2023-12-04T08:56:22.685Z" isExpired="false" status="UNRECOGNIZED" name="FreeBSD-14.0-RELEASE-amd64-dvd1.iso" id="urn:vcloud:catalogitem:063ed40f-8d66-4709-9ca1-77bde5a379f5" storageKB="4434672"/>
+    <CatalogItemRecord entity="urn:vcloud:media:b4921e2f-bb07-4888-916a-e08e215da920" entityName="linbit-cloudstack-hci-offline-0.0.0.f8a395d55ddb8d3af6fe9cf76bbf8fa97206b.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2024-12-08T13:48:21.499Z" isExpired="false" status="UNRECOGNIZED" name="linbit-cloudstack-hci-offline-0.0.0.f8a395d55ddb8d3af6fe9cf76bbf8fa97206b.iso" id="urn:vcloud:catalogitem:17a1ff76-2a99-483b-840e-47dfef7d4275" storageKB="4058112"/>
+    <CatalogItemRecord entity="urn:vcloud:media:3ff55353-c282-43d7-95e6-fc9c7b5d85f9" entityName="vyos-1.5-rolling-202402170022-amd64.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:188cd82b-77ef-476d-96ae-5c9836a5d922" vdcName="tq-nsxv" isVdcEnabled="true" creationDate="2024-02-19T12:27:08.313Z" isExpired="false" status="UNRECOGNIZED" name="vyos-1.5-rolling-202402170022-amd64.iso" id="urn:vcloud:catalogitem:60d20078-5925-41ee-bd7a-3a083a80cbf0" storageKB="454656"/>
+    <CatalogItemRecord entity="urn:vcloud:media:871ec82f-da0b-42ab-9e0b-58c09089edea" entityName="OPNsense-23.7-dvd-amd64.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:188cd82b-77ef-476d-96ae-5c9836a5d922" vdcName="tq-nsxv" isVdcEnabled="true" creationDate="2023-12-03T21:27:27.450Z" isExpired="false" status="UNRECOGNIZED" name="OPNsense-23.7-dvd-amd64.iso" id="urn:vcloud:catalogitem:6dbe6227-6366-477a-a6c7-fac4217b56b4" storageKB="1594414"/>
+    <CatalogItemRecord entity="urn:vcloud:vapptemplate:de5aff2c-924a-4f42-b550-d164675ef999" entityName="ASAv" entityType="vapptemplate" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="system" owner="urn:vcloud:user:c28fd9ec-14c9-4246-ae7f-b7667c56add9" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2024-03-19T12:19:29.453Z" isExpired="false" status="RESOLVED" name="ASAv" id="urn:vcloud:catalogitem:9510366d-eb81-41da-97c4-6c684b333722" storageKB="9216"/>
+    <CatalogItemRecord entity="urn:vcloud:media:d88f4939-0a50-4405-b5ae-4d5e15312595" entityName="test4a.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2024-12-29T07:31:55.083Z" isExpired="false" status="UNRECOGNIZED" name="test4a.iso" id="urn:vcloud:catalogitem:a05e132f-da28-478a-82ca-482d2c6f5fcb" storageKB="382944"/>
+    <CatalogItemRecord entity="urn:vcloud:vapptemplate:c6ac526d-ef57-43db-93a9-b2c6a2ca49a2" entityName="wazuh-4.7.3_test_upload01.ova" entityType="vapptemplate" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2024-11-11T09:18:17.260Z" isExpired="false" status="RESOLVED" name="wazuh-4.7.3_test_upload01.ova" id="urn:vcloud:catalogitem:a64a797c-9ec0-40fc-bfc9-93c3cf1f941d" storageKB="51200"/>
+    <CatalogItemRecord entity="urn:vcloud:media:1941368b-bf77-4680-8e2b-32ee701713b0" entityName="Continent-4.1.7-1446-x86_64-release_.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2024-04-21T15:07:28.587Z" isExpired="false" status="UNRECOGNIZED" name="Continent-4.1.7-1446-x86_64-release_.iso" id="urn:vcloud:catalogitem:aa71a18f-d7b0-4628-88b2-a97e7d2b419e" storageKB="819338"/>
+    <CatalogItemRecord entity="urn:vcloud:media:76306137-50f6-4051-a28d-9211214f6b68" entityName="AlmaLinux-8.9-x86_64-minimal.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:188cd82b-77ef-476d-96ae-5c9836a5d922" vdcName="tq-nsxv" isVdcEnabled="true" creationDate="2023-12-07T13:44:23.042Z" isExpired="false" status="UNRECOGNIZED" name="AlmaLinux-8.9-x86_64-minimal.iso" id="urn:vcloud:catalogitem:af46f6ae-0396-46ad-b817-28b0a106a0b2" storageKB="1923072"/>
+    <CatalogItemRecord entity="urn:vcloud:media:1abebbe4-38fe-4e4b-9448-70b42418027d" entityName="FreeBSD-13.2-RELEASE-amd64-disc1.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:188cd82b-77ef-476d-96ae-5c9836a5d922" vdcName="tq-nsxv" isVdcEnabled="true" creationDate="2024-01-30T07:48:10.116Z" isExpired="false" status="UNRECOGNIZED" name="FreeBSD-13.2-RELEASE-amd64-disc1.iso" id="urn:vcloud:catalogitem:b27d295e-049d-45d4-b041-729059a45bee" storageKB="1047468"/>
+    <CatalogItemRecord entity="urn:vcloud:vapptemplate:d5c7969f-adde-4779-ada8-ea801632cd68" entityName="tq-fbsd132" entityType="vapptemplate" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="system" owner="urn:vcloud:user:c28fd9ec-14c9-4246-ae7f-b7667c56add9" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2024-02-20T14:03:04.796Z" isExpired="false" status="RESOLVED" name="tq-fbsd132" id="urn:vcloud:catalogitem:b7f1e678-da68-4570-adc3-7e6a49401744" storageKB="20480"/>
+    <CatalogItemRecord entity="urn:vcloud:media:1b74e79d-14e9-4750-bd98-4c31378ec088" entityName="ksmg-2.1.0-7854-inst.x86_64_mlg.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2024-09-17T07:40:42.049Z" isExpired="false" status="UNRECOGNIZED" name="ksmg-2.1.0-7854-inst.x86_64_mlg.iso" id="urn:vcloud:catalogitem:ca0006d2-5319-4928-9eb6-e0928013246f" storageKB="1500160"/>
+    <CatalogItemRecord entity="urn:vcloud:media:373e7f07-9087-4c11-a21c-635893e0fb8d" entityName="netgate-installer-amd64.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2024-08-01T08:36:29.815Z" isExpired="false" status="UNRECOGNIZED" name="netgate-installer-amd64.iso" id="urn:vcloud:catalogitem:cd762e61-790d-4138-870e-6cb62cef8791" storageKB="1402120"/>
+    <CatalogItemRecord entity="urn:vcloud:media:f961638a-0223-455e-992f-ddc96c8bab78" entityName="netboot.xyz.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2024-04-09T16:02:19.085Z" isExpired="false" status="UNRECOGNIZED" name="netboot.xyz.iso" id="urn:vcloud:catalogitem:d7a68a81-7eb2-4dc1-810b-26541c228f90" storageKB="2336"/>
+    <CatalogItemRecord entity="urn:vcloud:vapptemplate:95076537-4663-477f-9d6a-33e16f951375" entityName="tq-fbsd14" entityType="vapptemplate" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:188cd82b-77ef-476d-96ae-5c9836a5d922" vdcName="tq-nsxv" isVdcEnabled="true" creationDate="2024-01-29T13:22:28.828Z" isExpired="true" status="RESOLVED" name="tq-fbsd14" id="urn:vcloud:catalogitem:d7ed1d08-1a0d-4528-b86d-0466a657a2f4" storageKB="10240"/>
+    <CatalogItemRecord entity="urn:vcloud:media:8f1d41a2-1023-4ad2-8d77-758b7fb9210a" entityName="redos-8-20241206.4-Everything-x86_64-DVD1.iso" entityType="media" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:f878a4ef-387c-4a8d-89c6-6e0c0fc83507" vdcName="tq-nsxt" isVdcEnabled="true" creationDate="2025-02-12T15:11:23.503Z" isExpired="false" status="UNRECOGNIZED" name="redos-8-20241206.4-Everything-x86_64-DVD1.iso" id="urn:vcloud:catalogitem:e6f65735-00e7-4193-add0-48a3859965f0" storageKB="5084096"/>
+    <CatalogItemRecord entity="urn:vcloud:vapptemplate:5aadd413-1b70-4ac6-b55e-ab29f5a0d2ea" entityName="cumulus-linux-5.6.0-vx-amd64-vmware.ova" entityType="vapptemplate" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:188cd82b-77ef-476d-96ae-5c9836a5d922" vdcName="tq-nsxv" isVdcEnabled="true" creationDate="2023-12-03T17:39:33.987Z" isExpired="false" status="RESOLVED" name="cumulus-linux-5.6.0-vx-amd64-vmware.ova" id="urn:vcloud:catalogitem:edb57fc2-7c37-42d5-bd73-28492cf3da9e" storageKB="6144"/>
+    <CatalogItemRecord entity="urn:vcloud:vapptemplate:8ea675a5-8914-469d-95bf-e0a3e3614d2a" entityName="vStack-2.1.3.0928-img" entityType="vapptemplate" catalog="urn:vcloud:catalog:aa3a34a1-aa18-4526-ba2b-5fef6d8cbd3c" catalogName="TQ" ownerName="sergey.burtsev" owner="urn:vcloud:user:366e7614-62aa-4ec6-8647-5edf7259d523" isPublished="false" vdc="urn:vcloud:vdc:188cd82b-77ef-476d-96ae-5c9836a5d922" vdcName="tq-nsxv" isVdcEnabled="true" creationDate="2023-12-02T17:18:21.547Z" isExpired="true" status="RESOLVED" name="vStack-2.1.3.0928-img" id="urn:vcloud:catalogitem:f1182420-0fc1-45fb-b371-03c6e2a2ab79" storageKB="18432"/>
+</QueryResultRecords>
+
