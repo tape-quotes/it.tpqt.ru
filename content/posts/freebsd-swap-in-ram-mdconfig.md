@@ -46,7 +46,7 @@ swapon /dev/md7
 mount /dev/md7 /mnt/ramdrive
 ```
 
-#### Примечание из man mdconfig:
+#### Примечание из `man mdconfig`
 
 `-t type`
 Select the type of the memory disk.
