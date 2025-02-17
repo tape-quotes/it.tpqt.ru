@@ -2,7 +2,7 @@
 created: 2025-02-11T04:03
 updated: 2025-02-14T02:22
 date: 2024-03-18
-draft: false
+draft: true
 params:
   author: Сергей Бурцев
 title: Swap в ОЗУ с компрессией для FreeBSD
@@ -15,21 +15,6 @@ tags:
   - zram
 ---
 *[mdconfig](https://man.freebsd.org/cgi/man.cgi?mdconfig(8)) FreeBSD -- аналог zram (zramctl) в linux.*
-#### С компрессией zfs
-
-[Предложен](https://t.me/freebsd_ru/509532) Борисом Лыточкиным [@freebsd_ru](https://t.me/freebsd_ru)
-
-/etc/rc.local
-
-``` shell
-set -e
-<...>
-specnode=mdconfig -a -t swap -s 32G
-zpool create -o cachefile=none -m /zram zram-tmpfs $specnode
-zfs set compression=lz4 atime=off dedup=off zram-tmpfs
-<...>
-```
-
 #### Со стандартной компрессией
 
 ```sh
