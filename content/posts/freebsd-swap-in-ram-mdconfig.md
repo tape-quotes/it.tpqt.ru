@@ -17,7 +17,7 @@ tags:
 *[mdconfig](https://man.freebsd.org/cgi/man.cgi?mdconfig(8)) FreeBSD -- аналог zram (zramctl) в linux.*
 #### С компрессией zfs
 
-[Предложен](https://t.me/freebsd_ru/509532) Борисом Люточкиным [@freebsd_ru](https://t.me/freebsd_ru)
+[Предложен](https://t.me/freebsd_ru/509532) Борисом Лыточкиным [@freebsd_ru](https://t.me/freebsd_ru)
 
 /etc/rc.local
 
