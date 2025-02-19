@@ -5,31 +5,30 @@ date:
 draft: true
 params:
   author: Сергей Бурцев
-title: 
-weight: 
+title: VMware Cloud Director Availability & On-Prem Appliance для пользователей
+weight: "10"
+tags:
+  - vcd
+  - VMware
+  - cloud
+  - миграция
+  - репликация
 ---
-
-https://docs.selectel.ru/vmware/draas/connect-draas/connect-draas-vcda/
-
-Простая инструкция по развёртыванию ova в vSphere есть на сайте вендора (для предоставленной версии также подходит): https://docs.vmware.com/en/VMware-Cloud-Director-Availability/4.6/VMware-Cloud-Director-Availability-Install-Config-Upgrade-On-Prem/GUID-E4CCD791-A0D1-43C9-AE64-B3D2E4EAD4B1.html
-
-### VMware Cloud Director Availability ITGLOBAL.COM
-
-#### 0. Подготовка
+#### Примечания
 
 Virtual machine hardware version исходной ВМ не должна быть выше поддерживаемой используемой версией vSphere (ESXi) на принимающей стороне.
+
 *Например:
-- *для сценария миграции с площадки заказчика или публичного облака другого сервис-провайдера в наше публичное облако максимальная VM HW version -- 19;
-- *для сценария репликации из нашего публичного облака (vSphere / ESXi 7.0u3) на локальную площадку заказчика (vSphere / ESXi 6.5) максимально допустимой будет version 13.*
-Подробнее: https://knowledge.broadcom.com/external/article?legacyId=2007240
+- *для репликации из публичного облака c vCD / vSphere / ESXi 7.0u3 на локальную площадку c vSphere / ESXi 6.5 максимально допустимой VM HW version будет 13.*
+- *для миграции с локальной площадки или любого публичного облака сервис-провайдера в публичное облако с vCD / vSphere / ESXi 7.0u3 максимальная VM HW version -- 19;
+[Подробнее](https://knowledge.broadcom.com/external/article?legacyId=2007240)
 
-Также в случае On-Prem\<-\>vCD необходимо предварительно убедиться в совместимости конкретных версий VMware Cloud Director Availability и VMware vCenter Server в матрице совместимости VMware:
-https://interopmatrix.vmware.com/Interoperability?col=570,&row=2,&isHidePatch=true&isHideLegacyReleases=false
+Также в сценарии On-Prem \<-\> vCD необходимо предварительно убедиться в совместимости конкретных версий VMware Cloud Director Availability и VMware vCenter Server в [матрице совместимости ](https://interopmatrix.vmware.com/Interoperability?col=570,&row=2,&isHidePatch=true&isHideLegacyReleases=false)VMware.
 
-Для применения параметров кастомизации гостевой ОС (в том числе новых настроек сетевых подключений) и корректного выключения ВМ на исходной площадке в процессе миграции в исходных ВМ должны быть установлены vmware tools.
+Для применения параметров кастомизации гостевой ОС (в том числе новых настроек сетевых подключений) и корректного выключения ВМ на исходной площадке в процессе миграции, в исходных ВМ должны быть установлены vmware tools.
 
 В политике, назначенной сервис-провайдером на организацию, должны быть разрешены миграция и/ или репликация (protection) в необходимом направлении
-(для сценария vCD\<-\>vCD -- на обеих сторонах):
+(для сценария vCD \<-\> vCD -- на обеих сторонах):
 <img
 src="../vmware-vcda-onprem-appliance/d1d083860e9f08d5b10ad04a414fd90812b0ef17.png"
 class="wikilink" alt="Pastedimage20240727011227.png" />
@@ -37,117 +36,121 @@ class="wikilink" alt="Pastedimage20240727011227.png" />
 src="../vmware-vcda-onprem-appliance/a4e15f7d401fd5a40db74f59439b3d6e8bfce817.png"
 class="wikilink" alt="Pastedimage20240802133309.png" />
 
-#### 1. Для VMware vSphere (Cloud Availability On-Prem Appliance)
+#### Для VMware vSphere (Cloud Availability On-Prem Appliance)
 
 ##### 1.1. Инструкция по развёртыванию
 
-Загрузите OVA по ссылке: https://06f3557d98f44a6c9896014c980c5b74-ds1-console.s3.itgstore.io/browser/vcav
+###### Загрузите OVA для развёртывания из доступного источника
 
-Разверните ВМ в кластере vSphere из загруженного шаблона, как указано на скриншотах:
+###### Разверните ВМ в кластере vSphere из загруженного шаблона, как показано на скриншотах
 <img
 src="../vmware-vcda-onprem-appliance/113260f4dafd8528297f97bad7365d15716e4f30.png"
 class="wikilink" alt="Pastedimage20240731124130.png" />
 
+Загрузите образ в кластер
 <img
 src="../vmware-vcda-onprem-appliance/24a9caa8bca899cf3ff0cf08438ecf7d65a52367.png"
 class="wikilink" alt="Pastedimage20240731124700.png" />
-Введите имя виртуальной машины и выберите каталог для её создания:
+
+Введите имя виртуальной машины и выберите каталог для её создания
 <img
 src="../vmware-vcda-onprem-appliance/c0b2a4bbaabc65d93e2d14bf0ef11e21d351e411.png"
 class="wikilink" alt="Pastedimage20240731131736.png" />
-Выберите необходимый resource pool:
+
+Выберите необходимый resource pool
 <img
 src="../vmware-vcda-onprem-appliance/63e71169886a351c1eef776fe17ac6004b651bce.png"
 class="wikilink" alt="Pastedimage20240731131845.png" />
 
+Убедитесь, что данные верны
 <img
 src="../vmware-vcda-onprem-appliance/72cbbe617ed2a04768c18a9284eaff5a3c57fed2.png"
 class="wikilink" alt="Pastedimage20240731131938.png" />
-Примите соглашение:
+
+Примите соглашение
 <img
 src="../vmware-vcda-onprem-appliance/34c871150e0aee4716e68d66534cee6550a16353.png"
 class="wikilink" alt="Pastedimage20240731131956.png" />
 
+Выберите подходящий сценарий работы
 <img
 src="../vmware-vcda-onprem-appliance/efae0e02fc3a2d32ba3b73f107a855ef0a61b00e.png"
 class="wikilink" alt="Pastedimage20240731132054.png" />
-Укажите формат виртуального диска, политику хранения и datastore:
+
+Укажите формат виртуального диска, политику хранения и datastore
 <img
 src="../vmware-vcda-onprem-appliance/ce980c2553b27991804db5f2a46e36764fad39e5.png"
 class="wikilink" alt="Pastedimage20240731132210.png" />
-Выберите виртуальную сеть, к которой будет подключена ВМ:
+
+Выберите виртуальную сеть, к которой будет подключена ВМ
 <img
 src="../vmware-vcda-onprem-appliance/ff3e62a1ab0b4d52503e1da62d5bf219f4d2d25d.png"
 class="wikilink" alt="Pastedimage20240731132332.png" />
-Введите требуемые данные для настройки ВМ:
+
+Введите требуемые данные для настройки (кастомизации) ВМ
 <img
 src="../vmware-vcda-onprem-appliance/c02e43277330daa88f32311f85c5a743cf6dd642.png"
 class="wikilink" alt="Pastedimage20240731132955.png" />
-Проверьте выбранные настройки и нажмите Finish:
+
+Проверьте выбранные настройки и нажмите Finish
 <img
 src="../vmware-vcda-onprem-appliance/cb8b41bdef5f17d6a9c325e856080c04e523cc05.png"
 class="wikilink" alt="Pastedimage20240731133245.png" />
 
 ##### 1.2. Инструкция по настройке
 
-1.2.1. В веб-интерфейсе VCDA On-Prem Appliance, доступной по указанному при развёртывании OVA IP-адресу (`https://<vcda_opa_ip_address>/ui/admin`) откройте `Run initial setup wizard`:
+1.2.1. В веб-интерфейсе VCDA On-Prem Appliance, доступном по указанному при развёртывании OVA IP-адресу (`https://<vcda_opa_ip_address>/ui/admin`), откройте `Run initial setup wizard`
 <img
 src="../vmware-vcda-onprem-appliance/8e2c142cef3dc29a7d8702ffc180266745bb4d93.png"
 class="wikilink" alt="Pastedimage20240710195432.png" />
-1.2.2. В `Lookup Service Address` укажите адрес и учетные данные администратора Вашего vCenter:
+
+1.2.2. В `Lookup Service Address` укажите адрес и учетные данные администратора Вашего vCenter
 <img
 src="../vmware-vcda-onprem-appliance/be9707fbfac59d6c7cb856e5469033968203d0a4.png"
 class="wikilink" alt="Pastedimage20240730151538.png" />
-1.2.3. Примите сертификат:
+
+1.2.3. Примите сертификат
 <img
 src="../vmware-vcda-onprem-appliance/a490da5b286a10b49db15e0f38baa2861d34fb93.png"
 class="wikilink" alt="Pastedimage20240730151705.png" />
+
 1.2.4. Укажите предпочитаемое имя вашей локальной площадки (`Site name`)
 <img
 src="../vmware-vcda-onprem-appliance/ff7158d32d75a049501fd572f9c9ef995e71d217.png"
 class="wikilink" alt="Pastedimage20240710195637.png" />
-1.2.5. Добавьте удалённую площадку, где "`Public Service Endpoint address`" -- адрес (например, для нашей локации в Амстердаме -- `https://vcav-nl.itglobal.com:443`), "`Organization Admin`" -- учётные данные администратора тенанта в формате `<login>@<org>` и пароль.
-Если необходимо управлять сервисом из публичного облака, активируйте опцию `Allow access from Cloud`.
+
+1.2.5. Добавьте данные об удалённой площадке, где
+
+- "`Public Service Endpoint address`" -- URL веб-интерфейса VCDA с номером порта (пример -- на скриншоте);
+- "`Organization Admin`" -- учётные данные администратора тенанта в формате `<login>@<org>` и пароль.
+
+Если необходимо управлять сервисом и из публичного облака, активируйте опцию `Allow access from Cloud`
 <img
 src="../vmware-vcda-onprem-appliance/1891dfcf48b7daa17cec5436c2ee6547e4c8cef8.png"
 class="wikilink" alt="Pastedimage20240802153950.png" />
 
-1.2.6. Введите учётные данные
+1.2.6. Введите учётные данные администратора тенанта vCD на принимающей стороне
 <img
 src="../vmware-vcda-onprem-appliance/62a74c9f7cc887974c414b0e1fe3f8963d64a3dd.png"
 class="wikilink" alt="Pastedimage20240710200218.png" />
 
-<figure>
+
 <img
 src="../vmware-vcda-onprem-appliance/a4996b35b5e10fd6310a4b8701823a94e0308b7f.png"
 class="wikilink" alt="Pastedimage20240710200435.png" />
-<figcaption
-aria-hidden="true">Pastedimage20240710200435.png</figcaption>
-</figure>
 
-<figure>
 <img
 src="../vmware-vcda-onprem-appliance/b13ba887979b4c05a0dabe36b960e2d850c6d1cf.png"
 class="wikilink" alt="Pastedimage20240710200507.png" />
-<figcaption
-aria-hidden="true">Pastedimage20240710200507.png</figcaption>
-</figure>
 
-<figure>
 <img
 src="../vmware-vcda-onprem-appliance/f2a1ba2060b9f1782bd5b9c871ebb20454559691.png"
 class="wikilink" alt="Pastedimage20240710200532.png" />
-<figcaption
-aria-hidden="true">Pastedimage20240710200532.png</figcaption>
-</figure>
 
-<figure>
 <img
 src="../vmware-vcda-onprem-appliance/66b6ec57db0a9afac994fc7601f97c6f4cee94d3.png"
 class="wikilink" alt="Pastedimage20240710200557.png" />
-<figcaption
-aria-hidden="true">Pastedimage20240710200557.png</figcaption>
-</figure>
+
 
 <figure>
 <img
@@ -165,7 +168,7 @@ class="wikilink" alt="Pastedimage20240710200812.png" />
 aria-hidden="true">Pastedimage20240710200812.png</figcaption>
 </figure>
 
-#### 2. Для публичного облака VMware Cloud Director другого провайдера
+#### 2. Для публичного облака VMware Cloud Director
 
 Необходимо:
 1. Запросить у провайдера Site name и Public Service Endpoint.
