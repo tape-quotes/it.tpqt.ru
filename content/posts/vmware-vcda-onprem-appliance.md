@@ -152,21 +152,14 @@ src="../vmware-vcda-onprem-appliance/66b6ec57db0a9afac994fc7601f97c6f4cee94d3.pn
 class="wikilink" alt="Pastedimage20240710200557.png" />
 
 
-<figure>
 <img
 src="../vmware-vcda-onprem-appliance/5b12e44a7b0d38122da8e2b9fa1d3487f20c0ed6.png"
 class="wikilink" alt="Pastedimage20240710200643.png" />
-<figcaption
-aria-hidden="true">Pastedimage20240710200643.png</figcaption>
-</figure>
 
-<figure>
+
 <img
 src="../vmware-vcda-onprem-appliance/52081820b0f4c776ea978ab1898b7cfefbafcbfa.png"
 class="wikilink" alt="Pastedimage20240710200812.png" />
-<figcaption
-aria-hidden="true">Pastedimage20240710200812.png</figcaption>
-</figure>
 
 #### 2. Для публичного облака VMware Cloud Director
 
