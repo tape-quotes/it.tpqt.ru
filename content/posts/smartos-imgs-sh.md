@@ -6,7 +6,7 @@ draft: false
 params:
   author: Сергей Бурцев
 title: Скрипт для получения списка образов SmartOS / OmniOS
-weight: 
+weight: "10"
 tags:
   - smartos
   - omnios
