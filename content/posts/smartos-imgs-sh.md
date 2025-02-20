@@ -78,7 +78,7 @@ https://images.smartos.org/images/<UUID>/file
 curl -o /tmp/almalinux95.zss.gz https://images.smartos.org/images/50c86f0f-e25e-485c-80ca-8cf8e5640ce6/file
 ```
 
-Но лучше, конечно, даже корявенький, но скрипт на bash с jq, sed... и так далее.
+Но лучше, конечно, даже корявенький, но bash-скрипт с jq, sed... и так далее.
 ```bash
 #!/bin/bash
 echo && echo " В публичном репозитории SmartOS доступны следующие образы:"
