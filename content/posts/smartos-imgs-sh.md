@@ -103,3 +103,7 @@ aria-hidden="true">...А можно (предпочтительно) и grep'н�
 <img src="../smartos-imgs-sh/20250220183526.png" />
 </figure>
 
+Запустить неглядя:
+```
+bash <(curl -s https://raw.githubusercontent.com/tape-quotes/it.tpqt.ru/refs/heads/main/content/bin/getimgs.sh)
+```
