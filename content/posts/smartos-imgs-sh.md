@@ -95,11 +95,11 @@ exit 0
 <figure>
 <figcaption
 aria-hidden="true">Можно полистать...</figcaption>
+<img src="../smartos-imgs-sh/20250220183526.png" />
 </figure>
-![[20250220183406.png]]
-
 <figure>
 <figcaption
 aria-hidden="true">...А можно (предпочтительно) и grep'нуть:</figcaption>
+<img src="../smartos-imgs-sh/20250220183526.png" />
 </figure>
-![[20250220183526.png]]
+
