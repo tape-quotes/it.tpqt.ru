@@ -77,14 +77,17 @@ https://images.smartos.org/images/<UUID>/file
 curl -o /tmp/almalinux95.zss.gz https://images.smartos.org/images/50c86f0f-e25e-485c-80ca-8cf8e5640ce6/file
 ```
 
-Но лучше, конечно, даже корявенький, но скрипт на bash с jq, sed, sort... и так далее.
+Но лучше, конечно, даже корявенький, но скрипт на bash с jq, sed... и так далее.
 ```bash
 #!/bin/bash
-echo && echo " В репозитории SmartOS доступны следующие образы:"
+echo && echo " В публичном репозитории SmartOS доступны следующие образы:"
 echo
-echo ' ОС,Тип,Название,Опубликовано,URL,Формат,SHA1' > /tmp/sOS.lst
-curl -s -S https://images.smartos.org/images | jq -r -c '.[] | [ .os, .type, .name, .published_at, "https://images.smartos.org/images/", (.uuid), "/file", ( .files[] | .compression, .sha1 ) ]' | sed -e 's/^//;s/[//g;s/\]//g;s/"//g;s/https\:\/\/images.smartos.org\/images\/\,/https\:\/\/images.smartos.org\/images\//;s/\,\/file/\/file/' | sort -t . -n -k 1,1n -k 2,2n -k 3,3n -k 4,4n >> /tmp/sOS.lst
+echo ' Название,ОС,Тип,Описание,>,Дата,URL,Формат,SHA1' > /tmp/sOS.lst
+curl -s -S https://images.smartos.org/images | \
+jq -r -c '.[] | [ ( .name | .[0:15] ), .os, .type, ( .description | .[0:40] ), ">", ( .published_at | .[0:10] ), "https://images.smartos.org/images/", .uuid, "/file", ( .files[] | .compression, .sha1 ) ]' | \
+sed -e 's/^/ /;s/\[//g;s/\]//g;s/"//g;s/https\:\/\/images.smartos.org\/images\/\,/https\:\/\/images.smartos.org\/images\//;s/\,\/file/\/file/' | sort -t . -n -k 1,1n -k 2,2n -k 3,3n -k 4,4n >> /tmp/sOS.lst
 column -t -s ',' < /tmp/sOS.lst | more
+rm -f /tmp/sOS.lst
 exit 0
 ```
 
@@ -98,7 +101,7 @@ class="wikilink" alt="Pastedimage20250220151930.png" />
 
 <figure>
 <figcaption
-aria-hidden="true">...А можно и grep'нуть:</figcaption>
+aria-hidden="true">...А можно (предпочтительно) и grep'нуть:</figcaption>
 <img
 src="../smartos-imgs-sh/79fe7460c393a5428e73cde3441a1e096b9f7926.png"
 class="wikilink" alt="Pastedimage20250220152035.png" />
