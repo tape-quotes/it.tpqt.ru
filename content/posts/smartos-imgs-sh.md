@@ -95,7 +95,7 @@ exit 0
 <figure>
 <figcaption
 aria-hidden="true">Можно полистать...</figcaption>
-<img src="../smartos-imgs-sh/20250220183526.png" />
+<img src="../smartos-imgs-sh/20250220183406.png" />
 </figure>
 <figure>
 <figcaption
