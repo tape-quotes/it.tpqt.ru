@@ -24,6 +24,7 @@ series_order:
 Мелочь -- а неприятно.
 
 Например:
+
 https://images.smartos.org/images -- зайди сюда и найди в простыне то, что нужно.
 
 ``` json
@@ -94,16 +95,11 @@ exit 0
 <figure>
 <figcaption
 aria-hidden="true">Можно полистать...</figcaption>
-<img
-src="../smartos-imgs-sh/404396e1700def250d21e85e932ba21543ac1ea2.png"
-class="wikilink" alt="Pastedimage20250220151930.png" />
 </figure>
+![[20250220183406.png]]
 
 <figure>
 <figcaption
 aria-hidden="true">...А можно (предпочтительно) и grep'нуть:</figcaption>
-<img
-src="../smartos-imgs-sh/79fe7460c393a5428e73cde3441a1e096b9f7926.png"
-class="wikilink" alt="Pastedimage20250220152035.png" />
 </figure>
-
+![[20250220183526.png]]
