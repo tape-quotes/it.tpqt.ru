@@ -13,6 +13,7 @@ echo ' Название,ОС,Тип,Описание,>,Дата,URL,Формат
 curl -s -S https://images.smartos.org/images | \
 jq -r -c '.[] | [ ( .name | .[0:15] ), .os, .type, ( .description | .[0:40] ), ">", ( .published_at | .[0:10] ), "https://images.smartos.org/images/", .uuid, "/file", ( .files[] | .compression, .sha1 ) ]' | \
 sed -e 's/^/ /;s/\[//g;s/\]//g;s/"//g;s/https\:\/\/images.smartos.org\/images\/\,/https\:\/\/images.smartos.org\/images\//;s/\,\/file/\/file/' | sort -t . -n -k 1,1n -k 2,2n -k 3,3n -k 4,4n >> /tmp/sOS.lst
-awk -F '[,]' '{ print $1, $2, $3, $4, $5, $6, $7, $8, $9 }' < /tmp/sOS.lst | more
+column -t -s ',' < /tmp/sOS.lst | more
+##awk -F '[,]' '{ print $1, $2, $3, $4, $5, $6, $7, $8, $9 }' OFS='\t\t' < /tmp/sOS.lst | more
 rm -f /tmp/sOS.lst
 exit 0
