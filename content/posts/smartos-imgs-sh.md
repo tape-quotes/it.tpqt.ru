@@ -5,7 +5,7 @@ date: 2025-02-20
 draft: false
 params:
   author: Сергей Бурцев
-title: Скрипт для получения списка образов SmartOS / OmniOS
+title: Скрипт для получения списка образов SmartOS в OmniOS
 weight: "10"
 tags:
   - smartos
@@ -18,9 +18,11 @@ tags:
 series: 
 series_order:
 ---
-Посчастливилось познакомиться с [LX Branded Zones](https://omnios.org/info/lxzones), благополучно перекочевавшими из SmartOS в OmniOS.
+Посчастливилось познакомиться с [LX Branded Zones](https://omnios.org/info/lxzones), благополучно перекочевавшими в OmniOS из SmartOS.
 
 Знакомство началось с выковыривания UUID'а нужного образа из простыни JSON и ручной его подстановкой  в URL для последующего скачивания и развертывания.
+
+В SmartOS для этих целей существует утилита [imgadm](https://docs.smartos.org/managing-images/). К сожалению, в OmniOS подобного инструмента нет и, видимо, пока не предвидится.
 
 Мелочь -- а неприятно.
 
@@ -71,7 +73,7 @@ https://images.smartos.org/images -- зайди сюда и найди в про
 ```
 
 #### Подставь найденный UUID в URL
-```
+```bash
 https://images.smartos.org/images/<UUID>/file
 ```
 
@@ -80,7 +82,7 @@ https://images.smartos.org/images/<UUID>/file
 curl -o /tmp/almalinux95.zss.gz https://images.smartos.org/images/50c86f0f-e25e-485c-80ca-8cf8e5640ce6/file
 ```
 
-#### Но лучше, конечно, 
+#### Но лучше, конечно,..
 даже корявенький, но bash-скрипт с jq, sed... и так далее.
 ```bash
 #!/bin/bash
@@ -99,6 +101,7 @@ curl -s -S https://images.smartos.org/images | \
 jq -r -c '.[] | [ ( .name | .[0:15] ), .os, .type, ( .description | .[0:40] ), ">", ( .published_at | .[0:10] ), "https://images.smartos.org/images/", .uuid, "/file", ( .files[] | .compression, .sha1 ) ]' | \
 sed -e 's/^/ /;s/\[//g;s/\]//g;s/"//g;s/https\:\/\/images.smartos.org\/images\/\,/https\:\/\/images.smartos.org\/images\//;s/\,\/file/\/file/' | sort -t . -n -k 1,1n -k 2,2n -k 3,3n -k 4,4n >> /tmp/sOS.lst
 column -t -s ',' < /tmp/sOS.lst | more
+rm -f /tmp/sOS.lst
 exit 0 ## что бы ни произошло, нужно верить в лучшее...
 ```
 
@@ -113,7 +116,7 @@ aria-hidden="true">...А можно (предпочтительно) и grep'н�
 <img src="../smartos-imgs-sh/20250220183526.png" />
 </figure>
 
-#### Запустить неглядя
+#### ...Запустить неглядя
 ```
 bash <(curl -s https://raw.githubusercontent.com/tape-quotes/it.tpqt.ru/refs/heads/main/content/bin/getimgs.sh)
 ```
